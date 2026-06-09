@@ -20,7 +20,7 @@ DroneCommand MappingAlgorithmImpl::calculateNextMove(const Position3D& currentPo
     // Very basic exploration logic: 
     // Go straight for a few steps, then rotate. 
     // If there's an obstacle immediately in front (dummy check here), rotate early.
-    
+    (void)currentPos;
     m_stepsInCurrentDirection++;
 
     if (m_stepsInCurrentDirection > 10) {

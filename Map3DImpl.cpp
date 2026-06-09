@@ -8,11 +8,12 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
+#include <algorithm>
 
 Map3DImpl::Map3DImpl(int resolution_cm) 
-    : m_resolution_cm(resolution_cm), m_width(100), m_height(100), m_depth(100) {
+    : m_resolution_cm(resolution_cm), wcwidth(100), m_height(100), m_depth(100) {
     // Initialize a default 100x100x100 grid (can be dynamically resized upon loading)
-    m_voxelData.resize(m_width * m_height * m_depth, 0);
+    m_voxelData.resize(wcwidth * m_height * m_depth, 0);
 }
 
 int Map3DImpl::cmToIndex(int cm) const {
@@ -23,10 +24,10 @@ int Map3DImpl::cmToIndex(int cm) const {
 size_t Map3DImpl::getFlatIndex(int x_idx, int y_idx, int z_idx) const {
     // Using a safe wrapping or offset if coordinates are negative
     // Assuming the map indices are strictly positive for this internal representation
-    int safe_x = std::max(0, std::min(x_idx, m_width - 1));
+    int safe_x = std::max(0, std::min(x_idx, wcwidth - 1));
     int safe_y = std::max(0, std::min(y_idx, m_height - 1));
     int safe_z = std::max(0, std::min(z_idx, m_depth - 1));
-    return safe_x + m_width * (safe_y + m_height * safe_z);
+    return safe_x + wcwidth * (safe_y + m_height * safe_z);
 }
 
 void Map3DImpl::loadFromFile(const std::string& filename) {
@@ -65,7 +66,7 @@ void Map3DImpl::loadFromFile(const std::string& filename) {
     
     // Estimate dimensions based on total bytes (assuming cubic map for simplicity)
     int dim = std::round(std::cbrt(m_voxelData.size()));
-    m_width = m_height = m_depth = dim;
+    wcwidth = m_height = m_depth = dim;
 }
 
 void Map3DImpl::saveToFile(const std::string& filename) const {
@@ -80,7 +81,7 @@ void Map3DImpl::saveToFile(const std::string& filename) const {
     
     // Construct dict string
     std::string dict = "{'descr': '|u1', 'fortran_order': False, 'shape': (" + 
-                       std::to_string(m_width) + ", " + 
+                       std::to_string(wcwidth) + ", " + 
                        std::to_string(m_height) + ", " + 
                        std::to_string(m_depth) + "), }";
                        
@@ -102,7 +103,7 @@ bool Map3DImpl::isObstacle(int x_cm, int y_cm, int z_cm) const {
     int y_idx = cmToIndex(y_cm);
     int z_idx = cmToIndex(z_cm);
     
-    if (x_idx < 0 || x_idx >= m_width || y_idx < 0 || y_idx >= m_height || z_idx < 0 || z_idx >= m_depth) {
+    if (x_idx < 0 || x_idx >= wcwidth || y_idx < 0 || y_idx >= m_height || z_idx < 0 || z_idx >= m_depth) {
         return true; // Treat out-of-bounds as obstacles for safety
     }
     
@@ -114,7 +115,7 @@ void Map3DImpl::setObstacle(int x_cm, int y_cm, int z_cm, bool isObstacle) {
     int y_idx = cmToIndex(y_cm);
     int z_idx = cmToIndex(z_cm);
     
-    if (x_idx >= 0 && x_idx < m_width && y_idx >= 0 && y_idx < m_height && z_idx >= 0 && z_idx < m_depth) {
+    if (x_idx >= 0 && x_idx < wcwidth && y_idx >= 0 && y_idx < m_height && z_idx >= 0 && z_idx < m_depth) {
         m_voxelData[getFlatIndex(x_idx, y_idx, z_idx)] = isObstacle ? 1 : 0;
     }
 }

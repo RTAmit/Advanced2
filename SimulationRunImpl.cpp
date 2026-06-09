@@ -12,7 +12,14 @@
 #include "ILidar.h"
 #include "IGPS.h"
 #include "IDroneMovement.h"
-#include "MapsComparison.h" // Utility class
+#include "MapsComparison.h" 
+#include "Map3DImpl.h"
+#include "MissionControlImpl.h"
+#include "MockGPS.h"
+#include "MockMovement.h"
+#include "MockLidar.h"
+#include "DroneControlImpl.h"
+#include "MappingAlgorithmImpl.h"
 
 #include <iostream>
 #include <stdexcept>

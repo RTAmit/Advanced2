@@ -15,12 +15,12 @@
 
 // Forward declarations of the components used in the simulation
 // These will be fully included in the .cpp file to reduce compilation dependencies
-class IMissionControl;
-class IDroneControl;
-class IMap3D;
-class ILidar;
-class IGPS;
-class IDroneMovement;
+#include "IMissionControl.h"
+#include "IDroneControl.h"
+#include "IMap3D.h"
+#include "ILidar.h"
+#include "IGPS.h"
+#include "IDroneMovement.h"
 
 /**
  * @class SimulationRunImpl

@@ -12,8 +12,7 @@
 #include <memory>
 
 // Forward declaration of the mapping algorithm interface
-class IMappingAlgorithm;
-
+#include "IMappingAlgorithm.h"
 /**
  * @class IDroneControl
  * @brief Interface for drone control.
