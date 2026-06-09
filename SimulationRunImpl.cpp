@@ -40,7 +40,7 @@ void SimulationRunImpl::initializeComponents(const std::string& simConfigPath,
     
     // 1. Load Simulation Config to get map details and initial position
     YAML::Node simConfig = YAML::LoadFile(simConfigPath);
-    std::string mapPath = simConfig["simulation_config"]["map_filename"].as<std::string>();
+    std::string mapPath = simConfigPath["simulation_config"]["map_filename"].as<std::string>();
     int res = simConfig["simulation_config"]["map_resolution_cm"].as<int>();
     
     // 2. Initialize Maps

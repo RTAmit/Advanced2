@@ -198,4 +198,15 @@ CMakeFiles/drone_mapper_simulation_test.dir/SimulationRunFactory.cpp.o: \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/ISimulationRun.h \
- /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/SimulationRunImpl.h
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/SimulationRunImpl.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IMissionControl.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IDroneControl.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IMappingAlgorithm.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/DataTypes.h \
+ /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_vector.h \
+ /usr/include/c++/13/bits/stl_bvector.h \
+ /usr/include/c++/13/bits/vector.tcc \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IMap3D.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/ILidar.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IGPS.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IDroneMovement.h
