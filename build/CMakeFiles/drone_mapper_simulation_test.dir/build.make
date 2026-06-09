@@ -317,6 +317,9 @@ drone_mapper_simulation_test: CMakeFiles/drone_mapper_simulation_test.dir/MockMo
 drone_mapper_simulation_test: CMakeFiles/drone_mapper_simulation_test.dir/MockLidar.cpp.o
 drone_mapper_simulation_test: CMakeFiles/drone_mapper_simulation_test.dir/build.make
 drone_mapper_simulation_test: /usr/lib/x86_64-linux-gnu/libgtest.a
+drone_mapper_simulation_test: /usr/lib/x86_64-linux-gnu/libgtest_main.a
+drone_mapper_simulation_test: /usr/lib/x86_64-linux-gnu/libgmock.a
+drone_mapper_simulation_test: /usr/lib/x86_64-linux-gnu/libgtest.a
 drone_mapper_simulation_test: CMakeFiles/drone_mapper_simulation_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable drone_mapper_simulation_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/drone_mapper_simulation_test.dir/link.txt --verbose=$(VERBOSE)

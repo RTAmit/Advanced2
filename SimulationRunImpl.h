@@ -13,14 +13,13 @@
 #include <string>
 #include <memory>
 
-// Forward declarations of the components used in the simulation
-// These will be fully included in the .cpp file to reduce compilation dependencies
+// ייבוא הממשקים ומחלקות ה-Mock האמיתיות
 #include "IMissionControl.h"
 #include "IDroneControl.h"
 #include "IMap3D.h"
-#include "ILidar.h"
-#include "IGPS.h"
-#include "IDroneMovement.h"
+#include "MockLidar.h"
+#include "MockGPS.h"
+#include "MockMovement.h"
 
 /**
  * @class SimulationRunImpl
@@ -30,7 +29,7 @@ class SimulationRunImpl : public ISimulationRun {
 public:
     /**
      * @brief Constructor for SimulationRunImpl.
-     * * @param simConfigPath Path to the specific simulation configuration YAML.
+     * @param simConfigPath Path to the specific simulation configuration YAML.
      * @param missionConfigPath Path to the mission configuration YAML.
      * @param droneConfigPath Path to the drone configuration YAML.
      * @param lidarConfigPath Path to the lidar configuration YAML.
@@ -77,12 +76,11 @@ private:
     int m_maxSteps; // Extracted from mission configuration
 
     // Pointers to the various components required for the simulation.
-    // Using std::unique_ptr ensures proper memory management.
     std::unique_ptr<IMissionControl> m_missionControl;
     std::unique_ptr<IDroneControl> m_droneControl;
-    std::unique_ptr<ILidar> m_mockLidar;
-    std::unique_ptr<IGPS> m_mockGPS;
-    std::unique_ptr<IDroneMovement> m_mockMovement;
+    std::unique_ptr<MockLidar> m_mockLidar;       // תוקן ל-MockLidar
+    std::unique_ptr<MockGPS> m_mockGPS;           // תוקן ל-MockGPS
+    std::unique_ptr<MockMovement> m_mockMovement; // תוקן ל-MockMovement
     std::unique_ptr<IMap3D> m_inputMap;
     std::unique_ptr<IMap3D> m_outputMap;
 

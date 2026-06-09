@@ -202,23 +202,99 @@ CMakeFiles/drone_mapper_simulation_test.dir/SimulationRunImpl.cpp.o: \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IMissionControl.h \
- /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IDroneControl.h \
- /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IMappingAlgorithm.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/DataTypes.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IDroneControl.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IMappingAlgorithm.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IMap3D.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MockLidar.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/ILidar.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MockGPS.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IGPS.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MockMovement.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/IDroneMovement.h \
- /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MapsComparison.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/Map3DImpl.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MissionControlImpl.h \
- /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MockGPS.h \
- /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MockMovement.h \
- /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MockLidar.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/DroneControlImpl.h \
  /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MappingAlgorithmImpl.h \
+ /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה\ 2/MapsComparison.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc
+ /usr/include/c++/13/bits/istream.tcc /usr/include/yaml-cpp/yaml.h \
+ /usr/include/yaml-cpp/parser.h /usr/include/yaml-cpp/dll.h \
+ /usr/include/yaml-cpp/emitter.h /usr/include/c++/13/cmath \
+ /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/13/bits/specfun.h /usr/include/c++/13/limits \
+ /usr/include/c++/13/tr1/gamma.tcc \
+ /usr/include/c++/13/tr1/special_function_util.h \
+ /usr/include/c++/13/tr1/bessel_function.tcc \
+ /usr/include/c++/13/tr1/beta_function.tcc \
+ /usr/include/c++/13/tr1/ell_integral.tcc \
+ /usr/include/c++/13/tr1/exp_integral.tcc \
+ /usr/include/c++/13/tr1/hypergeometric.tcc \
+ /usr/include/c++/13/tr1/legendre_function.tcc \
+ /usr/include/c++/13/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/13/tr1/poly_hermite.tcc \
+ /usr/include/c++/13/tr1/poly_laguerre.tcc \
+ /usr/include/c++/13/tr1/riemann_zeta.tcc /usr/include/c++/13/sstream \
+ /usr/include/c++/13/bits/sstream.tcc /usr/include/yaml-cpp/binary.h \
+ /usr/include/yaml-cpp/emitterdef.h /usr/include/yaml-cpp/emittermanip.h \
+ /usr/include/yaml-cpp/null.h /usr/include/yaml-cpp/ostream_wrapper.h \
+ /usr/include/yaml-cpp/emitterstyle.h /usr/include/yaml-cpp/stlemitter.h \
+ /usr/include/c++/13/list /usr/include/c++/13/bits/stl_list.h \
+ /usr/include/c++/13/bits/list.tcc /usr/include/c++/13/set \
+ /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/node_handle.h \
+ /usr/include/c++/13/bits/stl_set.h \
+ /usr/include/c++/13/bits/stl_multiset.h \
+ /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /usr/include/yaml-cpp/exceptions.h /usr/include/yaml-cpp/mark.h \
+ /usr/include/yaml-cpp/noexcept.h /usr/include/yaml-cpp/traits.h \
+ /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
+ /usr/include/yaml-cpp/node/node.h \
+ /usr/include/yaml-cpp/node/detail/iterator_fwd.h \
+ /usr/include/yaml-cpp/node/ptr.h /usr/include/yaml-cpp/node/type.h \
+ /usr/include/yaml-cpp/node/impl.h \
+ /usr/include/yaml-cpp/node/detail/memory.h \
+ /usr/include/yaml-cpp/node/detail/node.h \
+ /usr/include/yaml-cpp/node/detail/node_ref.h \
+ /usr/include/yaml-cpp/node/detail/node_data.h \
+ /usr/include/yaml-cpp/node/detail/node_iterator.h \
+ /usr/include/c++/13/iterator /usr/include/c++/13/bits/stream_iterator.h \
+ /usr/include/yaml-cpp/node/iterator.h \
+ /usr/include/yaml-cpp/node/detail/iterator.h /usr/include/c++/13/atomic \
+ /usr/include/yaml-cpp/node/convert.h /usr/include/c++/13/array \
+ /usr/include/c++/13/unordered_map \
+ /usr/include/c++/13/bits/unordered_map.h \
+ /usr/include/c++/13/bits/hashtable.h \
+ /usr/include/c++/13/bits/hashtable_policy.h \
+ /usr/include/c++/13/bits/enable_special_members.h \
+ /usr/include/c++/13/valarray /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/ranges_algo.h \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/13/bits/valarray_array.h \
+ /usr/include/c++/13/bits/valarray_array.tcc \
+ /usr/include/c++/13/bits/valarray_before.h \
+ /usr/include/c++/13/bits/slice_array.h \
+ /usr/include/c++/13/bits/valarray_after.h \
+ /usr/include/c++/13/bits/gslice.h \
+ /usr/include/c++/13/bits/gslice_array.h \
+ /usr/include/c++/13/bits/mask_array.h \
+ /usr/include/c++/13/bits/indirect_array.h \
+ /usr/include/yaml-cpp/node/detail/impl.h \
+ /usr/include/yaml-cpp/node/parse.h /usr/include/yaml-cpp/node/emit.h
