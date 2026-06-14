@@ -1,0 +1,15 @@
+#pragma once
+
+#include <drone_mapper/Types.h>
+
+namespace drone_mapper {
+
+class IMap3D {
+public:
+    virtual ~IMap3D() = default;
+
+    [[nodiscard]] virtual types::VoxelOccupancy atVoxel(const Position3D& pos) const = 0;
+    [[nodiscard]] virtual types::MapConfig getMapConfig() const = 0;
+};
+
+} // namespace drone_mapper
