@@ -1,35 +1,29 @@
-/**
- * @file Map3DImpl.h
- * @brief Declaration of the Map3DImpl class.
- */
-
 #pragma once
 
-#include "IMap3D.h"
-#include <vector>
+#include <TinyNPY.h> // ספרייה שהסגל מספק לקריאת NPY
+#include <drone_mapper/IMutableMap3D.h>
+#include <filesystem>
+#include <memory>
 
-class Map3DImpl : public IMap3D {
+namespace drone_mapper {
+
+class Map3DImpl final : public IMutableMap3D {
 public:
-    /**
-     * @brief Constructor.
-     * @param resolution_cm The side length of a single voxel.
-     */
-    explicit Map3DImpl(int resolution_cm);
-    ~Map3DImpl() override = default;
+    Map3DImpl(std::shared_ptr<NpyArray> map_ptr);
+    Map3DImpl(std::shared_ptr<NpyArray> map_ptr, const types::MapConfig map_config);
 
-    void loadFromFile(const std::string& filename) override;
-    void saveToFile(const std::string& filename) const override;
-    
-    bool isObstacle(int x_cm, int y_cm, int z_cm) const override;
-    void setObstacle(int x_cm, int y_cm, int z_cm, bool isObstacle) override;
-    int getResolution() const override;
+    [[nodiscard]] types::VoxelOccupancy atVoxel(const Position3D& pos) const override;
+    [[nodiscard]] types::MapConfig getMapConfig() const override;
+
+    // Mutable map methods
+    void set(const Position3D& pos, types::VoxelOccupancy value) override;
+    void save(const std::filesystem::path& output_path) const override;
 
 private:
-    int m_resolution_cm;
-    // Internal representation of the voxel grid.
-    // In a full implementation, you'd store dimensions and a flat vector/array.
-    std::vector<uint8_t> m_voxelData; 
-    
-    // Helper to convert real-world cm to voxel indices
-    int cmToIndex(int cm) const;
+    std::shared_ptr<NpyArray> map_;
+    types::MapConfig config_;
+
+    [[nodiscard]] bool getIndices(const Position3D& pos, int& x_idx, int& y_idx, int& z_idx) const;
 };
+
+} // namespace drone_mapper

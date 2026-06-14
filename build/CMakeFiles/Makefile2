@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מט�
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/drone_mapper_simulation.dir/all
+all: CMakeFiles/drone_mapper.dir/all
 all: CMakeFiles/maps_comparison.dir/all
 all: CMakeFiles/drone_mapper_simulation_test.dir/all
 .PHONY : all
@@ -73,36 +73,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/drone_mapper_simulation.dir/clean
+clean: CMakeFiles/drone_mapper.dir/clean
 clean: CMakeFiles/maps_comparison.dir/clean
 clean: CMakeFiles/drone_mapper_simulation_test.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/drone_mapper_simulation.dir
+# Target rules for target CMakeFiles/drone_mapper.dir
 
 # All Build rule for target.
-CMakeFiles/drone_mapper_simulation.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target drone_mapper_simulation"
-.PHONY : CMakeFiles/drone_mapper_simulation.dir/all
+CMakeFiles/drone_mapper.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target drone_mapper"
+.PHONY : CMakeFiles/drone_mapper.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/drone_mapper_simulation.dir/rule: cmake_check_build_system
+CMakeFiles/drone_mapper.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles" 12
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/drone_mapper_simulation.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/drone_mapper.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles" 0
-.PHONY : CMakeFiles/drone_mapper_simulation.dir/rule
+.PHONY : CMakeFiles/drone_mapper.dir/rule
 
 # Convenience name for target.
-drone_mapper_simulation: CMakeFiles/drone_mapper_simulation.dir/rule
-.PHONY : drone_mapper_simulation
+drone_mapper: CMakeFiles/drone_mapper.dir/rule
+.PHONY : drone_mapper
 
 # clean rule for target.
-CMakeFiles/drone_mapper_simulation.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/clean
-.PHONY : CMakeFiles/drone_mapper_simulation.dir/clean
+CMakeFiles/drone_mapper.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/clean
+.PHONY : CMakeFiles/drone_mapper.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/maps_comparison.dir

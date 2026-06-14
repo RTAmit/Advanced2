@@ -1,56 +1,59 @@
-/**
- * @file MissionControlImpl.cpp
- * @brief Implementation of the MissionControlImpl class.
- */
+#include <drone_mapper/MissionControlImpl.h>
+#include <utility>
 
-#include "MissionControlImpl.h"
-#include <stdexcept>
-#include <iostream>
+namespace drone_mapper {
 
-// Assuming yaml-cpp is approved for use
-#include <yaml-cpp/yaml.h>
+MissionControlImpl::MissionControlImpl(types::MissionConfigData mission,
+                                       types::DroneConfigData drone,
+                                       const IMap3D& hidden_map,
+                                       IMutableMap3D& output_map,
+                                       IDroneControl& drone_control,
+                                       std::filesystem::path output_map_file)
+    : mission_(std::move(mission)),
+      drone_(std::move(drone)),
+      hidden_map_(hidden_map),
+      output_map_(output_map),
+      drone_control_(drone_control),
+      output_map_file_(std::move(output_map_file)) {}
 
-MissionControlImpl::MissionControlImpl(const std::string& missionConfigPath) 
-    : m_maxSteps(0), m_minX(0), m_maxX(0), m_minY(0), m_maxY(0), m_minH(0), m_maxH(0) {
-    
-    parseMissionConfig(missionConfigPath);
-}
+types::MissionRunResult MissionControlImpl::runMission() {
+    types::MissionRunStatus final_status = types::MissionRunStatus::Completed; 
+    std::optional<types::ErrorRef> error_ref = std::nullopt;
+    std::size_t steps_taken = 0;
 
-void MissionControlImpl::parseMissionConfig(const std::string& path) {
-    try {
-        YAML::Node config = YAML::LoadFile(path);
-        
-        YAML::Node mission = config["mission_config"];
-        if (!mission) {
-            throw std::runtime_error("Missing 'mission_config' root node.");
+    for (std::size_t i = 0; i < mission_.max_steps; ++i) {
+       
+        types::DroneState current_state = drone_control_.state();
+        auto pos = current_state.position;
+
+        if (pos.x_cm < mission_.boundaries.x_boundary.min_cm || pos.x_cm > mission_.boundaries.x_boundary.max_cm ||
+            pos.y_cm < mission_.boundaries.y_boundary.min_cm || pos.y_cm > mission_.boundaries.y_boundary.max_cm ||
+            pos.height_cm < mission_.boundaries.height_boundary.min_cm || pos.height_cm > mission_.boundaries.height_boundary.max_cm) {
+            
+            final_status = types::MissionRunStatus::Error;
+            error_ref = types::ErrorRef{"MISSION_BOUNDARY_INVALID", "Drone exited mission boundaries"};
+            break; 
         }
 
-        m_maxSteps = mission["max_steps"].as<int>();
-        
-        YAML::Node boundaries = mission["boundaries"];
-        
-        m_minX = boundaries["x_boundary"]["min_cm"].as<int>();
-        m_maxX = boundaries["x_boundary"]["max_cm"].as<int>();
-        
-        m_minY = boundaries["y_boundary"]["min_cm"].as<int>();
-        m_maxY = boundaries["y_boundary"]["max_cm"].as<int>();
-        
-        m_minH = boundaries["height_boundary"]["min_cm"].as<int>();
-        m_maxH = boundaries["height_boundary"]["max_cm"].as<int>();
+        types::DroneStepResult step_result = drone_control_.step();
+        steps_taken++;
 
-    } catch (const YAML::Exception& e) {
-        throw std::runtime_error("YAML Parsing Error in MissionControl: " + std::string(e.what()));
+        if (step_result.status == types::DroneStepStatus::Error) {
+            final_status = types::MissionRunStatus::Error;
+            error_ref = types::ErrorRef{"DRONE_ERROR", step_result.message};
+            break;
+        }
+        
+        if (step_result.status == types::DroneStepStatus::Finished) { break; }
     }
+
+    output_map_.save(output_map_file_);
+
+    return types::MissionRunResult{
+        final_status,
+        steps_taken,
+        error_ref
+    };
 }
 
-bool MissionControlImpl::isWithinBoundaries(const Position3D& pos) const {
-    if (pos.x_cm < m_minX || pos.x_cm > m_maxX) return false;
-    if (pos.y_cm < m_minY || pos.y_cm > m_maxY) return false;
-    if (pos.height_cm < m_minH || pos.height_cm > m_maxH) return false;
-    
-    return true;
-}
-
-int MissionControlImpl::getMaxSteps() const {
-    return m_maxSteps;
-}
+} // namespace drone_mapper

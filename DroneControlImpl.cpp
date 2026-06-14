@@ -1,45 +1,46 @@
-/**
- * @file DroneControlImpl.cpp
- * @brief Implementation of the DroneControlImpl class.
- */
+#include "DroneControlImpl.h" // שים לב לכלול את הקובץ המקומי שלנו
 
-#include "DroneControlImpl.h"
+#include <utility>
 
-// These will be fully included once their respective headers are created
-// #include "IMappingAlgorithm.h"
-// #include "ILidar.h"
-// #include "IGPS.h"
-// #include "IDroneMovement.h"
+namespace drone_mapper {
 
-#include <iostream>
+DroneControlImpl::DroneControlImpl(types::DroneConfigData drone,
+                                   types::MissionConfigData mission,
+                                   ILidar& lidar,
+                                   IGPS& gps,
+                                   IDroneMovement& movement,
+                                   IMutableMap3D& output_map,
+                                   IMappingAlgorithm& mapping_algorithm)
+    : drone_(std::move(drone)),
+      mission_(std::move(mission)),
+      lidar_(lidar),
+      gps_(gps),
+      movement_(movement),
+      output_map_(output_map),
+      mapping_algorithm_(mapping_algorithm) {}
 
-DroneControlImpl::DroneControlImpl(std::unique_ptr<IMappingAlgorithm> mappingAlgo,
-                                   ILidar* lidar,
-                                   IGPS* gps,
-                                   IDroneMovement* movement)
-    : IDroneControl(std::move(mappingAlgo)), // Fulfills the strict interface constructor injection requirement
-      m_lidar(lidar),
-      m_gps(gps),
-      m_movement(movement) {
+types::DroneStepResult DroneControlImpl::step() {
+    
+    types::DroneState current_state = state();
+
+    
+    if (step_index_ >= mission_.max_steps) {
+        return types::DroneStepResult{types::DroneStepStatus::Error, "Max steps reached"};
+    }
+
+    
+    types::LidarScanResult scan_result = lidar_.performScan(); 
+    types::MappingStepCommand next_move = mapping_algorithm_.nextStep(current_state, &scan_result);
+
+    movement_.executeCommand(next_move);
+
+    step_index_++;
+
+    return types::DroneStepResult{types::DroneStepStatus::Continue, "Step completed"};
 }
 
-void DroneControlImpl::step() {
-    // Note: The actual code is commented out until the interfaces are defined, 
-    // but the logical flow is documented below.
-
-    /*
-     * Logical Flow for a single Drone step:
-     * * 1. Sensor Reading:
-     * auto currentPosition = m_gps->getPosition();
-     * auto scanResult = m_lidar->performScan();
-     * * 2. Map Updating:
-     * // Pass the raw sensor data to the algorithm to update its internal 3D map
-     * m_mappingAlgorithm->updateMap(currentPosition, scanResult);
-     * * 3. Decision Making:
-     * // Ask the algorithm where to go next based on the newly updated map
-     * auto nextMovementCommand = m_mappingAlgorithm->calculateNextMove(currentPosition);
-     * * 4. Execution:
-     * // Send the command to the movement interface
-     * m_movement->executeCommand(nextMovementCommand);
-     */
+types::DroneState DroneControlImpl::state() const {
+    return types::DroneState{gps_.position(), gps_.heading(), step_index_};
 }
+
+} // namespace drone_mapper

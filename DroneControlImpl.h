@@ -1,47 +1,36 @@
-/**
- * @file DroneControlImpl.h
- * @brief Declaration of the DroneControlImpl class.
- *
- * Manages the drone's active logic: movement decisions, lidar scan decisions, 
- * and updating the mapping algorithm.
- */
-
 #pragma once
 
-#include "IDroneControl.h"
+#include <drone_mapper/IDroneControl.h>
+#include <drone_mapper/IDroneMovement.h>
+#include <drone_mapper/IGPS.h>
+#include <drone_mapper/ILidar.h>
+#include <drone_mapper/IMappingAlgorithm.h>
+#include <drone_mapper/IMutableMap3D.h>
 
-// Forward declarations for the hardware/mock interfaces
-class ILidar;
-class IGPS;
-class IDroneMovement;
+namespace drone_mapper {
 
-/**
- * @class DroneControlImpl
- * @brief Concrete implementation of the drone control logic.
- */
-class DroneControlImpl : public IDroneControl {
+class DroneControlImpl final : public IDroneControl {
 public:
-    /**
-     * @brief Constructor for DroneControlImpl.
-     * @param mappingAlgo The mapping algorithm to be injected into the base interface.
-     * @param lidar Pointer to the Lidar interface.
-     * @param gps Pointer to the GPS interface.
-     * @param movement Pointer to the drone movement interface.
-     */
-    DroneControlImpl(std::unique_ptr<IMappingAlgorithm> mappingAlgo,
-                     ILidar* lidar,
-                     IGPS* gps,
-                     IDroneMovement* movement);
+    DroneControlImpl(types::DroneConfigData drone,
+                     types::MissionConfigData mission,
+                     ILidar& lidar,
+                     IGPS& gps,
+                     IDroneMovement& movement,
+                     IMutableMap3D& output_map,
+                     IMappingAlgorithm& mapping_algorithm);
 
-    ~DroneControlImpl() override = default;
-
-    /**
-     * @brief Performs one cycle of the drone's operation.
-     */
-    void step() override;
+    [[nodiscard]] types::DroneStepResult step() override;
+    [[nodiscard]] types::DroneState state() const override;
 
 private:
-    ILidar* m_lidar;
-    IGPS* m_gps;
-    IDroneMovement* m_movement;
+    types::DroneConfigData drone_;
+    types::MissionConfigData mission_;
+    ILidar& lidar_;
+    IGPS& gps_;
+    IDroneMovement& movement_;
+    IMutableMap3D& output_map_;
+    IMappingAlgorithm& mapping_algorithm_;
+    std::size_t step_index_ = 0;
 };
+
+} // namespace drone_mapper

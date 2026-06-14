@@ -1,35 +1,23 @@
-/**
- * @file MockLidar.h
- * @brief Declaration of the MockLidar class.
- *
- * Simulates a Lidar sensor by ray-casting against the input voxel map.
- */
-
 #pragma once
 
-#include "ILidar.h"
-#include "MockGPS.h"
-#include <string>
+#include <drone_mapper/IGPS.h>
+#include <drone_mapper/ILidar.h>
+#include <drone_mapper/IMap3D.h>
 
-// Forward declaration of the 3D map interface
-class IMap3D;
+namespace drone_mapper {
 
-class MockLidar : public ILidar {
+class MockLidar final : public ILidar {
 public:
-    MockLidar(const std::string& lidarConfigPath, IMap3D* inputMap, MockGPS* mockGPS);
-    ~MockLidar() override = default;
+    MockLidar(types::LidarConfigData config, const IMap3D& map, const IGPS& gps);
 
-    LidarScanResult performScan() override;
+    [[nodiscard]] types::LidarScanResult scan(Orientation scan_orientation) const override;
 
 private:
-    IMap3D* m_inputMap;
-    MockGPS* m_mockGPS;
+    [[nodiscard]] PhysicalLength traceBeam(const Orientation& beam) const;
 
-    // Config parameters
-    int m_z_min_cm;
-    int m_z_max_cm;
-    double m_d_cm;
-    int m_fov_circles;
-
-    void parseLidarConfig(const std::string& configPath);
+    types::LidarConfigData config_;
+    const IMap3D& map_;
+    const IGPS& gps_;
 };
+
+} // namespace drone_mapper

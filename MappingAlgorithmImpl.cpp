@@ -1,32 +1,22 @@
 #include "MappingAlgorithmImpl.h"
-#include <iostream>
 
-MappingAlgorithmImpl::MappingAlgorithmImpl(int resolution_cm) 
-    : m_stepsInCurrentDirection(0) {
-    m_internalMap = std::make_unique<Map3DImpl>(resolution_cm);
-}
+namespace drone_mapper {
 
-void MappingAlgorithmImpl::updateMap(const Position3D& currentPos, const LidarScanResult& scanResult) {
-    // Mark the current position as free space
-    m_internalMap->setObstacle(currentPos.x_cm, currentPos.y_cm, currentPos.height_cm, false);
+MappingAlgorithmImpl::MappingAlgorithmImpl(const types::DroneConfigData drone_config, const IMap3D& output_map)
+    : IMappingAlgorithm(drone_config, output_map) {}
 
-    // Register Lidar hits as obstacles in our internal map
-    for (const auto& hit : scanResult.hit_points) {
-        m_internalMap->setObstacle(hit.x_cm, hit.y_cm, hit.height_cm, true);
+types::MappingStepCommand MappingAlgorithmImpl::nextStep(const types::DroneState& state, 
+                                                         const types::LidarScanResult* latest_scan) {
+    (void)state;
+    (void)latest_scan;
+    
+    if (consecutive_advances_ < 10) {
+        consecutive_advances_++;
+        return types::MappingStepCommand::Advance; 
+    } else {
+        consecutive_advances_ = 0;
+        return types::MappingStepCommand::RotateRight; 
     }
 }
 
-DroneCommand MappingAlgorithmImpl::calculateNextMove(const Position3D& currentPos) {
-    // Very basic exploration logic: 
-    // Go straight for a few steps, then rotate. 
-    // If there's an obstacle immediately in front (dummy check here), rotate early.
-    (void)currentPos;
-    m_stepsInCurrentDirection++;
-
-    if (m_stepsInCurrentDirection > 10) {
-        m_stepsInCurrentDirection = 0;
-        return DroneCommand::RotateRight; // Turn 90 degrees (or whatever drone config says)
-    }
-
-    return DroneCommand::Advance; // Move forward
-}
+} // namespace drone_mapper

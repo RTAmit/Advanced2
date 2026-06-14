@@ -1,44 +1,32 @@
-/**
- * @file MissionControlImpl.h
- * @brief Declaration of the MissionControlImpl class.
- *
- * Manages the mission constraints (boundaries, steps) and is relevant 
- * both in simulation and in the real world.
- */
-
 #pragma once
 
-#include "IMissionControl.h"
-#include <string>
+#include <drone_mapper/IDroneControl.h>
+#include <drone_mapper/IMap3D.h>
+#include <drone_mapper/IMissionControl.h>
+#include <drone_mapper/IMutableMap3D.h>
 
-/**
- * @class MissionControlImpl
- * @brief Concrete implementation of mission control.
- */
-class MissionControlImpl : public IMissionControl {
+#include <filesystem>
+
+namespace drone_mapper {
+
+class MissionControlImpl final : public IMissionControl {
 public:
-    /**
-     * @brief Constructor that loads the mission configuration.
-     * @param missionConfigPath Path to the mission configuration YAML file.
-     */
-    explicit MissionControlImpl(const std::string& missionConfigPath);
+    MissionControlImpl(types::MissionConfigData mission,
+                       types::DroneConfigData drone,
+                       const IMap3D& hidden_map,
+                       IMutableMap3D& output_map,
+                       IDroneControl& drone_control,
+                       std::filesystem::path output_map_file);
 
-    ~MissionControlImpl() override = default;
-
-    bool isWithinBoundaries(const Position3D& pos) const override;
-    int getMaxSteps() const override;
+    [[nodiscard]] types::MissionRunResult runMission() override;
 
 private:
-    int m_maxSteps;
-    
-    // Boundary constraints in cm
-    int m_minX, m_maxX;
-    int m_minY, m_maxY;
-    int m_minH, m_maxH;
-
-    /**
-     * @brief Parses the mission configuration file to extract constraints.
-     * @param path The path to the YAML file.
-     */
-    void parseMissionConfig(const std::string& path);
+    types::MissionConfigData mission_;
+    types::DroneConfigData drone_;
+    const IMap3D& hidden_map_;
+    IMutableMap3D& output_map_;
+    IDroneControl& drone_control_;
+    std::filesystem::path output_map_file_;
 };
+
+} // namespace drone_mapper

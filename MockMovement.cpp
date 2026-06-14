@@ -1,61 +1,43 @@
-/**
- * @file MockMovement.cpp
- * @brief Implementation of the MockMovement class.
- */
+#include <drone_mapper/MockMovement.h>
+#include <mp-units/systems/si/math.h>
 
-#include "MockMovement.h"
-#include <stdexcept>
-#include <yaml-cpp/yaml.h>
+namespace drone_mapper {
 
-MockMovement::MockMovement(const std::string& droneConfigPath, MockGPS* mockGPS)
-    : m_mockGPS(mockGPS) {
+MockMovement::MockMovement(MockGPS& gps) : gps_(gps) {}
+
+types::MovementResult MockMovement::rotate(types::RotationDirection direction, HorizontalAngle angle) {
+    const Orientation current = gps_.heading();
+    const HorizontalAngle signed_angle =
+        (direction == types::RotationDirection::Left) ? angle : -angle;
     
-    if (!m_mockGPS) {
-        throw std::invalid_argument("MockMovement requires a valid MockGPS instance.");
-    }
-    parseDroneConfig(droneConfigPath);
+    gps_.setHeading(Orientation{current.horizontal + signed_angle, current.altitude});
+    return types::MovementResult{true, {}};
 }
 
-void MockMovement::parseDroneConfig(const std::string& configPath) {
-    try {
-        YAML::Node config = YAML::LoadFile(configPath);
-        YAML::Node drone = config["drone_config"];
-        
-        m_dimensions_cm = drone["dimensions_cm"].as<int>();
-        m_max_rotate_deg = drone["max_rotate_deg"].as<int>();
-        m_max_advance_cm = drone["max_advance_cm"].as<int>();
-        m_max_elevate_cm = drone["max_elevate_cm"].as<int>();
-    } catch (const YAML::Exception& e) {
-        throw std::runtime_error("YAML Parsing Error in MockMovement: " + std::string(e.what()));
-    }
+types::MovementResult MockMovement::advance(PhysicalLength distance) {
+    const Orientation current = gps_.heading();
+    Position3D pos = gps_.position();
+    
+    const auto cos_altitude = si::cos(current.altitude);
+    const auto dx = cos_altitude * si::cos(current.horizontal);
+    const auto dy = cos_altitude * si::sin(current.horizontal);
+    const auto dz = si::sin(current.altitude);
+    
+    pos.x += distance * dx;
+    pos.y += distance * dy;
+    pos.z += distance * dz;
+    
+    gps_.setPosition(pos);
+    return types::MovementResult{true, {}};
 }
 
-void MockMovement::executeCommand(DroneCommand cmd) {
-    Position3D currentPos = m_mockGPS->getPosition();
-    int currentAngle = m_mockGPS->getAngle();
-
-    // Note: A real implementation would apply trigonometry based on the angle to update X and Y.
-    switch (cmd) {
-        case DroneCommand::Advance:
-            // TODO: Calculate new X and Y using cos(angle) and sin(angle) * m_max_advance_cm
-            break;
-        case DroneCommand::Elevate:
-            currentPos.height_cm += m_max_elevate_cm;
-            break;
-        case DroneCommand::Descend:
-            currentPos.height_cm -= m_max_elevate_cm;
-            break;
-        case DroneCommand::RotateLeft:
-            currentAngle -= m_max_rotate_deg;
-            break;
-        case DroneCommand::RotateRight:
-            currentAngle += m_max_rotate_deg;
-            break;
-        case DroneCommand::Idle:
-        default:
-            break;
-    }
-
-    m_mockGPS->updatePosition(currentPos);
-    m_mockGPS->updateAngle(currentAngle);
+types::MovementResult MockMovement::elevate(PhysicalLength distance) {
+    Position3D pos = gps_.position();
+    
+    pos.z += distance;
+    
+    gps_.setPosition(pos);
+    return types::MovementResult{true, {}};
 }
+
+} // namespace drone_mapper

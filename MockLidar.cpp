@@ -1,44 +1,107 @@
-/**
- * @file MockLidar.cpp
- * @brief Implementation of the MockLidar class.
- */
+#include <drone_mapper/MockLidar.h>
+#include <mp-units/systems/si/math.h>
 
-#include "MockLidar.h"
-#include <stdexcept>
-#include <yaml-cpp/yaml.h>
+#include <algorithm>
+#include <limits>
 
-MockLidar::MockLidar(const std::string& lidarConfigPath, IMap3D* inputMap, MockGPS* mockGPS)
-    : m_inputMap(inputMap), m_mockGPS(mockGPS) {
-    
-    if (!m_inputMap || !m_mockGPS) {
-        throw std::invalid_argument("MockLidar initialized with null dependencies.");
+namespace drone_mapper {
+
+namespace {
+
+[[nodiscard]] std::size_t beams_on_circle(std::size_t circle_index) {
+    std::size_t count = 1;
+    for (std::size_t i = 0; i < circle_index; ++i) {
+        count *= 4;
     }
-    parseLidarConfig(lidarConfigPath);
+    return count;
 }
 
-void MockLidar::parseLidarConfig(const std::string& configPath) {
-    try {
-        YAML::Node config = YAML::LoadFile(configPath);
-        YAML::Node lidar = config["lidar_config"];
+[[nodiscard]] HorizontalAngle horizontal_delta(PhysicalLength offset, PhysicalLength distance) {
+    return HorizontalAngle{si::atan2(offset, distance)};
+}
+
+[[nodiscard]] AltitudeAngle altitude_delta(PhysicalLength offset, PhysicalLength distance) {
+    return AltitudeAngle{si::atan2(offset, distance)};
+}
+
+} // namespace
+
+MockLidar::MockLidar(types::LidarConfigData config, const IMap3D& map, const IGPS& gps)
+    : config_(config), map_(map), gps_(gps) {}
+
+types::LidarScanResult MockLidar::scan(Orientation scan_orientation) const {
+    types::LidarScanResult results;
+    if (config_.fov_circles == 0) {
+        return results;
+    }
+
+    const Orientation sensor_heading = gps_.heading();
+    const Orientation center_beam_abs{
+        scan_orientation.horizontal + sensor_heading.horizontal,
+        scan_orientation.altitude + sensor_heading.altitude,
+    };
+
+    const PhysicalLength center_distance = traceBeam(center_beam_abs);
+    results.push_back(types::LidarHit{center_distance, scan_orientation});
+
+    for (std::size_t circle = 1; circle < config_.fov_circles; ++circle) {
+        const std::size_t beam_count = beams_on_circle(circle);
+        const PhysicalLength radius = static_cast<double>(circle) * config_.d;
+
+        for (std::size_t i = 0; i < beam_count; ++i) {
+            const auto theta = (360.0 * static_cast<double>(i) / static_cast<double>(beam_count)) * deg; 
+            const PhysicalLength horizontal_offset = radius * si::cos(theta);
+            const PhysicalLength altitude_offset = radius * si::sin(theta);
+
+            const Orientation offset{
+                horizontal_delta(horizontal_offset, config_.z_min),
+                altitude_delta(altitude_offset, config_.z_min),
+            };
+            const Orientation relative_beam{
+                scan_orientation.horizontal + offset.horizontal,
+                scan_orientation.altitude + offset.altitude,
+            };
+            const Orientation absolute_beam{
+                relative_beam.horizontal + sensor_heading.horizontal,
+                relative_beam.altitude + sensor_heading.altitude,
+            };
+            const PhysicalLength distance = traceBeam(absolute_beam);
+            results.push_back(types::LidarHit{distance, relative_beam});
+        }
+    }
+
+    return results;
+}
+
+PhysicalLength MockLidar::traceBeam(const Orientation& beam_orientation) const {
+    const Position3D origin = gps_.position();
+    const auto cos_altitude = si::cos(beam_orientation.altitude);
+    const auto dx = cos_altitude * si::cos(beam_orientation.horizontal);
+    const auto dy = cos_altitude * si::sin(beam_orientation.horizontal);
+    const auto dz = si::sin(beam_orientation.altitude);
+
+    const PhysicalLength step = 0.1 * map_.getMapConfig().resolution;
+
+    for (PhysicalLength distance = 0.0 * cm; distance <= config_.z_max; distance += step) {
+        const double distance_cm = distance.force_numerical_value_in(cm);
+        const double dir_x = dx.force_numerical_value_in(mp::one);
+        const double dir_y = dy.force_numerical_value_in(mp::one);
+        const double dir_z = dz.force_numerical_value_in(mp::one);
+
+        const Position3D sample{
+            origin.x + dir_x * distance_cm * x_extent[cm],
+            origin.y + dir_y * distance_cm * y_extent[cm],
+            origin.z + dir_z * distance_cm * z_extent[cm],
+        };
         
-        m_z_min_cm = lidar["z_min_cm"].as<int>();
-        m_z_max_cm = lidar["z_max_cm"].as<int>();
-        m_d_cm = lidar["d_cm"].as<double>();
-        m_fov_circles = lidar["fov_circles"].as<int>();
-    } catch (const YAML::Exception& e) {
-        throw std::runtime_error("YAML Parsing Error in MockLidar: " + std::string(e.what()));
+        if (map_.atVoxel(sample) == types::VoxelOccupancy::Occupied) {
+            if (distance < config_.z_min) {
+                return 0.0 * cm;
+            }
+            return distance;
+        }
     }
+    return std::numeric_limits<double>::max() * cm;
 }
 
-LidarScanResult MockLidar::performScan() {
-    LidarScanResult result;
-    Position3D currentPos = m_mockGPS->getPosition();
-    int currentAngle = m_mockGPS->getAngle();
-
-    // TODO: Implement actual Lidar Ray-Casting algorithm here.
-    // Use m_z_min_cm, m_z_max_cm, and m_fov_circles to cast virtual rays from 
-    // currentPos in the direction of currentAngle against m_inputMap.
-    // For every voxel hit, append its coordinates to result.hit_points.
-
-    return result;
-}
+} // namespace drone_mapper

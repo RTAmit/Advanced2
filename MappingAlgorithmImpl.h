@@ -1,17 +1,18 @@
 #pragma once
-#include "IMappingAlgorithm.h"
-#include "Map3DImpl.h"
-#include <memory>
 
-class MappingAlgorithmImpl : public IMappingAlgorithm {
+#include <drone_mapper/IMappingAlgorithm.h>
+
+namespace drone_mapper {
+
+class MappingAlgorithmImpl final : public IMappingAlgorithm {
 public:
-    explicit MappingAlgorithmImpl(int resolution_cm);
-    ~MappingAlgorithmImpl() override = default;
-
-    void updateMap(const Position3D& currentPos, const LidarScanResult& scanResult) override;
-    DroneCommand calculateNextMove(const Position3D& currentPos) override;
+    MappingAlgorithmImpl(const types::DroneConfigData drone_config, const IMap3D& output_map);
+    
+    [[nodiscard]] types::MappingStepCommand nextStep(const types::DroneState& state, 
+                                                     const types::LidarScanResult* latest_scan) override;
 
 private:
-    std::unique_ptr<Map3DImpl> m_internalMap;
-    int m_stepsInCurrentDirection;
+    int consecutive_advances_ = 0; 
 };
+
+} // namespace drone_mapper

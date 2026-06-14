@@ -3,9 +3,13 @@ project(DroneMapperSimulation)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")
 
+
 include_directories(.)
+
+include_directories(biddai/ex_2_skeleton/include)
 
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
@@ -40,5 +44,5 @@ set(TEST_SOURCES
     tests/integration/test_integration_real_algorithm.cpp
 )
 add_executable(drone_mapper_simulation_test ${TEST_SOURCES} MapsComparison.cpp ${COMMON_SOURCES})
-# התיקון הקריטי: צירוף כל הספריות של הטסטים ו-yaml
+
 target_link_libraries(drone_mapper_simulation_test GTest::gtest GTest::gtest_main GTest::gmock yaml-cpp pthread)

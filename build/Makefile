@@ -117,17 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named drone_mapper_simulation
+# Target rules for targets named drone_mapper
 
 # Build rule for target.
-drone_mapper_simulation: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drone_mapper_simulation
-.PHONY : drone_mapper_simulation
+drone_mapper: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drone_mapper
+.PHONY : drone_mapper
 
 # fast build rule for target.
-drone_mapper_simulation/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/build
-.PHONY : drone_mapper_simulation/fast
+drone_mapper/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/build
+.PHONY : drone_mapper/fast
 
 #=============================================================================
 # Target rules for targets named maps_comparison
@@ -160,7 +160,7 @@ DroneControlImpl.o: DroneControlImpl.cpp.o
 
 # target to build an object file
 DroneControlImpl.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/DroneControlImpl.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/DroneControlImpl.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/DroneControlImpl.cpp.o
 .PHONY : DroneControlImpl.cpp.o
 
@@ -169,7 +169,7 @@ DroneControlImpl.i: DroneControlImpl.cpp.i
 
 # target to preprocess a source file
 DroneControlImpl.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/DroneControlImpl.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/DroneControlImpl.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/DroneControlImpl.cpp.i
 .PHONY : DroneControlImpl.cpp.i
 
@@ -178,7 +178,7 @@ DroneControlImpl.s: DroneControlImpl.cpp.s
 
 # target to generate assembly for a file
 DroneControlImpl.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/DroneControlImpl.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/DroneControlImpl.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/DroneControlImpl.cpp.s
 .PHONY : DroneControlImpl.cpp.s
 
@@ -187,7 +187,7 @@ Map3DImpl.o: Map3DImpl.cpp.o
 
 # target to build an object file
 Map3DImpl.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/Map3DImpl.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/Map3DImpl.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/maps_comparison.dir/build.make CMakeFiles/maps_comparison.dir/Map3DImpl.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/Map3DImpl.cpp.o
 .PHONY : Map3DImpl.cpp.o
@@ -197,7 +197,7 @@ Map3DImpl.i: Map3DImpl.cpp.i
 
 # target to preprocess a source file
 Map3DImpl.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/Map3DImpl.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/Map3DImpl.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/maps_comparison.dir/build.make CMakeFiles/maps_comparison.dir/Map3DImpl.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/Map3DImpl.cpp.i
 .PHONY : Map3DImpl.cpp.i
@@ -207,7 +207,7 @@ Map3DImpl.s: Map3DImpl.cpp.s
 
 # target to generate assembly for a file
 Map3DImpl.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/Map3DImpl.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/Map3DImpl.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/maps_comparison.dir/build.make CMakeFiles/maps_comparison.dir/Map3DImpl.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/Map3DImpl.cpp.s
 .PHONY : Map3DImpl.cpp.s
@@ -217,7 +217,7 @@ MappingAlgorithmImpl.o: MappingAlgorithmImpl.cpp.o
 
 # target to build an object file
 MappingAlgorithmImpl.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MappingAlgorithmImpl.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MappingAlgorithmImpl.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MappingAlgorithmImpl.cpp.o
 .PHONY : MappingAlgorithmImpl.cpp.o
 
@@ -226,7 +226,7 @@ MappingAlgorithmImpl.i: MappingAlgorithmImpl.cpp.i
 
 # target to preprocess a source file
 MappingAlgorithmImpl.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MappingAlgorithmImpl.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MappingAlgorithmImpl.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MappingAlgorithmImpl.cpp.i
 .PHONY : MappingAlgorithmImpl.cpp.i
 
@@ -235,7 +235,7 @@ MappingAlgorithmImpl.s: MappingAlgorithmImpl.cpp.s
 
 # target to generate assembly for a file
 MappingAlgorithmImpl.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MappingAlgorithmImpl.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MappingAlgorithmImpl.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MappingAlgorithmImpl.cpp.s
 .PHONY : MappingAlgorithmImpl.cpp.s
 
@@ -271,7 +271,7 @@ MissionControlImpl.o: MissionControlImpl.cpp.o
 
 # target to build an object file
 MissionControlImpl.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MissionControlImpl.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MissionControlImpl.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MissionControlImpl.cpp.o
 .PHONY : MissionControlImpl.cpp.o
 
@@ -280,7 +280,7 @@ MissionControlImpl.i: MissionControlImpl.cpp.i
 
 # target to preprocess a source file
 MissionControlImpl.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MissionControlImpl.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MissionControlImpl.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MissionControlImpl.cpp.i
 .PHONY : MissionControlImpl.cpp.i
 
@@ -289,7 +289,7 @@ MissionControlImpl.s: MissionControlImpl.cpp.s
 
 # target to generate assembly for a file
 MissionControlImpl.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MissionControlImpl.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MissionControlImpl.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MissionControlImpl.cpp.s
 .PHONY : MissionControlImpl.cpp.s
 
@@ -298,7 +298,7 @@ MockGPS.o: MockGPS.cpp.o
 
 # target to build an object file
 MockGPS.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MockGPS.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MockGPS.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MockGPS.cpp.o
 .PHONY : MockGPS.cpp.o
 
@@ -307,7 +307,7 @@ MockGPS.i: MockGPS.cpp.i
 
 # target to preprocess a source file
 MockGPS.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MockGPS.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MockGPS.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MockGPS.cpp.i
 .PHONY : MockGPS.cpp.i
 
@@ -316,7 +316,7 @@ MockGPS.s: MockGPS.cpp.s
 
 # target to generate assembly for a file
 MockGPS.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MockGPS.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MockGPS.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MockGPS.cpp.s
 .PHONY : MockGPS.cpp.s
 
@@ -325,7 +325,7 @@ MockLidar.o: MockLidar.cpp.o
 
 # target to build an object file
 MockLidar.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MockLidar.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MockLidar.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MockLidar.cpp.o
 .PHONY : MockLidar.cpp.o
 
@@ -334,7 +334,7 @@ MockLidar.i: MockLidar.cpp.i
 
 # target to preprocess a source file
 MockLidar.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MockLidar.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MockLidar.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MockLidar.cpp.i
 .PHONY : MockLidar.cpp.i
 
@@ -343,7 +343,7 @@ MockLidar.s: MockLidar.cpp.s
 
 # target to generate assembly for a file
 MockLidar.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MockLidar.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MockLidar.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MockLidar.cpp.s
 .PHONY : MockLidar.cpp.s
 
@@ -352,7 +352,7 @@ MockMovement.o: MockMovement.cpp.o
 
 # target to build an object file
 MockMovement.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MockMovement.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MockMovement.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MockMovement.cpp.o
 .PHONY : MockMovement.cpp.o
 
@@ -361,7 +361,7 @@ MockMovement.i: MockMovement.cpp.i
 
 # target to preprocess a source file
 MockMovement.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MockMovement.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MockMovement.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MockMovement.cpp.i
 .PHONY : MockMovement.cpp.i
 
@@ -370,7 +370,7 @@ MockMovement.s: MockMovement.cpp.s
 
 # target to generate assembly for a file
 MockMovement.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/MockMovement.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/MockMovement.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/MockMovement.cpp.s
 .PHONY : MockMovement.cpp.s
 
@@ -379,7 +379,7 @@ SimulationManager.o: SimulationManager.cpp.o
 
 # target to build an object file
 SimulationManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/SimulationManager.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/SimulationManager.cpp.o
 .PHONY : SimulationManager.cpp.o
 
@@ -388,7 +388,7 @@ SimulationManager.i: SimulationManager.cpp.i
 
 # target to preprocess a source file
 SimulationManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/SimulationManager.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/SimulationManager.cpp.i
 .PHONY : SimulationManager.cpp.i
 
@@ -397,7 +397,7 @@ SimulationManager.s: SimulationManager.cpp.s
 
 # target to generate assembly for a file
 SimulationManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/SimulationManager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/SimulationManager.cpp.s
 .PHONY : SimulationManager.cpp.s
 
@@ -406,7 +406,7 @@ SimulationRunFactory.o: SimulationRunFactory.cpp.o
 
 # target to build an object file
 SimulationRunFactory.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/SimulationRunFactory.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/SimulationRunFactory.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/SimulationRunFactory.cpp.o
 .PHONY : SimulationRunFactory.cpp.o
 
@@ -415,7 +415,7 @@ SimulationRunFactory.i: SimulationRunFactory.cpp.i
 
 # target to preprocess a source file
 SimulationRunFactory.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/SimulationRunFactory.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/SimulationRunFactory.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/SimulationRunFactory.cpp.i
 .PHONY : SimulationRunFactory.cpp.i
 
@@ -424,7 +424,7 @@ SimulationRunFactory.s: SimulationRunFactory.cpp.s
 
 # target to generate assembly for a file
 SimulationRunFactory.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/SimulationRunFactory.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/SimulationRunFactory.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/SimulationRunFactory.cpp.s
 .PHONY : SimulationRunFactory.cpp.s
 
@@ -433,7 +433,7 @@ SimulationRunImpl.o: SimulationRunImpl.cpp.o
 
 # target to build an object file
 SimulationRunImpl.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/SimulationRunImpl.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/SimulationRunImpl.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/SimulationRunImpl.cpp.o
 .PHONY : SimulationRunImpl.cpp.o
 
@@ -442,7 +442,7 @@ SimulationRunImpl.i: SimulationRunImpl.cpp.i
 
 # target to preprocess a source file
 SimulationRunImpl.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/SimulationRunImpl.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/SimulationRunImpl.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/SimulationRunImpl.cpp.i
 .PHONY : SimulationRunImpl.cpp.i
 
@@ -451,7 +451,7 @@ SimulationRunImpl.s: SimulationRunImpl.cpp.s
 
 # target to generate assembly for a file
 SimulationRunImpl.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/SimulationRunImpl.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/SimulationRunImpl.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation_test.dir/build.make CMakeFiles/drone_mapper_simulation_test.dir/SimulationRunImpl.cpp.s
 .PHONY : SimulationRunImpl.cpp.s
 
@@ -460,7 +460,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -468,7 +468,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -476,7 +476,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper_simulation.dir/build.make CMakeFiles/drone_mapper_simulation.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drone_mapper.dir/build.make CMakeFiles/drone_mapper.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 maps_comparison_main.o: maps_comparison_main.cpp.o
@@ -607,7 +607,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... drone_mapper_simulation"
+	@echo "... drone_mapper"
 	@echo "... drone_mapper_simulation_test"
 	@echo "... maps_comparison"
 	@echo "... DroneControlImpl.o"
