@@ -1,0 +1,104 @@
+#include <drone_mapper/MapsComparison.h>
+#include <drone_mapper/Map3DImpl.h>
+#include <yaml-cpp/yaml.h>
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <exception>
+
+int main(int argc, char** argv) {
+    if (argc < 3 || argc > 4) {
+        std::cout << "-1\n";
+        std::cerr << "Usage: maps_comparison <origin_map> <target_map> [comparison_config=<path>]\n";
+        return 1;
+    }
+
+    try {
+        std::string origin_map_path = argv[1];
+        std::string target_map_path = argv[2];
+        std::string config_arg = (argc == 4) ? argv[3] : "";
+        std::string config_path = "";
+
+        if (config_arg.find("comparison_config=") == 0) {
+            config_path = config_arg.substr(18);
+        } else if (!config_arg.empty()) {
+            config_path = config_arg;
+        }
+
+        drone_mapper::types::MapConfig origin_config{};
+        drone_mapper::types::MapConfig target_config{};
+
+        if (!config_path.empty()) {
+            YAML::Node yaml_config = YAML::LoadFile(config_path);
+            if (yaml_config["comparison_config"]) {
+                auto comp_node = yaml_config["comparison_config"];
+                
+                
+                auto parse_config = [](const YAML::Node& node, drone_mapper::types::MapConfig& cfg) {
+                    if (node["map_res_cm"]) cfg.map_res_cm = node["map_res_cm"].as<int>();
+                    
+                    if (node["map_offset"]) {
+                        cfg.map_offset.x_offset = node["map_offset"]["x_offset"].as<int>();
+                        cfg.map_offset.y_offset = node["map_offset"]["y_offset"].as<int>();
+                        cfg.map_offset.height_offset = node["map_offset"]["height_offset"].as<int>();
+                    }
+                    
+                    if (node["map_boundaries"]) {
+                        auto b = node["map_boundaries"];
+                        cfg.map_boundaries.x_boundary.min_cm = b["x_boundary"]["min_cm"].as<int>();
+                        cfg.map_boundaries.x_boundary.max_cm = b["x_boundary"]["max_cm"].as<int>();
+                        cfg.map_boundaries.y_boundary.min_cm = b["y_boundary"]["min_cm"].as<int>();
+                        cfg.map_boundaries.y_boundary.max_cm = b["y_boundary"]["max_cm"].as<int>();
+                        cfg.map_boundaries.height_boundary.min_cm = b["height_boundary"]["min_cm"].as<int>();
+                        cfg.map_boundaries.height_boundary.max_cm = b["height_boundary"]["max_cm"].as<int>();
+                    }
+                };
+
+                if (comp_node["original"]) parse_config(comp_node["original"], origin_config);
+                if (comp_node["target"]) parse_config(comp_node["target"], target_config);
+            }
+        } else {
+            origin_config.map_res_cm = 10;
+            target_config.map_res_cm = 10;
+            
+            origin_config.map_boundaries.x_boundary.min_cm = -1000;
+            origin_config.map_boundaries.x_boundary.max_cm = 1000;
+            origin_config.map_boundaries.y_boundary.min_cm = -1000;
+            origin_config.map_boundaries.y_boundary.max_cm = 1000;
+            origin_config.map_boundaries.height_boundary.min_cm = 0;
+            origin_config.map_boundaries.height_boundary.max_cm = 1000;
+            
+            target_config.map_boundaries = origin_config.map_boundaries;
+        }
+
+        auto origin_npy = std::make_shared<NpyArray>(origin_map_path);
+        auto target_npy = std::make_shared<NpyArray>(target_map_path);
+
+        drone_mapper::Map3DImpl origin_map(origin_npy, origin_config);
+        drone_mapper::Map3DImpl target_map(target_npy, target_config);
+
+        std::vector<drone_mapper::IMap3D*> targets = { &target_map };
+        
+        std::vector<double> scores = drone_mapper::MapsComparison::compare(origin_map, targets);
+        
+        if (!scores.empty()) {
+            std::cout << scores[0] << "\n";
+        } else {
+            std::cout << "-1\n";
+            std::cerr << "Error: No scores returned from map comparison.\n";
+            return 1;
+        }
+
+    } catch (const std::exception& e) {
+        std::cout << "-1\n";
+        std::cerr << "Error comparing maps: " << e.what() << "\n";
+        return 1;
+    } catch (...) {
+        std::cout << "-1\n";
+        std::cerr << "Unknown error occurred.\n";
+        return 1;
+    }
+
+    return 0;
+}
