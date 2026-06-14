@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/."
+CXX_INCLUDES = -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/biddai/ex_2_skeleton/include"
 
 CXX_FLAGS =  -Wall -Wextra -Werror -pedantic -std=gnu++20 -DGTEST_HAS_PTHREAD=1
 
