@@ -1,6 +1,22 @@
 #include "MissionControlImpl.h"
+#include <utility>
 
 namespace drone_mapper {
+    MissionControlImpl::MissionControlImpl(
+    types::MissionConfigData mission,
+    types::DroneConfigData drone,
+    const IMap3D& hidden_map,
+    IMutableMap3D& output_map,
+    IDroneControl& drone_control,
+    std::filesystem::path output_map_file)
+    : mission_(std::move(mission)),
+      drone_(std::move(drone)),
+      hidden_map_(hidden_map),
+      output_map_(output_map),
+      drone_control_(drone_control),
+      output_map_file_(std::move(output_map_file)) 
+{
+}
 types::MissionRunResult MissionControlImpl::runMission() {
     types::MissionRunStatus final_status = types::MissionRunStatus::Completed;
     std::vector<types::ErrorRef> error_refs; 
