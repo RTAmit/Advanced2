@@ -1,0 +1,201 @@
+[1/16] Building CXX object CMakeFiles/maps_comparison.dir/src/Map3DImpl.cpp.o
+[2/16] Building CXX object CMakeFiles/maps_comparison.dir/src/MapsComparison.cpp.o
+[3/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o
+[4/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/DroneControlImpl.cpp.o
+[5/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MappingAlgorithmImpl.cpp.o
+[6/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MockMovement.cpp.o
+[7/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MockGPS.cpp.o
+[8/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o
+[9/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o
+[10/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MockLidar.cpp.o
+[11/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/Map3DImpl.cpp.o
+[12/16] Building CXX object CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o
+FAILED: CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o -MF CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o.d -o CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp'
+In file included from /usr/include/c++/13/bits/stl_iterator.h:85,
+                 from /usr/include/c++/13/iterator:63,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/ext/type_traits.h:32,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/bits/sudo_cast.h:25,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:28,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/construction_helpers.h:25,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework.h:27,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/DroneTypes.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Types.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IMap3D.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/MapsComparison.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:1:
+/usr/include/c++/13/bits/stl_construct.h: In instantiation of ‘constexpr void std::_Construct(_Tp*, _Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}]’:
+/usr/include/c++/13/bits/alloc_traits.h:661:19:   required from ‘static constexpr void std::allocator_traits<std::allocator<void> >::construct(allocator_type&, _Up*, _Args&& ...) [with _Up = NpyArray; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; allocator_type = std::allocator<void>]’
+/usr/include/c++/13/bits/shared_ptr_base.h:604:39:   required from ‘std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; _Alloc = std::allocator<void>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:971:16:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = NpyArray; _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:1712:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr.h:464:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray]’
+/usr/include/c++/13/bits/shared_ptr.h:1009:14:   required from ‘std::shared_ptr<std::_NonArray<_Tp> > std::make_shared(_Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}; _NonArray<_Tp> = NpyArray]’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:79:53:   required from here
+/usr/include/c++/13/bits/stl_construct.h:115:28: error: no matching function for call to ‘construct_at(NpyArray*&, std::__cxx11::basic_string<char>&)’
+  115 |           std::construct_at(__p, std::forward<_Args>(__args)...);
+      |           ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/13/bits/stl_construct.h:94:5: note: candidate: ‘template<class _Tp, class ... _Args> constexpr decltype (::new(void*(0)) _Tp) std::construct_at(_Tp*, _Args&& ...)’
+   94 |     construct_at(_Tp* __location, _Args&&... __args)
+      |     ^~~~~~~~~~~~
+/usr/include/c++/13/bits/stl_construct.h:94:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_construct.h: In substitution of ‘template<class _Tp, class ... _Args> constexpr decltype (::new(void*(0)) _Tp) std::construct_at(_Tp*, _Args&& ...) [with _Tp = NpyArray; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}]’:
+/usr/include/c++/13/bits/stl_construct.h:115:21:   required from ‘constexpr void std::_Construct(_Tp*, _Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}]’
+/usr/include/c++/13/bits/alloc_traits.h:661:19:   required from ‘static constexpr void std::allocator_traits<std::allocator<void> >::construct(allocator_type&, _Up*, _Args&& ...) [with _Up = NpyArray; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; allocator_type = std::allocator<void>]’
+/usr/include/c++/13/bits/shared_ptr_base.h:604:39:   required from ‘std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; _Alloc = std::allocator<void>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:971:16:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = NpyArray; _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:1712:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr.h:464:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray]’
+/usr/include/c++/13/bits/shared_ptr.h:1009:14:   required from ‘std::shared_ptr<std::_NonArray<_Tp> > std::make_shared(_Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}; _NonArray<_Tp> = NpyArray]’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:79:53:   required from here
+/usr/include/c++/13/bits/stl_construct.h:96:17: error: no matching function for call to ‘NpyArray::NpyArray(std::__cxx11::basic_string<char>&)’
+   96 |     -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Map3DImpl.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:2:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:79:9: note: candidate: ‘template<class T> NpyArray::NpyArray(const shape_t&, T*, bool)’
+   79 |         NpyArray(const shape_t& _shape, T* _data, bool _fortranOrder=false)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:79:9: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_construct.h:96:17: note:   candidate expects 3 arguments, 1 provided
+   96 |     -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:85:9: note: candidate: ‘NpyArray::NpyArray(NpyArray&&)’
+   85 |         NpyArray(NpyArray&& arr)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:85:29: note:   no known conversion for argument 1 from ‘std::__cxx11::basic_string<char>’ to ‘NpyArray&&’
+   85 |         NpyArray(NpyArray&& arr)
+      |                  ~~~~~~~~~~~^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:82:9: note: candidate: ‘NpyArray::NpyArray(const shape_t&, size_t, char, bool)’
+   82 |         NpyArray(const shape_t& _shape, size_t _wordSize, char _type, bool _fortranOrder=false)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:82:9: note:   candidate expects 4 arguments, 1 provided
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:76:9: note: candidate: ‘NpyArray::NpyArray()’
+   76 |         NpyArray() : data(NULL), numValues(0), wordSize(0), type(0), fortranOrder(0) {}
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:76:9: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/13/bits/stl_construct.h: In instantiation of ‘constexpr void std::_Construct(_Tp*, _Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}]’:
+/usr/include/c++/13/bits/alloc_traits.h:661:19:   required from ‘static constexpr void std::allocator_traits<std::allocator<void> >::construct(allocator_type&, _Up*, _Args&& ...) [with _Up = NpyArray; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; allocator_type = std::allocator<void>]’
+/usr/include/c++/13/bits/shared_ptr_base.h:604:39:   required from ‘std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; _Alloc = std::allocator<void>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:971:16:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = NpyArray; _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:1712:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr.h:464:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray]’
+/usr/include/c++/13/bits/shared_ptr.h:1009:14:   required from ‘std::shared_ptr<std::_NonArray<_Tp> > std::make_shared(_Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}; _NonArray<_Tp> = NpyArray]’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:79:53:   required from here
+/usr/include/c++/13/bits/stl_construct.h:119:7: error: no matching function for call to ‘NpyArray::NpyArray(std::__cxx11::basic_string<char>&)’
+  119 |       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:79:9: note: candidate: ‘template<class T> NpyArray::NpyArray(const shape_t&, T*, bool)’
+   79 |         NpyArray(const shape_t& _shape, T* _data, bool _fortranOrder=false)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:79:9: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_construct.h:119:7: note:   candidate expects 3 arguments, 1 provided
+  119 |       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:85:9: note: candidate: ‘NpyArray::NpyArray(NpyArray&&)’
+   85 |         NpyArray(NpyArray&& arr)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:85:29: note:   no known conversion for argument 1 from ‘std::__cxx11::basic_string<char>’ to ‘NpyArray&&’
+   85 |         NpyArray(NpyArray&& arr)
+      |                  ~~~~~~~~~~~^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:82:9: note: candidate: ‘NpyArray::NpyArray(const shape_t&, size_t, char, bool)’
+   82 |         NpyArray(const shape_t& _shape, size_t _wordSize, char _type, bool _fortranOrder=false)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:82:9: note:   candidate expects 4 arguments, 1 provided
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:76:9: note: candidate: ‘NpyArray::NpyArray()’
+   76 |         NpyArray() : data(NULL), numValues(0), wordSize(0), type(0), fortranOrder(0) {}
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:76:9: note:   candidate expects 0 arguments, 1 provided
+[13/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/main.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/main.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/main.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/main.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/main.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp: In function ‘int main(int, char**)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:34:36: error: could not convert ‘YAML::Node::operator[](const Key&) [with Key = char [5]]("x_cm").YAML::Node::as<double>()’ from ‘double’ to ‘drone_mapper::XLength’ {aka ‘mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>’}
+   34 |         pos_node["x_cm"].as<double>(),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+      |                                    |
+      |                                    double
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:38:79: error: no match for ‘operator=’ (operand types are ‘drone_mapper::HorizontalAngle’ {aka ‘mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>’} and ‘double’)
+   38 |     sim_data.initial_angle = config["simulation"]["initial_angle"].as<double>();
+      |                                                                               ^
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/construction_helpers.h:25,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework.h:27,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/DroneTypes.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Types.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/ISimulation.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:2,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:7:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note: candidate: ‘template<class FwdValue>  requires (DimensionlessOne<mp_units::quantity<R, Rep>::reference>) && (ValuePreservingAssignment<Rep, FwdValue>) constexpr mp_units::quantity<R, Rep>& mp_units::quantity<R, Rep>::operator=(FwdValue&&) [with auto [requires mp_units::Reference<<placeholder>, >] R = mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(); Rep = double]’
+  236 |   constexpr quantity& operator=(FwdValue&& val)
+      |                       ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note:   template argument deduction/substitution failed:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note: constraints not satisfied
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h: In substitution of ‘template<class FwdValue>  requires (DimensionlessOne<mp_units::quantity<R, Rep>::reference>) && (ValuePreservingAssignment<Rep, FwdValue>) constexpr mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>& mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>::operator=(FwdValue&&) [with FwdValue = mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>()]’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:38:79:   required from here
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:106:9:   required for the satisfaction of ‘DimensionlessOne<reference>’ [with FwdValue = double; R = mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>{}; Rep = double]
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:107:75: note: the expression ‘mp_units::implicitly_convertible(mp_units::get_quantity_spec(R), mp_units::dimensionless) [with R = mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>{}, double>::reference]’ evaluated to ‘false’
+  107 |   Reference<MP_UNITS_REMOVE_CONST(decltype(R))> && (implicitly_convertible(get_quantity_spec(R), dimensionless)) &&
+      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note: candidate: ‘constexpr mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>& mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>::operator=(const mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>&)’
+  163 | class quantity {
+      |       ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note:   no known conversion for argument 1 from ‘double’ to ‘const mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>&’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note: candidate: ‘constexpr mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>& mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>::operator=(mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>&&)’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note:   no known conversion for argument 1 from ‘double’ to ‘mp_units::quantity<mp_units::reference<drone_mapper::horizontal_angle, mp_units::non_si::degree>(), double>&&’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:45:18: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   45 |         sim_data.map_config.boundaries.x_boundary.min_cm = b_node["x_boundary"]["min_cm"].as<int>();
+      |                  ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:46:18: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   46 |         sim_data.map_config.boundaries.x_boundary.max_cm = b_node["x_boundary"]["max_cm"].as<int>();
+      |                  ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:47:18: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   47 |         sim_data.map_config.boundaries.y_boundary.min_cm = b_node["y_boundary"]["min_cm"].as<int>();
+      |                  ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:48:18: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   48 |         sim_data.map_config.boundaries.y_boundary.max_cm = b_node["y_boundary"]["max_cm"].as<int>();
+      |                  ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:49:18: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   49 |         sim_data.map_config.boundaries.height_boundary.min_cm = b_node["height_boundary"]["min_cm"].as<int>();
+      |                  ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:50:18: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   50 |         sim_data.map_config.boundaries.height_boundary.max_cm = b_node["height_boundary"]["max_cm"].as<int>();
+      |                  ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:54:22: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   54 |             sim_data.map_config.offset.x_cm = map_cfg_node["offset"]["x_cm"].as<double>();
+      |                      ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:55:22: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   55 |             sim_data.map_config.offset.y_cm = map_cfg_node["offset"]["y_cm"].as<double>();
+      |                      ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:56:22: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   56 |             sim_data.map_config.offset.z_cm = map_cfg_node["offset"]["z_cm"].as<double>();
+      |                      ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:59:22: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘map_config’
+   59 |             sim_data.map_config.resolution_cm = map_cfg_node["resolution_cm"].as<double>();
+      |                      ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:65:15: error: ‘struct drone_mapper::types::MissionConfigData’ has no member named ‘max_time_seconds’
+   65 |     miss_data.max_time_seconds = config["mission"]["max_time_seconds"].as<int>();
+      |               ^~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:69:16: error: ‘struct drone_mapper::types::DroneConfigData’ has no member named ‘max_speed_cm_s’
+   69 |     drone_data.max_speed_cm_s = config["drone"]["max_speed_cm_s"].as<double>();
+      |                ^~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:73:16: error: ‘struct drone_mapper::types::LidarConfigData’ has no member named ‘max_distance_cm’
+   73 |     lidar_data.max_distance_cm = config["lidar"]["max_distance_cm"].as<double>();
+      |                ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:80:27: error: no matching function for call to ‘drone_mapper::SimulationManager::SimulationManager()’
+   80 |         SimulationManager manager;
+      |                           ^~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:9:14: note: candidate: ‘drone_mapper::SimulationManager::SimulationManager(std::unique_ptr<drone_mapper::ISimulationRunFactory>)’
+    9 |     explicit SimulationManager(std::unique_ptr<ISimulationRunFactory> run_factory);
+      |              ^~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:9:14: note:   candidate expects 1 argument, 0 provided
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:81:20: error: no matching function for call to ‘drone_mapper::SimulationManager::run(<brace-enclosed initializer list>, <brace-enclosed initializer list>, <brace-enclosed initializer list>, <brace-enclosed initializer list>, std::filesystem::__cxx11::path&)’
+   81 |         manager.run({sim_data}, {miss_data}, {drone_data}, {lidar_data}, output_path);
+      |         ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:12:50: note: candidate: ‘virtual drone_mapper::types::SimulationManagerReport drone_mapper::SimulationManager::run(const drone_mapper::types::SimulationCompositionData&, const std::filesystem::__cxx11::path&)’
+   12 |     [[nodiscard]] types::SimulationManagerReport run(const types::SimulationCompositionData& composition,
+      |                                                  ^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:12:50: note:   candidate expects 2 arguments, 5 provided
+[14/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o
+ninja: build stopped: subcommand failed.
