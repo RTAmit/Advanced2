@@ -76,8 +76,11 @@ int main(int argc, char** argv) {
         }
 
         // טעינת המערכים מתוך הקבצים
-        auto origin_npy = std::make_shared<NpyArray>(origin_map_path);
-        auto target_npy = std::make_shared<NpyArray>(target_map_path);
+        auto origin_npy = std::make_shared<NpyArray>();
+        origin_npy->LoadNPY(origin_map_path);
+
+        auto target_npy = std::make_shared<NpyArray>();
+        target_npy->LoadNPY(target_map_path);
 
         // יצירת אובייקטי המפה כולל הקונפיגורציה שלהם
         drone_mapper::Map3DImpl origin_map(origin_npy, origin_config);

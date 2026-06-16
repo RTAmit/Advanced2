@@ -1,0 +1,33 @@
+[1/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MockGPS.cpp.o
+[2/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MockMovement.cpp.o
+[3/16] Building CXX object CMakeFiles/maps_comparison.dir/src/Map3DImpl.cpp.o
+[4/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MockLidar.cpp.o
+[5/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o
+[6/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o
+[7/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/DroneControlImpl.cpp.o
+[8/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/Map3DImpl.cpp.o
+[9/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MappingAlgorithmImpl.cpp.o
+[10/16] Building CXX object CMakeFiles/maps_comparison.dir/src/MapsComparison.cpp.o
+[11/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o
+[12/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o
+[13/16] Building CXX object CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o
+[14/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/main.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/main.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/main.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/main.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/main.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp: In function ‘int main(int, char**)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:125:44: error: ignoring return value of ‘virtual drone_mapper::types::SimulationManagerReport drone_mapper::SimulationManager::run(const drone_mapper::types::SimulationCompositionData&, const std::filesystem::__cxx11::path&)’, declared with attribute ‘nodiscard’ [-Werror=unused-result]
+  125 |         manager.run(comp_data, output_path);
+      |                                            ^
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:8:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:12:50: note: declared here
+   12 |     [[nodiscard]] types::SimulationManagerReport run(const types::SimulationCompositionData& composition,
+      |                                                  ^~~
+cc1plus: all warnings being treated as errors
+[15/16] Linking CXX executable maps_comparison
+FAILED: maps_comparison 
+: && /usr/bin/c++ -Wall -Wextra -Werror -pedantic  CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o CMakeFiles/maps_comparison.dir/src/MapsComparison.cpp.o CMakeFiles/maps_comparison.dir/src/Map3DImpl.cpp.o -o maps_comparison  vcpkg_installed/x64-linux/debug/lib/libTinyNPY.a  vcpkg_installed/x64-linux/debug/lib/libyaml-cppd.a  vcpkg_installed/x64-linux/debug/lib/libfmtd.a  vcpkg_installed/x64-linux/lib/libz.a && :
+/usr/bin/ld: CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o: in function `main':
+maps_comparison_main.cpp:(.text+0x11fb): undefined reference to `drone_mapper::Map3DImpl::Map3DImpl(std::shared_ptr<NpyArray>, drone_mapper::types::MapConfig)'
+/usr/bin/ld: maps_comparison_main.cpp:(.text+0x12b1): undefined reference to `drone_mapper::Map3DImpl::Map3DImpl(std::shared_ptr<NpyArray>, drone_mapper::types::MapConfig)'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
