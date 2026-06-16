@@ -1,0 +1,24 @@
+[1/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/Map3DImpl.cpp.o
+[2/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/DroneControlImpl.cpp.o
+[3/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MockGPS.cpp.o
+[4/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o
+[5/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MappingAlgorithmImpl.cpp.o
+[6/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o
+[7/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o
+[8/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MockMovement.cpp.o
+[9/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MockLidar.cpp.o
+[10/16] Building CXX object CMakeFiles/maps_comparison.dir/src/MapsComparison.cpp.o
+[11/16] Building CXX object CMakeFiles/maps_comparison.dir/src/Map3DImpl.cpp.o
+[12/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o
+[13/16] Building CXX object CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o
+[14/16] Building CXX object CMakeFiles/drone_mapper_simulation.dir/main.cpp.o
+[15/16] Linking CXX executable maps_comparison
+[16/16] Linking CXX executable drone_mapper_simulation
+FAILED: drone_mapper_simulation 
+: && /usr/bin/c++ -Wall -Wextra -Werror -pedantic  CMakeFiles/drone_mapper_simulation.dir/main.cpp.o CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o CMakeFiles/drone_mapper_simulation.dir/src/DroneControlImpl.cpp.o CMakeFiles/drone_mapper_simulation.dir/src/Map3DImpl.cpp.o CMakeFiles/drone_mapper_simulation.dir/src/MappingAlgorithmImpl.cpp.o CMakeFiles/drone_mapper_simulation.dir/src/MockGPS.cpp.o CMakeFiles/drone_mapper_simulation.dir/src/MockMovement.cpp.o CMakeFiles/drone_mapper_simulation.dir/src/MockLidar.cpp.o -o drone_mapper_simulation  vcpkg_installed/x64-linux/debug/lib/libTinyNPY.a  vcpkg_installed/x64-linux/debug/lib/libyaml-cppd.a  vcpkg_installed/x64-linux/debug/lib/libfmtd.a  vcpkg_installed/x64-linux/lib/libz.a && :
+/usr/bin/ld: CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o: in function `std::__detail::_MakeUniq<drone_mapper::MissionControlImpl>::__single_object std::make_unique<drone_mapper::MissionControlImpl, drone_mapper::types::MissionConfigData const&, drone_mapper::types::DroneConfigData const&, drone_mapper::Map3DImpl&, drone_mapper::Map3DImpl&, drone_mapper::DroneControlImpl&, std::filesystem::__cxx11::path const&>(drone_mapper::types::MissionConfigData const&, drone_mapper::types::DroneConfigData const&, drone_mapper::Map3DImpl&, drone_mapper::Map3DImpl&, drone_mapper::DroneControlImpl&, std::filesystem::__cxx11::path const&)':
+SimulationRunFactory.cpp:(.text._ZSt11make_uniqueIN12drone_mapper18MissionControlImplEJRKNS0_5types17MissionConfigDataERKNS2_15DroneConfigDataERNS0_9Map3DImplESA_RNS0_16DroneControlImplERKNSt10filesystem7__cxx114pathEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_[_ZSt11make_uniqueIN12drone_mapper18MissionControlImplEJRKNS0_5types17MissionConfigDataERKNS2_15DroneConfigDataERNS0_9Map3DImplESA_RNS0_16DroneControlImplERKNSt10filesystem7__cxx114pathEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_]+0x134): undefined reference to `drone_mapper::MissionControlImpl::MissionControlImpl(drone_mapper::types::MissionConfigData, drone_mapper::types::DroneConfigData, drone_mapper::IMap3D const&, drone_mapper::IMutableMap3D&, drone_mapper::IDroneControl&, std::filesystem::__cxx11::path)'
+/usr/bin/ld: CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o: in function `drone_mapper::SimulationRunImpl::run()':
+SimulationRunImpl.cpp:(.text+0x2a4): undefined reference to `drone_mapper::MapsComparison::compare(drone_mapper::IMap3D const&, std::vector<drone_mapper::IMap3D*, std::allocator<drone_mapper::IMap3D*> >)'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.

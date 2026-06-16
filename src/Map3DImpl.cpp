@@ -1,7 +1,18 @@
 #include "Map3DImpl.h"
 #include <string>
+#include <utility>
 
 namespace drone_mapper {
+
+// מימוש הבנאי הראשון
+Map3DImpl::Map3DImpl(std::shared_ptr<NpyArray> map_ptr)
+    : map_(std::move(map_ptr)) {
+}
+
+// מימוש הבנאי השני (שמקבל גם קונפיגורציה)
+Map3DImpl::Map3DImpl(std::shared_ptr<NpyArray> map_ptr, const types::MapConfig map_config)
+    : map_(std::move(map_ptr)), config_(map_config) {
+}
 
 bool Map3DImpl::getIndices(const Position3D& pos, int& x_idx, int& y_idx, int& z_idx) const {
     int rel_x = pos.x.force_numerical_value_in(cm) - config_.offset.x.force_numerical_value_in(cm);

@@ -122,7 +122,7 @@ int main(int argc, char* argv[]) {
         comp_data.lidars.push_back(lidar_data);
 
         SimulationManager manager(std::make_unique<SimulationRunFactoryImpl>());
-        manager.run(comp_data, output_path);
+        auto report = manager.run(comp_data, output_path);
     } catch (const std::exception& e) {
         std::cerr << "Simulation panicked: " << e.what() << std::endl;
         return 1;
