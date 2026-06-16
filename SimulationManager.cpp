@@ -1,45 +1,26 @@
-/**
- * @file SimulationManager.cpp
- * @brief Implementation of the SimulationManager class using yaml-cpp.
- */
-
 #include "SimulationManager.h"
-#include "SimulationRunFactoryImpl.h" // תוקן: חובה להוסיף את קובץ ה-Factory
-#include <iostream>
-#include <fstream>
 #include <stdexcept>
-#include <yaml-cpp/yaml.h>
+#include <utility>
 
-SimulationManager::SimulationManager(const fs::path& configPath, const fs::path& outputPath)
-    : m_configPath(configPath), m_outputPath(outputPath) {
-    
-    if (!fs::exists(m_outputPath)) {
-        fs::create_directories(m_outputPath);
+namespace drone_mapper {
+SimulationManager::SimulationManager(std::unique_ptr<ISimulationRunFactory> run_factory)
+    : run_factory_(std::move(run_factory)) {
+    if (!run_factory_) throw std::invalid_argument("Factory cannot be null.");
+}
+
+types::SimulationManagerReport SimulationManager::run(const types::SimulationCompositionData& composition,
+                                                      const std::filesystem::path& output_path) {
+    std::vector<types::SimulationResult> runs;
+    for (const auto& sim : composition.simulations) {
+        for (const auto& mission : composition.missions) {
+            for (const auto& drone : composition.drones) {
+                for (const auto& lidar : composition.lidars) {
+                    auto run_instance = run_factory_->create(sim, mission, drone, lidar, output_path);
+                    runs.push_back(run_instance->run());
+                }
+            }
+        }
     }
-    
-    // תוקן: אתחול ה-Factory כדי שלא תקבל שגיאת גישה לזיכרון
-    m_factory = std::make_unique<SimulationRunFactory>();
+    return types::SimulationManagerReport{"Completed", "All simulations finished", {}, -1, std::move(runs)};
 }
-
-void SimulationManager::run() {
-    try {
-        parseCompositionFile();
-        executeSimulations();
-        writeOutputResults();
-    } catch (const std::exception& e) {
-        std::cerr << "CRITICAL ERROR in SimulationManager: " << e.what() << std::endl;
-        throw; 
-    }
-}
-
-void SimulationManager::parseCompositionFile() {
-    // תוכן הפונקציה שלך כפי שהיה...
-}
-
-void SimulationManager::executeSimulations() {
-    // תוכן הפונקציה שלך כפי שהיה...
-}
-
-void SimulationManager::writeOutputResults() {
-    // תוכן הפונקציה שלך כפי שהיה...
-}
+} // namespace drone_mapper

@@ -1,33 +1,17 @@
-/**
- * @file SimulationManager.h
- * @brief Declaration of the SimulationManager class.
- */
-
 #pragma once
-
-#include <filesystem>
-#include <vector>
-#include <string>
+#include <drone_mapper/ISimulation.h>
+#include <drone_mapper/ISimulationRunFactory.h>
 #include <memory>
-#include "ISimulationRunFactory.h"
 
-namespace fs = std::filesystem;
-
-class SimulationManager {
+namespace drone_mapper {
+class SimulationManager final : public ISimulation {
 public:
-    SimulationManager(const fs::path& configPath, const fs::path& outputPath);
-    ~SimulationManager() = default;
+    explicit SimulationManager(std::unique_ptr<ISimulationRunFactory> run_factory);
+    ~SimulationManager() override = default;
 
-    void run();
-
+    [[nodiscard]] types::SimulationManagerReport run(const types::SimulationCompositionData& composition,
+                                                     const std::filesystem::path& output_path) override;
 private:
-    fs::path m_configPath;
-    fs::path m_outputPath;
-    
-    // התוספת החסרה שגרמה לקריסה:
-    std::unique_ptr<ISimulationRunFactory> m_factory;
-
-    void parseCompositionFile();
-    void executeSimulations();
-    void writeOutputResults();
+    std::unique_ptr<ISimulationRunFactory> run_factory_;
 };
+} // namespace drone_mapper

@@ -34,24 +34,26 @@ int main(int argc, char** argv) {
             if (yaml_config["comparison_config"]) {
                 auto comp_node = yaml_config["comparison_config"];
                 
-                
+                // פונקציית עזר לפענוח הגדרות מפה מקובץ YAML
                 auto parse_config = [](const YAML::Node& node, drone_mapper::types::MapConfig& cfg) {
-                    if (node["map_res_cm"]) cfg.map_res_cm = node["map_res_cm"].as<int>();
-                    
-                    if (node["map_offset"]) {
-                        cfg.map_offset.x_offset = node["map_offset"]["x_offset"].as<int>();
-                        cfg.map_offset.y_offset = node["map_offset"]["y_offset"].as<int>();
-                        cfg.map_offset.height_offset = node["map_offset"]["height_offset"].as<int>();
+                    if (node["map_res_cm"]) {
+                        cfg.resolution = node["map_res_cm"].as<int>() * drone_mapper::cm;
                     }
                     
-                    if (node["boundaries"]) {
-                        auto b = node["boundaries"];
-                        cfg.boundaries.x_boundary.min_cm = b["x_boundary"]["min_cm"].as<int>();
-                        cfg.boundaries.x_boundary.max_cm = b["x_boundary"]["max_cm"].as<int>();
-                        cfg.boundaries.y_boundary.min_cm = b["y_boundary"]["min_cm"].as<int>();
-                        cfg.boundaries.y_boundary.max_cm = b["y_boundary"]["max_cm"].as<int>();
-                        cfg.boundaries.height_boundary.min_cm = b["height_boundary"]["min_cm"].as<int>();
-                        cfg.boundaries.height_boundary.max_cm = b["height_boundary"]["max_cm"].as<int>();
+                    if (node["map_offset"]) {
+                        cfg.offset.x = node["map_offset"]["x_offset"].as<int>() * drone_mapper::cm;
+                        cfg.offset.y = node["map_offset"]["y_offset"].as<int>() * drone_mapper::cm;
+                        cfg.offset.z = node["map_offset"]["height_offset"].as<int>() * drone_mapper::cm;
+                    }
+                    
+                    if (node["map_boundaries"]) {
+                        auto b = node["map_boundaries"];
+                        cfg.boundaries.min_x = b["x_boundary"]["min_cm"].as<int>() * drone_mapper::cm;
+                        cfg.boundaries.max_x = b["x_boundary"]["max_cm"].as<int>() * drone_mapper::cm;
+                        cfg.boundaries.min_y = b["y_boundary"]["min_cm"].as<int>() * drone_mapper::cm;
+                        cfg.boundaries.max_y = b["y_boundary"]["max_cm"].as<int>() * drone_mapper::cm;
+                        cfg.boundaries.min_height = b["height_boundary"]["min_cm"].as<int>() * drone_mapper::cm;
+                        cfg.boundaries.max_height = b["height_boundary"]["max_cm"].as<int>() * drone_mapper::cm;
                     }
                 };
 
@@ -59,27 +61,31 @@ int main(int argc, char** argv) {
                 if (comp_node["target"]) parse_config(comp_node["target"], target_config);
             }
         } else {
-            origin_config.map_res_cm = 10;
-            target_config.map_res_cm = 10;
+            // הגדרות ברירת מחדל אם לא סופק קובץ קונפיגורציה
+            origin_config.resolution = 10 * drone_mapper::cm;
+            target_config.resolution = 10 * drone_mapper::cm;
             
-            origin_config.boundaries.x_boundary.min_cm = -1000;
-            origin_config.boundaries.x_boundary.max_cm = 1000;
-            origin_config.boundaries.y_boundary.min_cm = -1000;
-            origin_config.boundaries.y_boundary.max_cm = 1000;
-            origin_config.boundaries.height_boundary.min_cm = 0;
-            origin_config.boundaries.height_boundary.max_cm = 1000;
+            origin_config.boundaries.min_x = -1000 * drone_mapper::cm;
+            origin_config.boundaries.max_x = 1000 * drone_mapper::cm;
+            origin_config.boundaries.min_y = -1000 * drone_mapper::cm;
+            origin_config.boundaries.max_y = 1000 * drone_mapper::cm;
+            origin_config.boundaries.min_height = 0 * drone_mapper::cm;
+            origin_config.boundaries.max_height = 1000 * drone_mapper::cm;
             
             target_config.boundaries = origin_config.boundaries;
         }
 
+        // טעינת המערכים מתוך הקבצים
         auto origin_npy = std::make_shared<NpyArray>(origin_map_path);
         auto target_npy = std::make_shared<NpyArray>(target_map_path);
 
+        // יצירת אובייקטי המפה כולל הקונפיגורציה שלהם
         drone_mapper::Map3DImpl origin_map(origin_npy, origin_config);
         drone_mapper::Map3DImpl target_map(target_npy, target_config);
 
         std::vector<drone_mapper::IMap3D*> targets = { &target_map };
         
+        // ביצוע ההשוואה
         std::vector<double> scores = drone_mapper::MapsComparison::compare(origin_map, targets);
         
         if (!scores.empty()) {

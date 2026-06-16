@@ -10,102 +10,31 @@ The following packages will be built and installed:
     yaml-cpp:x64-linux@0.9.0#1
   * zlib:x64-linux@1.3.2#1
 Additional packages (*) will be modified to complete this operation.
-Restored 3 package(s) from /home/rtami/.cache/vcpkg/archives in 25.2 ms. Use --debug to see more details.
+Restored 8 package(s) from /home/rtami/.cache/vcpkg/archives in 143 ms. Use --debug to see more details.
 Installing 1/8 vcpkg-cmake-config:x64-linux@2024-05-23...
 vcpkg-cmake-config:x64-linux@2024-05-23 package ABI: 94b5ea84c5c6d660eab242448776a067d7affd451a2ca6b1b0ea3ea4f7f104a3
-Elapsed time to handle vcpkg-cmake-config:x64-linux: 93.1 ms
+Elapsed time to handle vcpkg-cmake-config:x64-linux: 124 ms
 Installing 2/8 vcpkg-cmake:x64-linux@2024-04-23...
 vcpkg-cmake:x64-linux@2024-04-23 package ABI: 82732cafa54bcf299d1e6bd75d61ca4422b0d8c7173cca5cac5f8b5da212006f
-Elapsed time to handle vcpkg-cmake:x64-linux: 106 ms
+Elapsed time to handle vcpkg-cmake:x64-linux: 73 ms
 Installing 3/8 gsl-lite:x64-linux@1.1.0...
 gsl-lite:x64-linux@1.1.0 package ABI: 9b788e98031d42cdf24c7b670655ec30fc0593fdb13dca90eb7a6dce79d93bec
-Elapsed time to handle gsl-lite:x64-linux: 129 ms
+Elapsed time to handle gsl-lite:x64-linux: 86.3 ms
 Installing 4/8 fmt:x64-linux@12.1.0...
 fmt:x64-linux@12.1.0 package ABI: 0933e73fa9acfe637a5935652d94d1a0fd8a7531706c9e76eea8d3f603b01d70
-Building fmt:x64-linux@12.1.0...
--- Using cached fmtlib-fmt-12.1.0.tar.gz
--- Cleaning sources at /home/rtami/vcpkg/buildtrees/fmt/src/12.1.0-54f1f91231.clean. Use --editable to skip cleaning for the packages you specify.
--- Extracting source /home/rtami/vcpkg/downloads/fmtlib-fmt-12.1.0.tar.gz
--- Using source at /home/rtami/vcpkg/buildtrees/fmt/src/12.1.0-54f1f91231.clean
--- Configuring x64-linux
--- Building x64-linux-dbg
--- Building x64-linux-rel
--- Fixing pkgconfig file: /home/rtami/vcpkg/packages/fmt_x64-linux/lib/pkgconfig/fmt.pc
--- Fixing pkgconfig file: /home/rtami/vcpkg/packages/fmt_x64-linux/debug/lib/pkgconfig/fmt.pc
--- Installing: /home/rtami/vcpkg/packages/fmt_x64-linux/share/fmt/usage
--- Installing: /home/rtami/vcpkg/packages/fmt_x64-linux/share/fmt/copyright
--- Performing post-build validation
-Starting submission of fmt:x64-linux@12.1.0 to 1 binary cache(s) in the background
-Elapsed time to handle fmt:x64-linux: 12 s
+Elapsed time to handle fmt:x64-linux: 156 ms
 Installing 5/8 mp-units:x64-linux@2.5.0...
 mp-units:x64-linux@2.5.0 package ABI: a96918efc287a14987079462678bc89f95ca0c7eafbf571c7594b7c464b0a38d
-Building mp-units:x64-linux@2.5.0...
-Note: `mp-units` requires Clang16+ or GCC11+
-Downloading https://github.com/mpusz/mp-units/archive/v2.5.0.tar.gz -> mpusz-mp-units-v2.5.0.tar.gz
-Successfully downloaded mpusz-mp-units-v2.5.0.tar.gz
--- Extracting source /home/rtami/vcpkg/downloads/mpusz-mp-units-v2.5.0.tar.gz
--- Applying patch config.patch
--- Using source at /home/rtami/vcpkg/buildtrees/mp-units/src/v2.5.0-5191bcc7fa.clean
--- Configuring x64-linux
--- Building x64-linux-dbg
--- Building x64-linux-rel
--- Installing: /home/rtami/vcpkg/packages/mp-units_x64-linux/share/mp-units/copyright
--- Installing: /home/rtami/vcpkg/packages/mp-units_x64-linux/share/mp-units/README.md
--- Performing post-build validation
-Starting submission of mp-units:x64-linux@2.5.0 to 1 binary cache(s) in the background
-Elapsed time to handle mp-units:x64-linux: 7.6 s
-Completed submission of fmt:x64-linux@12.1.0 to 1 binary cache(s) in 98.9 ms
+Elapsed time to handle mp-units:x64-linux: 365 ms
 Installing 6/8 zlib:x64-linux@1.3.2#1...
 zlib:x64-linux@1.3.2#1 package ABI: 3d45b686b3796b7ca2417108340cc662bd9f218da65608d4890e4c375117b71f
-Building zlib:x64-linux@1.3.2#1...
-Downloading https://github.com/madler/zlib/archive/v1.3.2.tar.gz -> madler-zlib-v1.3.2.tar.gz
-Successfully downloaded madler-zlib-v1.3.2.tar.gz
--- Extracting source /home/rtami/vcpkg/downloads/madler-zlib-v1.3.2.tar.gz
--- Applying patch 0001-no-version-script-on-ohos.patch
--- Using source at /home/rtami/vcpkg/buildtrees/zlib/src/v1.3.2-c19a0bfd23.clean
--- Configuring x64-linux
--- Building x64-linux-dbg
--- Building x64-linux-rel
--- Fixing pkgconfig file: /home/rtami/vcpkg/packages/zlib_x64-linux/lib/pkgconfig/zlib.pc
--- Fixing pkgconfig file: /home/rtami/vcpkg/packages/zlib_x64-linux/debug/lib/pkgconfig/zlib.pc
--- Installing: /home/rtami/vcpkg/packages/zlib_x64-linux/share/zlib/vcpkg-cmake-wrapper.cmake
--- Installing: /home/rtami/vcpkg/packages/zlib_x64-linux/share/zlib/copyright
--- Performing post-build validation
-Starting submission of zlib:x64-linux@1.3.2#1 to 1 binary cache(s) in the background
-Elapsed time to handle zlib:x64-linux: 12 s
-Completed submission of mp-units:x64-linux@2.5.0 to 1 binary cache(s) in 27.8 ms
+Elapsed time to handle zlib:x64-linux: 171 ms
 Installing 7/8 tinynpy:x64-linux@1.1...
 tinynpy:x64-linux@1.1 package ABI: b1afe99c0d53469f261315bc8cb04ff888507a356dc73be458950d9ef1d8eec3
-Building tinynpy:x64-linux@1.1...
-Downloading https://github.com/cdcseacave/TinyNPY/archive/v1.1.tar.gz -> cdcseacave-TinyNPY-v1.1.tar.gz
-Successfully downloaded cdcseacave-TinyNPY-v1.1.tar.gz
--- Extracting source /home/rtami/vcpkg/downloads/cdcseacave-TinyNPY-v1.1.tar.gz
--- Using source at /home/rtami/vcpkg/buildtrees/tinynpy/src/v1.1-7cab266a5c.clean
--- Configuring x64-linux
--- Building x64-linux-dbg
--- Building x64-linux-rel
--- Installing: /home/rtami/vcpkg/packages/tinynpy_x64-linux/share/tinynpy/copyright
--- Performing post-build validation
-Starting submission of tinynpy:x64-linux@1.1 to 1 binary cache(s) in the background
-Elapsed time to handle tinynpy:x64-linux: 22 s
-Completed submission of zlib:x64-linux@1.3.2#1 to 1 binary cache(s) in 79 ms
+Elapsed time to handle tinynpy:x64-linux: 149 ms
 Installing 8/8 yaml-cpp:x64-linux@0.9.0#1...
 yaml-cpp:x64-linux@0.9.0#1 package ABI: aa3de15f60e9076c95eb34b02bd03bf1a29f550344c5ebf265cdd959731a2d55
-Building yaml-cpp:x64-linux@0.9.0#1...
-Downloading https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.9.0.tar.gz -> jbeder-yaml-cpp-yaml-cpp-0.9.0.tar.gz
-Successfully downloaded jbeder-yaml-cpp-yaml-cpp-0.9.0.tar.gz
--- Extracting source /home/rtami/vcpkg/downloads/jbeder-yaml-cpp-yaml-cpp-0.9.0.tar.gz
--- Applying patch 1422.patch
--- Using source at /home/rtami/vcpkg/buildtrees/yaml-cpp/src/-cpp-0.9.0-41889444fe.clean
--- Configuring x64-linux
--- Building x64-linux-dbg
--- Building x64-linux-rel
--- Fixing pkgconfig file: /home/rtami/vcpkg/packages/yaml-cpp_x64-linux/lib/pkgconfig/yaml-cpp.pc
--- Fixing pkgconfig file: /home/rtami/vcpkg/packages/yaml-cpp_x64-linux/debug/lib/pkgconfig/yaml-cpp.pc
--- Installing: /home/rtami/vcpkg/packages/yaml-cpp_x64-linux/share/yaml-cpp/copyright
--- Performing post-build validation
-Starting submission of yaml-cpp:x64-linux@0.9.0#1 to 1 binary cache(s) in the background
-Elapsed time to handle yaml-cpp:x64-linux: 30 s
+Elapsed time to handle yaml-cpp:x64-linux: 394 ms
 Installed contents are licensed to you by owners. Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
 Some packages did not declare an SPDX license. Check the `copyright` file for each package for more information about their licensing.
 Packages installed in this vcpkg installation declare the following licenses:
@@ -134,7 +63,4 @@ yaml-cpp provides pkg-config modules:
   # A YAML parser and emitter for C++
   yaml-cpp
 
-Completed submission of tinynpy:x64-linux@1.1 to 1 binary cache(s) in 207 ms
-Waiting for 1 remaining binary cache submissions...
-Completed submission of yaml-cpp:x64-linux@0.9.0#1 to 1 binary cache(s) in 739 ms (1/1)
-All requested installations completed successfully in: 1.4 min
+All requested installations completed successfully in: 1.6 s

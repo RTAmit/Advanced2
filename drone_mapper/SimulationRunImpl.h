@@ -1,14 +1,4 @@
-/**
- * @file SimulationRunImpl.h
- * @brief Declaration of the SimulationRunImpl class.
- *
- * This class implements the ISimulationRun interface and contains the actual 
- * logic for running a single simulation scenario. It orchestrates the drone, 
- * the mission, and the mock sensors.
- */
-
 #pragma once
-
 #include <drone_mapper/ISimulationRun.h>
 #include <drone_mapper/IMissionControl.h>
 #include <drone_mapper/IDroneControl.h>
@@ -18,86 +8,42 @@
 #include <drone_mapper/ILidar.h>
 #include <drone_mapper/IDroneMovement.h>
 #include <drone_mapper/IMappingAlgorithm.h>
-
 #include "MockLidar.h"
 #include "MockGPS.h"
 #include "MockMovement.h"
+#include <memory>
+#include <filesystem>
 
-/**
- * @class SimulationRunImpl
- * @brief Concrete implementation of a single simulation run.
- */
-class SimulationRunImpl : public ISimulationRun {
+namespace drone_mapper {
+class SimulationRunImpl final : public ISimulationRun {
 public:
-    /**
-     * @brief Constructor for SimulationRunImpl.
-     * @param simConfigPath Path to the specific simulation configuration YAML.
-     * @param missionConfigPath Path to the mission configuration YAML.
-     * @param droneConfigPath Path to the drone configuration YAML.
-     * @param lidarConfigPath Path to the lidar configuration YAML.
-     */
-    SimulationRunImpl(const std::string& simConfigPath, 
-                      const std::string& missionConfigPath, 
-                      const std::string& droneConfigPath, 
-                      const std::string& lidarConfigPath);
+    SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+                      std::unique_ptr<IMutableMap3D> output_map,
+                      std::unique_ptr<IGPS> gps,
+                      std::unique_ptr<IDroneMovement> movement,
+                      std::unique_ptr<ILidar> lidar,
+                      std::unique_ptr<IMappingAlgorithm> mapping_algorithm,
+                      std::unique_ptr<IDroneControl> drone_control,
+                      std::unique_ptr<IMissionControl> mission_control,
+                      types::SimulationConfigData simulation_config,
+                      types::MissionConfigData mission_config,
+                      std::filesystem::path output_map_file);
 
-    /**
-     * @brief Destructor.
-     */
     ~SimulationRunImpl() override = default;
 
-    /**
-     * @brief Executes the simulation loop.
-     * Advances the state until the mission ends, hits max steps, or encounters an error.
-     */
-    void run() override;
-
-    /**
-     * @brief Retrieves the final score of the run.
-     * @return double The accuracy score (0-100) or -1 for errors.
-     */
-    double getScore() const override;
-
-    /**
-     * @brief Retrieves the status of the run.
-     * @return std::string "completed", "max_steps", or "error".
-     */
-    std::string getStatus() const override;
-
-    /**
-     * @brief Retrieves the total simulation steps taken.
-     * @return int The number of steps.
-     */
-    int getSteps() const override;
+    [[nodiscard]] types::SimulationResult run() override;
 
 private:
-    // Simulation state variables
-    double m_score;
-    std::string m_status;
-    int m_steps;
-    int m_maxSteps; // Extracted from mission configuration
-
-    // Pointers to the various components required for the simulation.
-    std::unique_ptr<IMissionControl> m_missionControl;
-    std::unique_ptr<IDroneControl> m_droneControl;
-    std::unique_ptr<MockLidar> m_mockLidar;       // תוקן ל-MockLidar
-    std::unique_ptr<MockGPS> m_mockGPS;           // תוקן ל-MockGPS
-    std::unique_ptr<MockMovement> m_mockMovement; // תוקן ל-MockMovement
-    std::unique_ptr<IMap3D> m_inputMap;
-    std::unique_ptr<IMap3D> m_outputMap;
-
-    /**
-     * @brief Initializes all the simulation components.
-     * Parses the configuration files and instantiates the controls and mocks.
-     */
-    void initializeComponents(const std::string& simConfigPath, 
-                              const std::string& missionConfigPath, 
-                              const std::string& droneConfigPath, 
-                              const std::string& lidarConfigPath);
-
-    /**
-     * @brief Evaluates the final generated map against the input map.
-     * Utilizes the MapsComparison utility to generate the final score.
-     */
-    void evaluateScore();
+    std::unique_ptr<const IMap3D> hidden_map_;
+    std::unique_ptr<IMutableMap3D> output_map_;
+    std::unique_ptr<IGPS> gps_;
+    std::unique_ptr<IDroneMovement> movement_;
+    std::unique_ptr<ILidar> lidar_;
+    std::unique_ptr<IMappingAlgorithm> mapping_algorithm_;
+    std::unique_ptr<IDroneControl> drone_control_;
+    std::unique_ptr<IMissionControl> mission_control_;
+    types::SimulationConfigData simulation_config_;
+    types::MissionConfigData mission_config_;
+    std::filesystem::path output_map_file_;
 };
+} // namespace drone_mapper

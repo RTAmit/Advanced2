@@ -1,29 +1,18 @@
-/**
- * @file SimulationRunFactory.h
- * @brief Declaration of the concrete SimulationRunFactory class.
- *
- * The actual concrete factory that implements ISimulationRunFactory.
- */
-
 #pragma once
+#include <drone_mapper/ISimulationRunFactory.h>
+#include <memory>
 
-#include "ISimulationRunFactory.h"
-
-/**
- * @class SimulationRunFactory
- * @brief Concrete implementation of the simulation run factory.
- */
-class SimulationRunFactory : public ISimulationRunFactory {
+namespace drone_mapper {
+class SimulationRunFactoryImpl final : public ISimulationRunFactory {
 public:
-    SimulationRunFactory() = default;
-    ~SimulationRunFactory() override = default;
+    SimulationRunFactoryImpl() = default;
+    ~SimulationRunFactoryImpl() override = default;
 
-    /**
-     * @brief Creates a concrete SimulationRunImpl object.
-     */
-    std::unique_ptr<ISimulationRun> createRun(
-        const std::string& simConfigPath,
-        const std::string& missionConfigPath,
-        const std::string& droneConfigPath,
-        const std::string& lidarConfigPath) override;
+    [[nodiscard]] std::unique_ptr<ISimulationRun>
+    create(const types::SimulationConfigData& simulation,
+           const types::MissionConfigData& mission,
+           const types::DroneConfigData& drone,
+           const types::LidarConfigData& lidar,
+           const std::filesystem::path& output_path) override;
 };
+} // namespace drone_mapper

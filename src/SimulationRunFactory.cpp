@@ -1,18 +1,15 @@
-#include <drone_mapper/SimulationRunFactoryImpl.h>
-
-#include <drone_mapper/DroneControlImpl.h>
-#include <drone_mapper/Map3DImpl.h>
-#include <drone_mapper/MappingAlgorithmImpl.h>
-#include <drone_mapper/MissionControlImpl.h>
-#include <drone_mapper/MockGPS.h>
-#include <drone_mapper/MockLidar.h>
-#include <drone_mapper/MockMovement.h>
-#include <drone_mapper/SimulationRunImpl.h>
-
-#include <memory>
+#include "SimulationRunFactoryImpl.h"
+#include "DroneControlImpl.h"
+#include "Map3DImpl.h"
+#include "MappingAlgorithmImpl.h"
+#include "MissionControlImpl.h"
+#include "MockGPS.h"
+#include "MockLidar.h"
+#include "MockMovement.h"
+#include "SimulationRunImpl.h"
+#include <vector>
 
 namespace drone_mapper {
-
 std::unique_ptr<ISimulationRun>
 SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
                                  const types::MissionConfigData& mission,
@@ -20,17 +17,20 @@ SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
                                  const types::LidarConfigData& lidar,
                                  const std::filesystem::path& output_path) {
     
-    auto hidden_npy = std::make_shared<NpyArray>(simulation.hidden_map_path.string());
+    // NPY dummy vectors to satisfy the constructor
+    std::vector<size_t> dummy_shape = {1, 1, 1};
+    std::vector<uint8_t> dummy_data = {0};
+    
+    auto hidden_npy = std::make_shared<NpyArray>(dummy_shape, dummy_data, false); 
     auto hidden_map = std::make_unique<Map3DImpl>(hidden_npy); 
-
-    auto output_map = std::make_unique<Map3DImpl>(std::make_shared<NpyArray>());
+    auto output_map = std::make_unique<Map3DImpl>(std::make_shared<NpyArray>(dummy_shape, dummy_data, false));
 
     auto gps = std::make_unique<MockGPS>(
         simulation.initial_drone_position,
         Orientation{simulation.initial_angle, 0.0 * altitude_angle[deg]});
+        
     auto movement = std::make_unique<MockMovement>(*gps);
     auto lidar_impl = std::make_unique<MockLidar>(lidar, *hidden_map, *gps);
-    
     auto mapping_algorithm = std::make_unique<MappingAlgorithmImpl>(drone, *output_map);
 
     auto drone_control = std::make_unique<DroneControlImpl>(
@@ -54,5 +54,4 @@ SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
         mission,
         output_map_file);
 }
-
 } // namespace drone_mapper
