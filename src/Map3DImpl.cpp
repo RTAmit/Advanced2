@@ -42,7 +42,7 @@ void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy value) {
     if (!getIndices(pos, x_idx, y_idx, z_idx)) return;
     
     size_t flat_idx = x_idx + map_->Shape()[0] * (y_idx + map_->Shape()[1] * z_idx);
-    uint8_t* mut_data = const_cast<uint8_t*>(map_->Data().data());
+    uint8_t* mut_data = const_cast<uint8_t*>(map_->Data());
     
     if (value == types::VoxelOccupancy::Occupied) {
         mut_data[flat_idx] = 1;
