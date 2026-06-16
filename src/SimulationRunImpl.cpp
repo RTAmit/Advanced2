@@ -1,5 +1,8 @@
-#include "SimulationRunImpl.h"
-#include "MapsComparison.h"
+#include <drone_mapper/SimulationRunImpl.h>
+#include <drone_mapper/MapsComparison.h>
+#include <stdexcept>
+#include <utility>
+#include <vector>
 
 namespace drone_mapper {
 
@@ -35,9 +38,18 @@ types::SimulationResult SimulationRunImpl::run() {
     types::SimulationResult result;
     result.simulation_config = simulation_config_;
     result.mission_config = mission_config_;
-    result.mission_result = mission_res;
-    result.map_score = final_score;
+    
+    // שימוש נכון בווקטור התוצאות החדש:
+    result.mission_results.push_back(mission_res); 
+    
+    // שימוש בשם המשתנה המעודכן עבור הציון:
+    result.mission_score = final_score;
+    
     result.output_map_file = output_map_file_;
+    
+    // שמירת קונפיגורציית המפה לפלט:
+    result.output_map_config = output_map_->getMapConfig();
+    
     return result;
 }
 

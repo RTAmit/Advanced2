@@ -13,3 +13,8 @@
 464	27059	1781605668728311900	CMakeFiles/drone_mapper_simulation_test.dir/src/MappingAlgorithmImpl.cpp.o	4f8b627dfd7637b4
 450	27449	1781605669115837200	CMakeFiles/drone_mapper_simulation_test.dir/src/MissionControlImpl.cpp.o	40362faaad8c6262
 438	27732	1781605669401165200	CMakeFiles/drone_mapper_simulation_test.dir/src/MapsComparison.cpp.o	93965f931b30259d
+483	26083	1781606336278818700	CMakeFiles/drone_mapper_simulation_test.dir/src/MockGPS.cpp.o	3883d5df9942f452
+490	26161	1781606336380189600	CMakeFiles/drone_mapper_simulation_test.dir/src/MockMovement.cpp.o	c7a58629f59bf9db
+462	26409	1781606336620650300	CMakeFiles/drone_mapper_simulation_test.dir/src/SimulationRunImpl.cpp.o	7b3c61906d35d9
+418	26436	1781606336640314800	CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o	b1f9bd899016fea9
+494	27807	1781606338012888700	CMakeFiles/drone_mapper_simulation_test.dir/src/MockLidar.cpp.o	480f580af4f10cf2
