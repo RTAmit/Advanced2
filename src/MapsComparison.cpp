@@ -7,7 +7,7 @@ std::vector<double> MapsComparison::compare(const IMap3D& origin,
     std::vector<double> results;
     
     types::MapConfig origin_config = origin.getMapConfig();
-    int step = origin_config.map_res_cm;
+    int step = origin_config.resolution;
     if (step <= 0) {
         step = 10; 
     }
@@ -15,12 +15,12 @@ std::vector<double> MapsComparison::compare(const IMap3D& origin,
     for (auto* target : targets) {
         types::MapConfig target_config = target->getMapConfig();
         
-        int min_x = target_config.map_boundaries.x_boundary.min_cm;
-        int max_x = target_config.map_boundaries.x_boundary.max_cm;
-        int min_y = target_config.map_boundaries.y_boundary.min_cm;
-        int max_y = target_config.map_boundaries.y_boundary.max_cm;
-        int min_z = target_config.map_boundaries.height_boundary.min_cm;
-        int max_z = target_config.map_boundaries.height_boundary.max_cm;
+        int min_x = target_config.boundaries.x_boundary.min_cm;
+        int max_x = target_config.boundaries.x_boundary.max_cm;
+        int min_y = target_config.boundaries.y_boundary.min_cm;
+        int max_y = target_config.boundaries.y_boundary.max_cm;
+        int min_z = target_config.boundaries.height_boundary.min_cm;
+        int max_z = target_config.boundaries.height_boundary.max_cm;
         
         long long total_voxels = 0;
         long long matching_voxels = 0;

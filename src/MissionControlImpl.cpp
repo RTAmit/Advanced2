@@ -17,22 +17,24 @@ MissionControlImpl::MissionControlImpl(types::MissionConfigData mission,
       output_map_file_(std::move(output_map_file)) {}
 
 types::MissionRunResult MissionControlImpl::runMission() {
-    types::MissionRunStatus final_status = types::MissionRunStatus::Completed; 
-    std::optional<types::ErrorRef> error_ref = std::nullopt;
-    std::size_t steps_taken = 0;
+    types::MappingBounds bounds = output_map_.getMapConfig().boundaries;
 
     for (std::size_t i = 0; i < mission_.max_steps; ++i) {
-       
         types::DroneState current_state = drone_control_.state();
         auto pos = current_state.position;
 
-        if (pos.x_cm < mission_.boundaries.x_boundary.min_cm || pos.x_cm > mission_.boundaries.x_boundary.max_cm ||
-            pos.y_cm < mission_.boundaries.y_boundary.min_cm || pos.y_cm > mission_.boundaries.y_boundary.max_cm ||
-            pos.height_cm < mission_.boundaries.height_boundary.min_cm || pos.height_cm > mission_.boundaries.height_boundary.max_cm) {
+        // חילוץ הערכים הנומריים לבדיקה
+        double px = pos.x.force_numerical_value_in(cm);
+        double py = pos.y.force_numerical_value_in(cm);
+        double pz = pos.z.force_numerical_value_in(cm);
+
+        if (px < bounds.min_x.force_numerical_value_in(cm) || px > bounds.max_x.force_numerical_value_in(cm) ||
+            py < bounds.min_y.force_numerical_value_in(cm) || py > bounds.max_y.force_numerical_value_in(cm) ||
+            pz < bounds.min_height.force_numerical_value_in(cm) || pz > bounds.max_height.force_numerical_value_in(cm)) {
             
             final_status = types::MissionRunStatus::Error;
-            error_ref = types::ErrorRef{"MISSION_BOUNDARY_INVALID", "Drone exited mission boundaries"};
-            break; 
+            error_refs.push_back(types::ErrorRef{"MISSION_BOUNDARY_INVALID", "Drone exited mission boundaries"});
+            break;
         }
 
         types::DroneStepResult step_result = drone_control_.step();

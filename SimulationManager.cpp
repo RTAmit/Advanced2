@@ -4,7 +4,7 @@
  */
 
 #include "SimulationManager.h"
-#include "SimulationRunFactory.h" // תוקן: חובה להוסיף את קובץ ה-Factory
+#include "SimulationRunFactoryImpl.h" // תוקן: חובה להוסיף את קובץ ה-Factory
 #include <iostream>
 #include <fstream>
 #include <stdexcept>

@@ -1,0 +1,7 @@
+# ninja log v5
+180	28348	1781514507611953900	CMakeFiles/drone_mapper_simulation.dir/src/MockGPS.cpp.o	e014f59d0c1b4151
+207	46485	1781514525225233200	CMakeFiles/drone_mapper_simulation.dir/src/MockLidar.cpp.o	fc59acdddd5a1a8b
+788	34523	1781516384126674900	CMakeFiles/drone_mapper_simulation.dir/src/MockMovement.cpp.o	4bb74394c4cb8fb6
+775	37153	1781516386734958600	CMakeFiles/drone_mapper_simulation.dir/src/MappingAlgorithmImpl.cpp.o	ec1bbf340748a271
+727	37172	1781516386747700500	CMakeFiles/drone_mapper_simulation.dir/src/DroneControlImpl.cpp.o	e264659fc8d21935
+578	6133	1781516407789337500	CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o	b215d08acd0f856

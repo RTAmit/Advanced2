@@ -9,14 +9,16 @@
 
 #pragma once
 
-#include "ISimulationRun.h"
-#include <string>
-#include <memory>
+#include <drone_mapper/ISimulationRun.h>
+#include <drone_mapper/IMissionControl.h>
+#include <drone_mapper/IDroneControl.h>
+#include <drone_mapper/IMap3D.h>
+#include <drone_mapper/IMutableMap3D.h>
+#include <drone_mapper/IGPS.h>
+#include <drone_mapper/ILidar.h>
+#include <drone_mapper/IDroneMovement.h>
+#include <drone_mapper/IMappingAlgorithm.h>
 
-// ייבוא הממשקים ומחלקות ה-Mock האמיתיות
-#include "IMissionControl.h"
-#include "IDroneControl.h"
-#include "IMap3D.h"
 #include "MockLidar.h"
 #include "MockGPS.h"
 #include "MockMovement.h"

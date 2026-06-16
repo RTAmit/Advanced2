@@ -1,0 +1,1730 @@
+[1/26] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp'
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:1:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:30:49: error: expected class-name before ‘{’ token
+   30 | class SimulationRunImpl : public ISimulationRun {
+      |                                                 ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:81:21: error: ‘IMissionControl’ was not declared in this scope; did you mean ‘drone_mapper::IMissionControl’?
+   81 |     std::unique_ptr<IMissionControl> m_missionControl;
+      |                     ^~~~~~~~~~~~~~~
+      |                     drone_mapper::IMissionControl
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:13:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IMissionControl.h:7:7: note: ‘drone_mapper::IMissionControl’ declared here
+    7 | class IMissionControl {
+      |       ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:81:36: error: template argument 1 is invalid
+   81 |     std::unique_ptr<IMissionControl> m_missionControl;
+      |                                    ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:81:36: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:81:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   81 |     std::unique_ptr<IMissionControl> m_missionControl;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:82:21: error: ‘IDroneControl’ was not declared in this scope; did you mean ‘drone_mapper::IDroneControl’?
+   82 |     std::unique_ptr<IDroneControl> m_droneControl;
+      |                     ^~~~~~~~~~~~~
+      |                     drone_mapper::IDroneControl
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:14:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IDroneControl.h:8:7: note: ‘drone_mapper::IDroneControl’ declared here
+    8 | class IDroneControl {
+      |       ^~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:82:34: error: template argument 1 is invalid
+   82 |     std::unique_ptr<IDroneControl> m_droneControl;
+      |                                  ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:82:34: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:82:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   82 |     std::unique_ptr<IDroneControl> m_droneControl;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:83:21: error: ‘MockLidar’ was not declared in this scope; did you mean ‘drone_mapper::MockLidar’?
+   83 |     std::unique_ptr<MockLidar> m_mockLidar;       // תוקן ל-MockLidar
+      |                     ^~~~~~~~~
+      |                     drone_mapper::MockLidar
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:22:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/MockLidar.h:9:7: note: ‘drone_mapper::MockLidar’ declared here
+    9 | class MockLidar final : public ILidar {
+      |       ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:83:30: error: template argument 1 is invalid
+   83 |     std::unique_ptr<MockLidar> m_mockLidar;       // תוקן ל-MockLidar
+      |                              ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:83:30: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:83:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   83 |     std::unique_ptr<MockLidar> m_mockLidar;       // תוקן ל-MockLidar
+      |          ^~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:84:21: error: ‘MockGPS’ was not declared in this scope; did you mean ‘drone_mapper::MockGPS’?
+   84 |     std::unique_ptr<MockGPS> m_mockGPS;           // תוקן ל-MockGPS
+      |                     ^~~~~~~
+      |                     drone_mapper::MockGPS
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:23:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/MockGPS.h:7:7: note: ‘drone_mapper::MockGPS’ declared here
+    7 | class MockGPS final : public IGPS {
+      |       ^~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:84:28: error: template argument 1 is invalid
+   84 |     std::unique_ptr<MockGPS> m_mockGPS;           // תוקן ל-MockGPS
+      |                            ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:84:28: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:84:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   84 |     std::unique_ptr<MockGPS> m_mockGPS;           // תוקן ל-MockGPS
+      |          ^~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:85:21: error: ‘MockMovement’ was not declared in this scope; did you mean ‘drone_mapper::MockMovement’?
+   85 |     std::unique_ptr<MockMovement> m_mockMovement; // תוקן ל-MockMovement
+      |                     ^~~~~~~~~~~~
+      |                     drone_mapper::MockMovement
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:24:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/MockMovement.h:8:7: note: ‘drone_mapper::MockMovement’ declared here
+    8 | class MockMovement final : public IDroneMovement {
+      |       ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:85:33: error: template argument 1 is invalid
+   85 |     std::unique_ptr<MockMovement> m_mockMovement; // תוקן ל-MockMovement
+      |                                 ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:85:33: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:85:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   85 |     std::unique_ptr<MockMovement> m_mockMovement; // תוקן ל-MockMovement
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:86:21: error: ‘IMap3D’ was not declared in this scope; did you mean ‘drone_mapper::IMap3D’?
+   86 |     std::unique_ptr<IMap3D> m_inputMap;
+      |                     ^~~~~~
+      |                     drone_mapper::IMap3D
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:15:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IMap3D.h:7:7: note: ‘drone_mapper::IMap3D’ declared here
+    7 | class IMap3D {
+      |       ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:86:27: error: template argument 1 is invalid
+   86 |     std::unique_ptr<IMap3D> m_inputMap;
+      |                           ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:86:27: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:86:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   86 |     std::unique_ptr<IMap3D> m_inputMap;
+      |          ^~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:87:21: error: ‘IMap3D’ was not declared in this scope; did you mean ‘drone_mapper::IMap3D’?
+   87 |     std::unique_ptr<IMap3D> m_outputMap;
+      |                     ^~~~~~
+      |                     drone_mapper::IMap3D
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IMap3D.h:7:7: note: ‘drone_mapper::IMap3D’ declared here
+    7 | class IMap3D {
+      |       ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:87:27: error: template argument 1 is invalid
+   87 |     std::unique_ptr<IMap3D> m_outputMap;
+      |                           ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:87:27: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:87:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   87 |     std::unique_ptr<IMap3D> m_outputMap;
+      |          ^~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:47:5: error: ‘SimulationRunImpl::~SimulationRunImpl()’ marked ‘override’, but does not override
+   47 |     ~SimulationRunImpl() override = default;
+      |     ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:53:10: error: ‘void SimulationRunImpl::run()’ marked ‘override’, but does not override
+   53 |     void run() override;
+      |          ^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:59:12: error: ‘double SimulationRunImpl::getScore() const’ marked ‘override’, but does not override
+   59 |     double getScore() const override;
+      |            ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:65:17: error: ‘std::string SimulationRunImpl::getStatus() const’ marked ‘override’, but does not override
+   65 |     std::string getStatus() const override;
+      |                 ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:71:9: error: ‘int SimulationRunImpl::getSteps() const’ marked ‘override’, but does not override
+   71 |     int getSteps() const override;
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:60: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                                            ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:66: error: template argument 1 is invalid
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                                                  ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:66: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:60: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                                            ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:66: error: template argument 1 is invalid
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                                                  ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:66: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:60: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                                            ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:66: error: template argument 1 is invalid
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                                                  ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:66: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:60: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                                            ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:66: error: template argument 1 is invalid
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                                                  ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:66: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:38: error: invalid template-id
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                      ^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:60: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                                            ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:10:37: error: expected constructor, destructor, or type conversion before ‘(’ token
+   10 | SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
+      |                                     ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:44:48: error: definition of ‘drone_mapper::types::SimulationResult SimulationRunImpl::run()’ is not in namespace enclosing ‘SimulationRunImpl’ [-fpermissive]
+   44 | types::SimulationResult SimulationRunImpl::run() {
+      |                                                ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:44:25: error: no declaration matches ‘drone_mapper::types::SimulationResult SimulationRunImpl::run()’
+   44 | types::SimulationResult SimulationRunImpl::run() {
+      |                         ^~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:53:10: note: candidate is: ‘void SimulationRunImpl::run()’
+   53 |     void run() override;
+      |          ^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:30:7: note: ‘class SimulationRunImpl’ defined here
+   30 | class SimulationRunImpl : public ISimulationRun {
+      |       ^~~~~~~~~~~~~~~~~
+[2/26] Building CXX object CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp'
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp:6:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:28:21: error: ‘ISimulationRunFactory’ was not declared in this scope; did you mean ‘drone_mapper::ISimulationRunFactory’?
+   28 |     std::unique_ptr<ISimulationRunFactory> m_factory;
+      |                     ^~~~~~~~~~~~~~~~~~~~~
+      |                     drone_mapper::ISimulationRunFactory
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:12:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/ISimulationRunFactory.h:11:7: note: ‘drone_mapper::ISimulationRunFactory’ declared here
+   11 | class ISimulationRunFactory {
+      |       ^~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:28:42: error: template argument 1 is invalid
+   28 |     std::unique_ptr<ISimulationRunFactory> m_factory;
+      |                                          ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:28:42: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:28:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   28 |     std::unique_ptr<ISimulationRunFactory> m_factory;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp:7:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:16:59: error: expected class-name before ‘{’ token
+   16 | class SimulationRunFactory : public ISimulationRunFactory {
+      |                                                           ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:24:21: error: ‘ISimulationRun’ was not declared in this scope; did you mean ‘drone_mapper::ISimulationRun’?
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |                     ^~~~~~~~~~~~~~
+      |                     drone_mapper::ISimulationRun
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/ISimulationRunFactory.h:3:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/ISimulationRun.h:7:7: note: ‘drone_mapper::ISimulationRun’ declared here
+    7 | class ISimulationRun {
+      |       ^~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:24:35: error: template argument 1 is invalid
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |                                   ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:24:35: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:24:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:19:5: error: ‘SimulationRunFactory::~SimulationRunFactory()’ marked ‘override’, but does not override
+   19 |     ~SimulationRunFactory() override = default;
+      |     ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp: In constructor ‘SimulationManager::SimulationManager(const std::filesystem::__cxx11::path&, const std::filesystem::__cxx11::path&)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp:21:5: error: ‘m_factory’ was not declared in this scope
+   21 |     m_factory = std::make_unique<SimulationRunFactory>();
+      |     ^~~~~~~~~
+[3/26] Building CXX object CMakeFiles/maps_comparison.dir/src/Map3DImpl.cpp.o
+FAILED: CMakeFiles/maps_comparison.dir/src/Map3DImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/maps_comparison.dir/src/Map3DImpl.cpp.o -MF CMakeFiles/maps_comparison.dir/src/Map3DImpl.cpp.o.d -o CMakeFiles/maps_comparison.dir/src/Map3DImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘bool drone_mapper::Map3DImpl::getIndices(const drone_mapper::Position3D&, int&, int&, int&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:20:21: error: ‘const struct drone_mapper::Position3D’ has no member named ‘x_cm’
+   20 |     int rel_x = pos.x_cm - config_.offset.x_offset;
+      |                     ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:20:43: error: ‘const struct drone_mapper::Position3D’ has no member named ‘x_offset’
+   20 |     int rel_x = pos.x_cm - config_.offset.x_offset;
+      |                                           ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:21:21: error: ‘const struct drone_mapper::Position3D’ has no member named ‘y_cm’
+   21 |     int rel_y = pos.y_cm - config_.offset.y_offset;
+      |                     ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:21:43: error: ‘const struct drone_mapper::Position3D’ has no member named ‘y_offset’
+   21 |     int rel_y = pos.y_cm - config_.offset.y_offset;
+      |                                           ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:22:21: error: ‘const struct drone_mapper::Position3D’ has no member named ‘height_cm’
+   22 |     int rel_z = pos.height_cm - config_.offset.height_offset;
+      |                     ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:22:48: error: ‘const struct drone_mapper::Position3D’ has no member named ‘height_offset’
+   22 |     int rel_z = pos.height_cm - config_.offset.height_offset;
+      |                                                ^~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:24:19: error: cannot convert ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>’ to ‘int’ in assignment
+   24 |     x_idx = rel_x / config_.resolution;
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:25:19: error: cannot convert ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>’ to ‘int’ in assignment
+   25 |     y_idx = rel_y / config_.resolution;
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:26:19: error: cannot convert ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>’ to ‘int’ in assignment
+   26 |     z_idx = rel_z / config_.resolution;
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:28:54: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   28 |     if (x_idx < 0 || x_idx >= static_cast<int>(map_->get_shape[0]) ||
+      |                                                      ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:29:54: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   29 |         y_idx < 0 || y_idx >= static_cast<int>(map_->get_shape[1]) ||
+      |                                                      ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:30:54: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   30 |         z_idx < 0 || z_idx >= static_cast<int>(map_->get_shape[2])) {
+      |                                                      ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual drone_mapper::types::VoxelOccupancy drone_mapper::Map3DImpl::atVoxel(const drone_mapper::Position3D&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:42:37: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   42 |     size_t flat_idx = x_idx + map_->get_shape[0] * (y_idx + map_->get_shape[1] * z_idx);
+      |                                     ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:42:67: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   42 |     size_t flat_idx = x_idx + map_->get_shape[0] * (y_idx + map_->get_shape[1] * z_idx);
+      |                                                                   ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:44:31: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_data’
+   44 |     uint8_t voxel_val = map_->get_data[flat_idx];
+      |                               ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:49:35: error: ‘Free’ is not a member of ‘drone_mapper::types::VoxelOccupancy’
+   49 |     return types::VoxelOccupancy::Free;
+      |                                   ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual void drone_mapper::Map3DImpl::set(const drone_mapper::Position3D&, drone_mapper::types::VoxelOccupancy)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:59:41: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   59 |         size_t flat_idx = x_idx + map_->get_shape[0] * (y_idx + map_->get_shape[1] * z_idx);
+      |                                         ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:59:71: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   59 |         size_t flat_idx = x_idx + map_->get_shape[0] * (y_idx + map_->get_shape[1] * z_idx);
+      |                                                                       ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:62:19: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘set_data’; did you mean ‘SetData’?
+   62 |             map_->set_data[flat_idx] = 1;
+      |                   ^~~~~~~~
+      |                   SetData
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:63:52: error: ‘Free’ is not a member of ‘drone_mapper::types::VoxelOccupancy’
+   63 |         } else if (value == types::VoxelOccupancy::Free) {
+      |                                                    ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:64:19: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘set_data’; did you mean ‘SetData’?
+   64 |             map_->set_data[flat_idx] = 0;
+      |                   ^~~~~~~~
+      |                   SetData
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual void drone_mapper::Map3DImpl::save(const std::filesystem::__cxx11::path&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:79:45: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   79 |                        std::to_string(map_->get_shape[0]) + ", " +
+      |                                             ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:80:45: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   80 |                        std::to_string(map_->get_shape[1]) + ", " +
+      |                                             ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:81:45: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   81 |                        std::to_string(map_->get_shape[2]) + "), }";
+      |                                             ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:91:31: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   91 |     size_t total_size = map_->get_shape[0] * map_->get_shape[1] * map_->get_shape[2];
+      |                               ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:91:52: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   91 |     size_t total_size = map_->get_shape[0] * map_->get_shape[1] * map_->get_shape[2];
+      |                                                    ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:91:73: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   91 |     size_t total_size = map_->get_shape[0] * map_->get_shape[1] * map_->get_shape[2];
+      |                                                                         ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:92:52: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_data’
+   92 |     file.write(reinterpret_cast<const char*>(map_->get_data.data()), total_size);
+      |                                                    ^~~~~~~~
+[4/26] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/src/SimulationRunFactory.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp'
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp:1:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:16:59: error: expected class-name before ‘{’ token
+   16 | class SimulationRunFactory : public ISimulationRunFactory {
+      |                                                           ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:24:21: error: ‘ISimulationRun’ was not declared in this scope; did you mean ‘drone_mapper::ISimulationRun’?
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |                     ^~~~~~~~~~~~~~
+      |                     drone_mapper::ISimulationRun
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/ISimulationRunFactory.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:10:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/ISimulationRun.h:7:7: note: ‘drone_mapper::ISimulationRun’ declared here
+    7 | class ISimulationRun {
+      |       ^~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:24:35: error: template argument 1 is invalid
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |                                   ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:24:35: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:24:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:19:5: error: ‘SimulationRunFactory::~SimulationRunFactory()’ marked ‘override’, but does not override
+   19 |     ~SimulationRunFactory() override = default;
+      |     ^
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp:10:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:30:49: error: expected class-name before ‘{’ token
+   30 | class SimulationRunImpl : public ISimulationRun {
+      |                                                 ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:81:21: error: ‘IMissionControl’ was not declared in this scope; did you mean ‘drone_mapper::IMissionControl’?
+   81 |     std::unique_ptr<IMissionControl> m_missionControl;
+      |                     ^~~~~~~~~~~~~~~
+      |                     drone_mapper::IMissionControl
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/MissionControlImpl.h:5,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp:6:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IMissionControl.h:7:7: note: ‘drone_mapper::IMissionControl’ declared here
+    7 | class IMissionControl {
+      |       ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:81:36: error: template argument 1 is invalid
+   81 |     std::unique_ptr<IMissionControl> m_missionControl;
+      |                                    ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:81:36: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:81:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   81 |     std::unique_ptr<IMissionControl> m_missionControl;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:82:21: error: ‘IDroneControl’ was not declared in this scope; did you mean ‘drone_mapper::IDroneControl’?
+   82 |     std::unique_ptr<IDroneControl> m_droneControl;
+      |                     ^~~~~~~~~~~~~
+      |                     drone_mapper::IDroneControl
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/DroneControlImpl.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp:3:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IDroneControl.h:8:7: note: ‘drone_mapper::IDroneControl’ declared here
+    8 | class IDroneControl {
+      |       ^~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:82:34: error: template argument 1 is invalid
+   82 |     std::unique_ptr<IDroneControl> m_droneControl;
+      |                                  ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:82:34: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:82:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   82 |     std::unique_ptr<IDroneControl> m_droneControl;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:83:21: error: ‘MockLidar’ was not declared in this scope; did you mean ‘drone_mapper::MockLidar’?
+   83 |     std::unique_ptr<MockLidar> m_mockLidar;       // תוקן ל-MockLidar
+      |                     ^~~~~~~~~
+      |                     drone_mapper::MockLidar
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp:8:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/MockLidar.h:9:7: note: ‘drone_mapper::MockLidar’ declared here
+    9 | class MockLidar final : public ILidar {
+      |       ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:83:30: error: template argument 1 is invalid
+   83 |     std::unique_ptr<MockLidar> m_mockLidar;       // תוקן ל-MockLidar
+      |                              ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:83:30: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:83:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   83 |     std::unique_ptr<MockLidar> m_mockLidar;       // תוקן ל-MockLidar
+      |          ^~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:84:21: error: ‘MockGPS’ was not declared in this scope; did you mean ‘drone_mapper::MockGPS’?
+   84 |     std::unique_ptr<MockGPS> m_mockGPS;           // תוקן ל-MockGPS
+      |                     ^~~~~~~
+      |                     drone_mapper::MockGPS
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp:7:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/MockGPS.h:7:7: note: ‘drone_mapper::MockGPS’ declared here
+    7 | class MockGPS final : public IGPS {
+      |       ^~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:84:28: error: template argument 1 is invalid
+   84 |     std::unique_ptr<MockGPS> m_mockGPS;           // תוקן ל-MockGPS
+      |                            ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:84:28: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:84:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   84 |     std::unique_ptr<MockGPS> m_mockGPS;           // תוקן ל-MockGPS
+      |          ^~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:85:21: error: ‘MockMovement’ was not declared in this scope; did you mean ‘drone_mapper::MockMovement’?
+   85 |     std::unique_ptr<MockMovement> m_mockMovement; // תוקן ל-MockMovement
+      |                     ^~~~~~~~~~~~
+      |                     drone_mapper::MockMovement
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp:9:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/MockMovement.h:8:7: note: ‘drone_mapper::MockMovement’ declared here
+    8 | class MockMovement final : public IDroneMovement {
+      |       ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:85:33: error: template argument 1 is invalid
+   85 |     std::unique_ptr<MockMovement> m_mockMovement; // תוקן ל-MockMovement
+      |                                 ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:85:33: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:85:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   85 |     std::unique_ptr<MockMovement> m_mockMovement; // תוקן ל-MockMovement
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:86:21: error: ‘IMap3D’ was not declared in this scope; did you mean ‘drone_mapper::IMap3D’?
+   86 |     std::unique_ptr<IMap3D> m_inputMap;
+      |                     ^~~~~~
+      |                     drone_mapper::IMap3D
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IMutableMap3D.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/DroneControlImpl.h:8:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IMap3D.h:7:7: note: ‘drone_mapper::IMap3D’ declared here
+    7 | class IMap3D {
+      |       ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:86:27: error: template argument 1 is invalid
+   86 |     std::unique_ptr<IMap3D> m_inputMap;
+      |                           ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:86:27: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:86:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   86 |     std::unique_ptr<IMap3D> m_inputMap;
+      |          ^~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:87:21: error: ‘IMap3D’ was not declared in this scope; did you mean ‘drone_mapper::IMap3D’?
+   87 |     std::unique_ptr<IMap3D> m_outputMap;
+      |                     ^~~~~~
+      |                     drone_mapper::IMap3D
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IMap3D.h:7:7: note: ‘drone_mapper::IMap3D’ declared here
+    7 | class IMap3D {
+      |       ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:87:27: error: template argument 1 is invalid
+   87 |     std::unique_ptr<IMap3D> m_outputMap;
+      |                           ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:87:27: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:87:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   87 |     std::unique_ptr<IMap3D> m_outputMap;
+      |          ^~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:47:5: error: ‘SimulationRunImpl::~SimulationRunImpl()’ marked ‘override’, but does not override
+   47 |     ~SimulationRunImpl() override = default;
+      |     ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:53:10: error: ‘void SimulationRunImpl::run()’ marked ‘override’, but does not override
+   53 |     void run() override;
+      |          ^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:59:12: error: ‘double SimulationRunImpl::getScore() const’ marked ‘override’, but does not override
+   59 |     double getScore() const override;
+      |            ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:65:17: error: ‘std::string SimulationRunImpl::getStatus() const’ marked ‘override’, but does not override
+   65 |     std::string getStatus() const override;
+      |                 ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunImpl.h:71:9: error: ‘int SimulationRunImpl::getSteps() const’ marked ‘override’, but does not override
+   71 |     int getSteps() const override;
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp:17:1: error: ‘SimulationRunFactoryImpl’ has not been declared
+   17 | SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
+      | ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp: In function ‘std::unique_ptr<drone_mapper::ISimulationRun> drone_mapper::create(const types::SimulationConfigData&, const types::MissionConfigData&, const types::DroneConfigData&, const types::LidarConfigData&, const std::filesystem::__cxx11::path&)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunFactory.cpp:23:61: error: ‘const struct drone_mapper::types::SimulationConfigData’ has no member named ‘hidden_map_path’
+   23 |     auto hidden_npy = std::make_shared<NpyArray>(simulation.hidden_map_path.string());
+      |                                                             ^~~~~~~~~~~~~~~
+[5/26] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp: In member function ‘virtual drone_mapper::types::MissionRunResult drone_mapper::MissionControlImpl::runMission()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:35:13: error: ‘final_status’ was not declared in this scope
+   35 |             final_status = types::MissionRunStatus::Error;
+      |             ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:36:13: error: ‘error_refs’ was not declared in this scope; did you mean ‘error_t’?
+   36 |             error_refs.push_back(types::ErrorRef{"MISSION_BOUNDARY_INVALID", "Drone exited mission boundaries"});
+      |             ^~~~~~~~~~
+      |             error_t
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:41:9: error: ‘steps_taken’ was not declared in this scope
+   41 |         steps_taken++;
+      |         ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:44:13: error: ‘final_status’ was not declared in this scope
+   44 |             final_status = types::MissionRunStatus::Error;
+      |             ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:45:13: error: ‘error_ref’ was not declared in this scope; did you mean ‘error_t’?
+   45 |             error_ref = types::ErrorRef{"DRONE_ERROR", step_result.message};
+      |             ^~~~~~~~~
+      |             error_t
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:49:59: error: ‘Finished’ is not a member of ‘drone_mapper::types::DroneStepStatus’
+   49 |         if (step_result.status == types::DroneStepStatus::Finished) { break; }
+      |                                                           ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:55:9: error: ‘final_status’ was not declared in this scope
+   55 |         final_status,
+      |         ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:56:9: error: ‘steps_taken’ was not declared in this scope
+   56 |         steps_taken,
+      |         ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:57:9: error: ‘error_ref’ was not declared in this scope; did you mean ‘error_t’?
+   57 |         error_ref
+      |         ^~~~~~~~~
+      |         error_t
+[6/26] Building CXX object CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o
+FAILED: CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o -MF CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o.d -o CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp: In lambda function:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:39:49: error: ‘struct drone_mapper::types::MapConfig’ has no member named ‘map_res_cm’
+   39 |                     if (node["map_res_cm"]) cfg.map_res_cm = node["map_res_cm"].as<int>();
+      |                                                 ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:42:29: error: ‘struct drone_mapper::types::MapConfig’ has no member named ‘map_offset’; did you mean ‘offset’?
+   42 |                         cfg.map_offset.x_offset = node["map_offset"]["x_offset"].as<int>();
+      |                             ^~~~~~~~~~
+      |                             offset
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:43:29: error: ‘struct drone_mapper::types::MapConfig’ has no member named ‘map_offset’; did you mean ‘offset’?
+   43 |                         cfg.map_offset.y_offset = node["map_offset"]["y_offset"].as<int>();
+      |                             ^~~~~~~~~~
+      |                             offset
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:44:29: error: ‘struct drone_mapper::types::MapConfig’ has no member named ‘map_offset’; did you mean ‘offset’?
+   44 |                         cfg.map_offset.height_offset = node["map_offset"]["height_offset"].as<int>();
+      |                             ^~~~~~~~~~
+      |                             offset
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:49:40: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘x_boundary’
+   49 |                         cfg.boundaries.x_boundary.min_cm = b["x_boundary"]["min_cm"].as<int>();
+      |                                        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:50:40: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘x_boundary’
+   50 |                         cfg.boundaries.x_boundary.max_cm = b["x_boundary"]["max_cm"].as<int>();
+      |                                        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:51:40: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘y_boundary’
+   51 |                         cfg.boundaries.y_boundary.min_cm = b["y_boundary"]["min_cm"].as<int>();
+      |                                        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:52:40: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘y_boundary’
+   52 |                         cfg.boundaries.y_boundary.max_cm = b["y_boundary"]["max_cm"].as<int>();
+      |                                        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:53:40: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘height_boundary’
+   53 |                         cfg.boundaries.height_boundary.min_cm = b["height_boundary"]["min_cm"].as<int>();
+      |                                        ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:54:40: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘height_boundary’
+   54 |                         cfg.boundaries.height_boundary.max_cm = b["height_boundary"]["max_cm"].as<int>();
+      |                                        ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp: In function ‘int main(int, char**)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:62:27: error: ‘struct drone_mapper::types::MapConfig’ has no member named ‘map_res_cm’
+   62 |             origin_config.map_res_cm = 10;
+      |                           ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:63:27: error: ‘struct drone_mapper::types::MapConfig’ has no member named ‘map_res_cm’
+   63 |             target_config.map_res_cm = 10;
+      |                           ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:65:38: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘x_boundary’
+   65 |             origin_config.boundaries.x_boundary.min_cm = -1000;
+      |                                      ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:66:38: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘x_boundary’
+   66 |             origin_config.boundaries.x_boundary.max_cm = 1000;
+      |                                      ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:67:38: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘y_boundary’
+   67 |             origin_config.boundaries.y_boundary.min_cm = -1000;
+      |                                      ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:68:38: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘y_boundary’
+   68 |             origin_config.boundaries.y_boundary.max_cm = 1000;
+      |                                      ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:69:38: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘height_boundary’
+   69 |             origin_config.boundaries.height_boundary.min_cm = 0;
+      |                                      ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:70:38: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘height_boundary’
+   70 |             origin_config.boundaries.height_boundary.max_cm = 1000;
+      |                                      ^~~~~~~~~~~~~~~
+In file included from /usr/include/c++/13/bits/stl_iterator.h:85,
+                 from /usr/include/c++/13/iterator:63,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/ext/type_traits.h:32,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/bits/sudo_cast.h:25,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:28,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/construction_helpers.h:25,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework.h:27,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/DroneTypes.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Types.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IMap3D.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/MapsComparison.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:1:
+/usr/include/c++/13/bits/stl_construct.h: In instantiation of ‘constexpr void std::_Construct(_Tp*, _Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}]’:
+/usr/include/c++/13/bits/alloc_traits.h:661:19:   required from ‘static constexpr void std::allocator_traits<std::allocator<void> >::construct(allocator_type&, _Up*, _Args&& ...) [with _Up = NpyArray; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; allocator_type = std::allocator<void>]’
+/usr/include/c++/13/bits/shared_ptr_base.h:604:39:   required from ‘std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; _Alloc = std::allocator<void>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:971:16:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = NpyArray; _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:1712:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr.h:464:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray]’
+/usr/include/c++/13/bits/shared_ptr.h:1009:14:   required from ‘std::shared_ptr<std::_NonArray<_Tp> > std::make_shared(_Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}; _NonArray<_Tp> = NpyArray]’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:75:53:   required from here
+/usr/include/c++/13/bits/stl_construct.h:115:28: error: no matching function for call to ‘construct_at(NpyArray*&, std::__cxx11::basic_string<char>&)’
+  115 |           std::construct_at(__p, std::forward<_Args>(__args)...);
+      |           ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/13/bits/stl_construct.h:94:5: note: candidate: ‘template<class _Tp, class ... _Args> constexpr decltype (::new(void*(0)) _Tp) std::construct_at(_Tp*, _Args&& ...)’
+   94 |     construct_at(_Tp* __location, _Args&&... __args)
+      |     ^~~~~~~~~~~~
+/usr/include/c++/13/bits/stl_construct.h:94:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_construct.h: In substitution of ‘template<class _Tp, class ... _Args> constexpr decltype (::new(void*(0)) _Tp) std::construct_at(_Tp*, _Args&& ...) [with _Tp = NpyArray; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}]’:
+/usr/include/c++/13/bits/stl_construct.h:115:21:   required from ‘constexpr void std::_Construct(_Tp*, _Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}]’
+/usr/include/c++/13/bits/alloc_traits.h:661:19:   required from ‘static constexpr void std::allocator_traits<std::allocator<void> >::construct(allocator_type&, _Up*, _Args&& ...) [with _Up = NpyArray; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; allocator_type = std::allocator<void>]’
+/usr/include/c++/13/bits/shared_ptr_base.h:604:39:   required from ‘std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; _Alloc = std::allocator<void>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:971:16:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = NpyArray; _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:1712:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr.h:464:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray]’
+/usr/include/c++/13/bits/shared_ptr.h:1009:14:   required from ‘std::shared_ptr<std::_NonArray<_Tp> > std::make_shared(_Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}; _NonArray<_Tp> = NpyArray]’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:75:53:   required from here
+/usr/include/c++/13/bits/stl_construct.h:96:17: error: no matching function for call to ‘NpyArray::NpyArray(std::__cxx11::basic_string<char>&)’
+   96 |     -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Map3DImpl.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:2:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:79:9: note: candidate: ‘template<class T> NpyArray::NpyArray(const shape_t&, T*, bool)’
+   79 |         NpyArray(const shape_t& _shape, T* _data, bool _fortranOrder=false)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:79:9: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_construct.h:96:17: note:   candidate expects 3 arguments, 1 provided
+   96 |     -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:85:9: note: candidate: ‘NpyArray::NpyArray(NpyArray&&)’
+   85 |         NpyArray(NpyArray&& arr)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:85:29: note:   no known conversion for argument 1 from ‘std::__cxx11::basic_string<char>’ to ‘NpyArray&&’
+   85 |         NpyArray(NpyArray&& arr)
+      |                  ~~~~~~~~~~~^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:82:9: note: candidate: ‘NpyArray::NpyArray(const shape_t&, size_t, char, bool)’
+   82 |         NpyArray(const shape_t& _shape, size_t _wordSize, char _type, bool _fortranOrder=false)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:82:9: note:   candidate expects 4 arguments, 1 provided
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:76:9: note: candidate: ‘NpyArray::NpyArray()’
+   76 |         NpyArray() : data(NULL), numValues(0), wordSize(0), type(0), fortranOrder(0) {}
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:76:9: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/13/bits/stl_construct.h: In instantiation of ‘constexpr void std::_Construct(_Tp*, _Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}]’:
+/usr/include/c++/13/bits/alloc_traits.h:661:19:   required from ‘static constexpr void std::allocator_traits<std::allocator<void> >::construct(allocator_type&, _Up*, _Args&& ...) [with _Up = NpyArray; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; allocator_type = std::allocator<void>]’
+/usr/include/c++/13/bits/shared_ptr_base.h:604:39:   required from ‘std::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; _Alloc = std::allocator<void>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:971:16:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = NpyArray; _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:1712:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr.h:464:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}; _Tp = NpyArray]’
+/usr/include/c++/13/bits/shared_ptr.h:1009:14:   required from ‘std::shared_ptr<std::_NonArray<_Tp> > std::make_shared(_Args&& ...) [with _Tp = NpyArray; _Args = {__cxx11::basic_string<char, char_traits<char>, allocator<char> >&}; _NonArray<_Tp> = NpyArray]’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:75:53:   required from here
+/usr/include/c++/13/bits/stl_construct.h:119:7: error: no matching function for call to ‘NpyArray::NpyArray(std::__cxx11::basic_string<char>&)’
+  119 |       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:79:9: note: candidate: ‘template<class T> NpyArray::NpyArray(const shape_t&, T*, bool)’
+   79 |         NpyArray(const shape_t& _shape, T* _data, bool _fortranOrder=false)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:79:9: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/stl_construct.h:119:7: note:   candidate expects 3 arguments, 1 provided
+  119 |       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:85:9: note: candidate: ‘NpyArray::NpyArray(NpyArray&&)’
+   85 |         NpyArray(NpyArray&& arr)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:85:29: note:   no known conversion for argument 1 from ‘std::__cxx11::basic_string<char>’ to ‘NpyArray&&’
+   85 |         NpyArray(NpyArray&& arr)
+      |                  ~~~~~~~~~~~^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:82:9: note: candidate: ‘NpyArray::NpyArray(const shape_t&, size_t, char, bool)’
+   82 |         NpyArray(const shape_t& _shape, size_t _wordSize, char _type, bool _fortranOrder=false)
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:82:9: note:   candidate expects 4 arguments, 1 provided
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:76:9: note: candidate: ‘NpyArray::NpyArray()’
+   76 |         NpyArray() : data(NULL), numValues(0), wordSize(0), type(0), fortranOrder(0) {}
+      |         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:76:9: note:   candidate expects 0 arguments, 1 provided
+[7/26] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MapsComparison.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MapsComparison.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -DGTEST_HAS_PTHREAD=1 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MapsComparison.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MapsComparison.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MapsComparison.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp: In member function ‘virtual void MapsComparisonTest_IdenticalMapsReturn100_Test::TestBody()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp:6:5: error: ‘Map3DImpl’ was not declared in this scope; did you mean ‘drone_mapper::Map3DImpl’?
+    6 |     Map3DImpl map1(10);
+      |     ^~~~~~~~~
+      |     drone_mapper::Map3DImpl
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp:3:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/Map3DImpl.h:10:7: note: ‘drone_mapper::Map3DImpl’ declared here
+   10 | class Map3DImpl final : public IMutableMap3D {
+      |       ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp:7:14: error: expected ‘;’ before ‘map2’
+    7 |     Map3DImpl map2(10);
+      |              ^~~~~
+      |              ;
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp:10:5: error: ‘map1’ was not declared in this scope
+   10 |     map1.setObstacle(50, 50, 50, true);
+      |     ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp:11:5: error: ‘map2’ was not declared in this scope
+   11 |     map2.setObstacle(50, 50, 50, true);
+      |     ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp:13:5: error: ‘MapsComparison’ was not declared in this scope; did you mean ‘drone_mapper::MapsComparison’?
+   13 |     MapsComparison comparator;
+      |     ^~~~~~~~~~~~~~
+      |     drone_mapper::MapsComparison
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp:2:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/MapsComparison.h:9:7: note: ‘drone_mapper::MapsComparison’ declared here
+    9 | class MapsComparison {
+      |       ^~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MapsComparison.cpp:14:20: error: ‘comparator’ was not declared in this scope
+   14 |     double score = comparator.compare(map1, map2);
+      |                    ^~~~~~~~~~
+[8/26] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/src/MapsComparison.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/src/MapsComparison.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -DGTEST_HAS_PTHREAD=1 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/src/MapsComparison.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/src/MapsComparison.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/src/MapsComparison.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp: In static member function ‘static std::vector<double> drone_mapper::MapsComparison::compare(const drone_mapper::IMap3D&, std::vector<drone_mapper::IMap3D*>)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:10:30: error: cannot convert ‘drone_mapper::PhysicalLength’ {aka ‘mp_units::quantity<mp_units::reference<mp_units::isq::length, mp_units::si::centi_<mp_units::si::metre> >(), double>’} to ‘int’ in initialization
+   10 |     int step = origin_config.resolution;
+      |                ~~~~~~~~~~~~~~^~~~~~~~~~
+      |                              |
+      |                              drone_mapper::PhysicalLength {aka mp_units::quantity<mp_units::reference<mp_units::isq::length, mp_units::si::centi_<mp_units::si::metre> >(), double>}
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:18:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘x_boundary’
+   18 |         int min_x = target_config.boundaries.x_boundary.min_cm;
+      |                                              ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:19:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘x_boundary’
+   19 |         int max_x = target_config.boundaries.x_boundary.max_cm;
+      |                                              ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:20:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘y_boundary’
+   20 |         int min_y = target_config.boundaries.y_boundary.min_cm;
+      |                                              ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:21:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘y_boundary’
+   21 |         int max_y = target_config.boundaries.y_boundary.max_cm;
+      |                                              ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:22:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘height_boundary’
+   22 |         int min_z = target_config.boundaries.height_boundary.min_cm;
+      |                                              ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:23:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘height_boundary’
+   23 |         int max_z = target_config.boundaries.height_boundary.max_cm;
+      |                                              ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:31:36: error: could not convert ‘x’ from ‘int’ to ‘drone_mapper::XLength’ {aka ‘mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>’}
+   31 |                     Position3D pos{x, y, z};
+      |                                    ^
+      |                                    |
+      |                                    int
+[9/26] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/Map3DImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/src/Map3DImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/src/Map3DImpl.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/src/Map3DImpl.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/src/Map3DImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘bool drone_mapper::Map3DImpl::getIndices(const drone_mapper::Position3D&, int&, int&, int&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:20:21: error: ‘const struct drone_mapper::Position3D’ has no member named ‘x_cm’
+   20 |     int rel_x = pos.x_cm - config_.offset.x_offset;
+      |                     ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:20:43: error: ‘const struct drone_mapper::Position3D’ has no member named ‘x_offset’
+   20 |     int rel_x = pos.x_cm - config_.offset.x_offset;
+      |                                           ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:21:21: error: ‘const struct drone_mapper::Position3D’ has no member named ‘y_cm’
+   21 |     int rel_y = pos.y_cm - config_.offset.y_offset;
+      |                     ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:21:43: error: ‘const struct drone_mapper::Position3D’ has no member named ‘y_offset’
+   21 |     int rel_y = pos.y_cm - config_.offset.y_offset;
+      |                                           ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:22:21: error: ‘const struct drone_mapper::Position3D’ has no member named ‘height_cm’
+   22 |     int rel_z = pos.height_cm - config_.offset.height_offset;
+      |                     ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:22:48: error: ‘const struct drone_mapper::Position3D’ has no member named ‘height_offset’
+   22 |     int rel_z = pos.height_cm - config_.offset.height_offset;
+      |                                                ^~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:24:19: error: cannot convert ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>’ to ‘int’ in assignment
+   24 |     x_idx = rel_x / config_.resolution;
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:25:19: error: cannot convert ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>’ to ‘int’ in assignment
+   25 |     y_idx = rel_y / config_.resolution;
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:26:19: error: cannot convert ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>’ to ‘int’ in assignment
+   26 |     z_idx = rel_z / config_.resolution;
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~
+      |                   |
+      |                   mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<mp_units::dimensionless, mp_units::per<mp_units::isq::length> >, mp_units::derived_unit<mp_units::one, mp_units::per<mp_units::si::centi_<mp_units::si::metre> > > >(), double>
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:28:54: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   28 |     if (x_idx < 0 || x_idx >= static_cast<int>(map_->get_shape[0]) ||
+      |                                                      ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:29:54: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   29 |         y_idx < 0 || y_idx >= static_cast<int>(map_->get_shape[1]) ||
+      |                                                      ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:30:54: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   30 |         z_idx < 0 || z_idx >= static_cast<int>(map_->get_shape[2])) {
+      |                                                      ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual drone_mapper::types::VoxelOccupancy drone_mapper::Map3DImpl::atVoxel(const drone_mapper::Position3D&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:42:37: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   42 |     size_t flat_idx = x_idx + map_->get_shape[0] * (y_idx + map_->get_shape[1] * z_idx);
+      |                                     ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:42:67: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   42 |     size_t flat_idx = x_idx + map_->get_shape[0] * (y_idx + map_->get_shape[1] * z_idx);
+      |                                                                   ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:44:31: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_data’
+   44 |     uint8_t voxel_val = map_->get_data[flat_idx];
+      |                               ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:49:35: error: ‘Free’ is not a member of ‘drone_mapper::types::VoxelOccupancy’
+   49 |     return types::VoxelOccupancy::Free;
+      |                                   ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual void drone_mapper::Map3DImpl::set(const drone_mapper::Position3D&, drone_mapper::types::VoxelOccupancy)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:59:41: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   59 |         size_t flat_idx = x_idx + map_->get_shape[0] * (y_idx + map_->get_shape[1] * z_idx);
+      |                                         ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:59:71: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   59 |         size_t flat_idx = x_idx + map_->get_shape[0] * (y_idx + map_->get_shape[1] * z_idx);
+      |                                                                       ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:62:19: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘set_data’; did you mean ‘SetData’?
+   62 |             map_->set_data[flat_idx] = 1;
+      |                   ^~~~~~~~
+      |                   SetData
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:63:52: error: ‘Free’ is not a member of ‘drone_mapper::types::VoxelOccupancy’
+   63 |         } else if (value == types::VoxelOccupancy::Free) {
+      |                                                    ^~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:64:19: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘set_data’; did you mean ‘SetData’?
+   64 |             map_->set_data[flat_idx] = 0;
+      |                   ^~~~~~~~
+      |                   SetData
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual void drone_mapper::Map3DImpl::save(const std::filesystem::__cxx11::path&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:79:45: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   79 |                        std::to_string(map_->get_shape[0]) + ", " +
+      |                                             ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:80:45: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   80 |                        std::to_string(map_->get_shape[1]) + ", " +
+      |                                             ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:81:45: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   81 |                        std::to_string(map_->get_shape[2]) + "), }";
+      |                                             ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:91:31: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   91 |     size_t total_size = map_->get_shape[0] * map_->get_shape[1] * map_->get_shape[2];
+      |                               ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:91:52: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   91 |     size_t total_size = map_->get_shape[0] * map_->get_shape[1] * map_->get_shape[2];
+      |                                                    ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:91:73: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_shape’
+   91 |     size_t total_size = map_->get_shape[0] * map_->get_shape[1] * map_->get_shape[2];
+      |                                                                         ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:92:52: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘get_data’
+   92 |     file.write(reinterpret_cast<const char*>(map_->get_data.data()), total_size);
+      |                                                    ^~~~~~~~
+[10/26] Building CXX object CMakeFiles/maps_comparison.dir/src/MapsComparison.cpp.o
+FAILED: CMakeFiles/maps_comparison.dir/src/MapsComparison.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/maps_comparison.dir/src/MapsComparison.cpp.o -MF CMakeFiles/maps_comparison.dir/src/MapsComparison.cpp.o.d -o CMakeFiles/maps_comparison.dir/src/MapsComparison.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp: In static member function ‘static std::vector<double> drone_mapper::MapsComparison::compare(const drone_mapper::IMap3D&, std::vector<drone_mapper::IMap3D*>)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:10:30: error: cannot convert ‘drone_mapper::PhysicalLength’ {aka ‘mp_units::quantity<mp_units::reference<mp_units::isq::length, mp_units::si::centi_<mp_units::si::metre> >(), double>’} to ‘int’ in initialization
+   10 |     int step = origin_config.resolution;
+      |                ~~~~~~~~~~~~~~^~~~~~~~~~
+      |                              |
+      |                              drone_mapper::PhysicalLength {aka mp_units::quantity<mp_units::reference<mp_units::isq::length, mp_units::si::centi_<mp_units::si::metre> >(), double>}
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:18:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘x_boundary’
+   18 |         int min_x = target_config.boundaries.x_boundary.min_cm;
+      |                                              ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:19:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘x_boundary’
+   19 |         int max_x = target_config.boundaries.x_boundary.max_cm;
+      |                                              ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:20:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘y_boundary’
+   20 |         int min_y = target_config.boundaries.y_boundary.min_cm;
+      |                                              ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:21:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘y_boundary’
+   21 |         int max_y = target_config.boundaries.y_boundary.max_cm;
+      |                                              ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:22:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘height_boundary’
+   22 |         int min_z = target_config.boundaries.height_boundary.min_cm;
+      |                                              ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:23:46: error: ‘struct drone_mapper::types::MappingBounds’ has no member named ‘height_boundary’
+   23 |         int max_z = target_config.boundaries.height_boundary.max_cm;
+      |                                              ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:31:36: error: could not convert ‘x’ from ‘int’ to ‘drone_mapper::XLength’ {aka ‘mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>’}
+   31 |                     Position3D pos{x, y, z};
+      |                                    ^
+      |                                    |
+      |                                    int
+[11/26] Building CXX object CMakeFiles/drone_mapper_simulation.dir/main.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/main.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/main.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/main.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/main.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp'
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:1:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:28:21: error: ‘ISimulationRunFactory’ was not declared in this scope; did you mean ‘drone_mapper::ISimulationRunFactory’?
+   28 |     std::unique_ptr<ISimulationRunFactory> m_factory;
+      |                     ^~~~~~~~~~~~~~~~~~~~~
+      |                     drone_mapper::ISimulationRunFactory
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:12:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/ISimulationRunFactory.h:11:7: note: ‘drone_mapper::ISimulationRunFactory’ declared here
+   11 | class ISimulationRunFactory {
+      |       ^~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:28:42: error: template argument 1 is invalid
+   28 |     std::unique_ptr<ISimulationRunFactory> m_factory;
+      |                                          ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:28:42: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:28:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   28 |     std::unique_ptr<ISimulationRunFactory> m_factory;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:2:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:16:59: error: expected class-name before ‘{’ token
+   16 | class SimulationRunFactory : public ISimulationRunFactory {
+      |                                                           ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:24:21: error: ‘ISimulationRun’ was not declared in this scope; did you mean ‘drone_mapper::ISimulationRun’?
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |                     ^~~~~~~~~~~~~~
+      |                     drone_mapper::ISimulationRun
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/ISimulationRunFactory.h:3:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/ISimulationRun.h:7:7: note: ‘drone_mapper::ISimulationRun’ declared here
+    7 | class ISimulationRun {
+      |       ^~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:24:35: error: template argument 1 is invalid
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |                                   ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:24:35: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:24:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationRunFactoryImpl.h:19:5: error: ‘SimulationRunFactory::~SimulationRunFactory()’ marked ‘override’, but does not override
+   19 |     ~SimulationRunFactory() override = default;
+      |     ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp: In function ‘int main(int, char**)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:17:55: error: ‘SimulationRunFactoryImpl’ is not a member of ‘drone_mapper’; did you mean ‘ISimulationRunFactory’?
+   17 |     auto run_factory = std::make_unique<drone_mapper::SimulationRunFactoryImpl>();
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                       ISimulationRunFactory
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:17:80: error: no matching function for call to ‘make_unique<<expression error> >()’
+   17 |     auto run_factory = std::make_unique<drone_mapper::SimulationRunFactoryImpl>();
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+In file included from /usr/include/c++/13/bits/shared_ptr_base.h:59,
+                 from /usr/include/c++/13/bits/shared_ptr.h:53,
+                 from /usr/include/c++/13/bits/fs_path.h:46,
+                 from /usr/include/c++/13/filesystem:49,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:8:
+/usr/include/c++/13/bits/unique_ptr.h:1069:5: note: candidate: ‘template<class _Tp, class ... _Args> std::__detail::__unique_ptr_t<_Tp> std::make_unique(_Args&& ...)’
+ 1069 |     make_unique(_Args&&... __args)
+      |     ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_ptr.h:1069:5: note:   template argument deduction/substitution failed:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:17:80: error: template argument 1 is invalid
+   17 |     auto run_factory = std::make_unique<drone_mapper::SimulationRunFactoryImpl>();
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/usr/include/c++/13/bits/unique_ptr.h:1084:5: note: candidate: ‘template<class _Tp> std::__detail::__unique_ptr_array_t<_Tp> std::make_unique(size_t)’
+ 1084 |     make_unique(size_t __num)
+      |     ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_ptr.h:1084:5: note:   candidate expects 1 argument, 0 provided
+/usr/include/c++/13/bits/unique_ptr.h:1094:5: note: candidate: ‘template<class _Tp, class ... _Args> std::__detail::__invalid_make_unique_t<_Tp> std::make_unique(_Args&& ...)’ (deleted)
+ 1094 |     make_unique(_Args&&...) = delete;
+      |     ^~~~~~~~~~~
+/usr/include/c++/13/bits/unique_ptr.h:1094:5: note:   template argument deduction/substitution failed:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:17:80: error: template argument 1 is invalid
+   17 |     auto run_factory = std::make_unique<drone_mapper::SimulationRunFactoryImpl>();
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:18:19: error: ‘SimulationManager’ is not a member of ‘drone_mapper’; did you mean ‘SimulationManager’?
+   18 |     drone_mapper::SimulationManager simulation{std::move(run_factory)};
+      |                   ^~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/SimulationManager.h:16:7: note: ‘SimulationManager’ declared here
+   16 | class SimulationManager {
+      |       ^~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:30:26: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘hidden_map_path’
+   30 |                 sim_data.hidden_map_path = sim_node["hidden_map_path"].as<std::string>();
+      |                          ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:31:26: error: ‘struct drone_mapper::types::SimulationConfigData’ has no member named ‘resolution’; did you mean ‘map_resolution’?
+   31 |                 sim_data.resolution = sim_node["resolution_cm"].as<int>() * drone_mapper::cm;
+      |                          ^~~~~~~~~~
+      |                          map_resolution
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:33:98: error: no match for ‘operator=’ (operand types are ‘drone_mapper::XLength’ {aka ‘mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>’} and ‘int’)
+   33 |                 sim_data.initial_drone_position.x = sim_node["initial_position"]["x_cm"].as<int>();
+      |                                                                                                  ^
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/construction_helpers.h:25,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework.h:27,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/DroneTypes.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Types.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/ISimulationRun.h:3:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note: candidate: ‘template<class FwdValue>  requires (DimensionlessOne<mp_units::quantity<R, Rep>::reference>) && (ValuePreservingAssignment<Rep, FwdValue>) constexpr mp_units::quantity<R, Rep>& mp_units::quantity<R, Rep>::operator=(FwdValue&&) [with auto [requires mp_units::Reference<<placeholder>, >] R = mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(); Rep = double]’
+  236 |   constexpr quantity& operator=(FwdValue&& val)
+      |                       ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note:   template argument deduction/substitution failed:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note: constraints not satisfied
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h: In substitution of ‘template<class FwdValue>  requires (DimensionlessOne<mp_units::quantity<R, Rep>::reference>) && (ValuePreservingAssignment<Rep, FwdValue>) constexpr mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>& mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>::operator=(FwdValue&&) [with FwdValue = mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >()]’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:33:98:   required from here
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:106:9:   required for the satisfaction of ‘DimensionlessOne<reference>’ [with FwdValue = int; R = mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >{}; Rep = double]
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:107:75: note: the expression ‘mp_units::implicitly_convertible(mp_units::get_quantity_spec(R), mp_units::dimensionless) [with R = mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >{}, double>::reference]’ evaluated to ‘false’
+  107 |   Reference<MP_UNITS_REMOVE_CONST(decltype(R))> && (implicitly_convertible(get_quantity_spec(R), dimensionless)) &&
+      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note: candidate: ‘constexpr mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>& mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>::operator=(const mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&)’
+  163 | class quantity {
+      |       ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note:   no known conversion for argument 1 from ‘int’ to ‘const mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note: candidate: ‘constexpr mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>& mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>::operator=(mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&&)’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note:   no known conversion for argument 1 from ‘int’ to ‘mp_units::quantity<mp_units::reference<drone_mapper::x_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&&’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:34:98: error: no match for ‘operator=’ (operand types are ‘drone_mapper::YLength’ {aka ‘mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>’} and ‘int’)
+   34 |                 sim_data.initial_drone_position.y = sim_node["initial_position"]["y_cm"].as<int>();
+      |                                                                                                  ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note: candidate: ‘template<class FwdValue>  requires (DimensionlessOne<mp_units::quantity<R, Rep>::reference>) && (ValuePreservingAssignment<Rep, FwdValue>) constexpr mp_units::quantity<R, Rep>& mp_units::quantity<R, Rep>::operator=(FwdValue&&) [with auto [requires mp_units::Reference<<placeholder>, >] R = mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(); Rep = double]’
+  236 |   constexpr quantity& operator=(FwdValue&& val)
+      |                       ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note:   template argument deduction/substitution failed:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note: constraints not satisfied
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h: In substitution of ‘template<class FwdValue>  requires (DimensionlessOne<mp_units::quantity<R, Rep>::reference>) && (ValuePreservingAssignment<Rep, FwdValue>) constexpr mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>& mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>::operator=(FwdValue&&) [with FwdValue = mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >()]’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:34:98:   required from here
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:106:9:   required for the satisfaction of ‘DimensionlessOne<reference>’ [with FwdValue = int; R = mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >{}; Rep = double]
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:107:75: note: the expression ‘mp_units::implicitly_convertible(mp_units::get_quantity_spec(R), mp_units::dimensionless) [with R = mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >{}, double>::reference]’ evaluated to ‘false’
+  107 |   Reference<MP_UNITS_REMOVE_CONST(decltype(R))> && (implicitly_convertible(get_quantity_spec(R), dimensionless)) &&
+      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note: candidate: ‘constexpr mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>& mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>::operator=(const mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&)’
+  163 | class quantity {
+      |       ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note:   no known conversion for argument 1 from ‘int’ to ‘const mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note: candidate: ‘constexpr mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>& mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>::operator=(mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&&)’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note:   no known conversion for argument 1 from ‘int’ to ‘mp_units::quantity<mp_units::reference<drone_mapper::y_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&&’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:35:98: error: no match for ‘operator=’ (operand types are ‘drone_mapper::ZLength’ {aka ‘mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>’} and ‘int’)
+   35 |                 sim_data.initial_drone_position.z = sim_node["initial_position"]["z_cm"].as<int>();
+      |                                                                                                  ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note: candidate: ‘template<class FwdValue>  requires (DimensionlessOne<mp_units::quantity<R, Rep>::reference>) && (ValuePreservingAssignment<Rep, FwdValue>) constexpr mp_units::quantity<R, Rep>& mp_units::quantity<R, Rep>::operator=(FwdValue&&) [with auto [requires mp_units::Reference<<placeholder>, >] R = mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(); Rep = double]’
+  236 |   constexpr quantity& operator=(FwdValue&& val)
+      |                       ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note:   template argument deduction/substitution failed:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:236:23: note: constraints not satisfied
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h: In substitution of ‘template<class FwdValue>  requires (DimensionlessOne<mp_units::quantity<R, Rep>::reference>) && (ValuePreservingAssignment<Rep, FwdValue>) constexpr mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>& mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>::operator=(FwdValue&&) [with FwdValue = mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >()]’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:35:98:   required from here
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:106:9:   required for the satisfaction of ‘DimensionlessOne<reference>’ [with FwdValue = int; R = mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >{}; Rep = double]
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:107:75: note: the expression ‘mp_units::implicitly_convertible(mp_units::get_quantity_spec(R), mp_units::dimensionless) [with R = mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >{}, double>::reference]’ evaluated to ‘false’
+  107 |   Reference<MP_UNITS_REMOVE_CONST(decltype(R))> && (implicitly_convertible(get_quantity_spec(R), dimensionless)) &&
+      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note: candidate: ‘constexpr mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>& mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>::operator=(const mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&)’
+  163 | class quantity {
+      |       ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note:   no known conversion for argument 1 from ‘int’ to ‘const mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note: candidate: ‘constexpr mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>& mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>::operator=(mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&&)’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/framework/quantity.h:163:7: note:   no known conversion for argument 1 from ‘int’ to ‘mp_units::quantity<mp_units::reference<drone_mapper::z_extent, mp_units::si::centi_<mp_units::si::metre> >(), double>&&’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:49:27: error: ‘struct drone_mapper::types::MissionConfigData’ has no member named ‘boundaries’
+   49 |                 miss_data.boundaries.x_boundary.min_cm = b_node["x_boundary"]["min_cm"].as<int>();
+      |                           ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:50:27: error: ‘struct drone_mapper::types::MissionConfigData’ has no member named ‘boundaries’
+   50 |                 miss_data.boundaries.x_boundary.max_cm = b_node["x_boundary"]["max_cm"].as<int>();
+      |                           ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:51:27: error: ‘struct drone_mapper::types::MissionConfigData’ has no member named ‘boundaries’
+   51 |                 miss_data.boundaries.y_boundary.min_cm = b_node["y_boundary"]["min_cm"].as<int>();
+      |                           ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:52:27: error: ‘struct drone_mapper::types::MissionConfigData’ has no member named ‘boundaries’
+   52 |                 miss_data.boundaries.y_boundary.max_cm = b_node["y_boundary"]["max_cm"].as<int>();
+      |                           ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:53:27: error: ‘struct drone_mapper::types::MissionConfigData’ has no member named ‘boundaries’
+   53 |                 miss_data.boundaries.height_boundary.min_cm = b_node["height_boundary"]["min_cm"].as<int>();
+      |                           ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:54:27: error: ‘struct drone_mapper::types::MissionConfigData’ has no member named ‘boundaries’
+   54 |                 miss_data.boundaries.height_boundary.max_cm = b_node["height_boundary"]["max_cm"].as<int>();
+      |                           ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:65:28: error: ‘struct drone_mapper::types::DroneConfigData’ has no member named ‘speed’
+   65 |                 drone_data.speed = drone_node["speed_cm_per_step"].as<int>() * drone_mapper::cm;
+      |                            ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/main.cpp:87:65: error: ‘simulation’ was not declared in this scope
+   87 |     const drone_mapper::types::SimulationManagerReport report = simulation.run(composition, output_path);
+      |                                                                 ^~~~~~~~~~
+[12/26] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/SimulationManager.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/SimulationManager.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -DGTEST_HAS_PTHREAD=1 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/SimulationManager.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/SimulationManager.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/SimulationManager.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp'
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp:6:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:28:21: error: ‘ISimulationRunFactory’ was not declared in this scope; did you mean ‘drone_mapper::ISimulationRunFactory’?
+   28 |     std::unique_ptr<ISimulationRunFactory> m_factory;
+      |                     ^~~~~~~~~~~~~~~~~~~~~
+      |                     drone_mapper::ISimulationRunFactory
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:12:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/ISimulationRunFactory.h:11:7: note: ‘drone_mapper::ISimulationRunFactory’ declared here
+   11 | class ISimulationRunFactory {
+      |       ^~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:28:42: error: template argument 1 is invalid
+   28 |     std::unique_ptr<ISimulationRunFactory> m_factory;
+      |                                          ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:28:42: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationManager.h:28:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   28 |     std::unique_ptr<ISimulationRunFactory> m_factory;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp:7:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:16:59: error: expected class-name before ‘{’ token
+   16 | class SimulationRunFactory : public ISimulationRunFactory {
+      |                                                           ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:24:21: error: ‘ISimulationRun’ was not declared in this scope; did you mean ‘drone_mapper::ISimulationRun’?
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |                     ^~~~~~~~~~~~~~
+      |                     drone_mapper::ISimulationRun
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/ISimulationRunFactory.h:3:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/ISimulationRun.h:7:7: note: ‘drone_mapper::ISimulationRun’ declared here
+    7 | class ISimulationRun {
+      |       ^~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:24:35: error: template argument 1 is invalid
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |                                   ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:24:35: error: template argument 2 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:24:10: error: ‘<expression error>’ in namespace ‘std’ does not name a type
+   24 |     std::unique_ptr<ISimulationRun> createRun(
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/SimulationRunFactoryImpl.h:19:5: error: ‘SimulationRunFactory::~SimulationRunFactory()’ marked ‘override’, but does not override
+   19 |     ~SimulationRunFactory() override = default;
+      |     ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp: In constructor ‘SimulationManager::SimulationManager(const std::filesystem::__cxx11::path&, const std::filesystem::__cxx11::path&)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/SimulationManager.cpp:21:5: error: ‘m_factory’ was not declared in this scope
+   21 |     m_factory = std::make_unique<SimulationRunFactory>();
+      |     ^~~~~~~~~
+[13/26] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -DGTEST_HAS_PTHREAD=1 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp: In member function ‘virtual void MissionControlTest_MaxStepsLoadedCorrectly_Test::TestBody()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:29:5: error: ‘MissionControlImpl’ was not declared in this scope; did you mean ‘drone_mapper::MissionControlImpl’?
+   29 |     MissionControlImpl mission(testConfigPath);
+      |     ^~~~~~~~~~~~~~~~~~
+      |     drone_mapper::MissionControlImpl
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:2:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/MissionControlImpl.h:12:7: note: ‘drone_mapper::MissionControlImpl’ declared here
+   12 | class MissionControlImpl final : public IMissionControl {
+      |       ^~~~~~~~~~~~~~~~~~
+In file included from /usr/include/gtest/gtest.h:72,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:1:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:30:15: error: ‘mission’ was not declared in this scope
+   30 |     EXPECT_EQ(mission.getMaxSteps(), 100);
+      |               ^~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp: In member function ‘virtual void MissionControlTest_PositionWithinBoundaries_Test::TestBody()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:34:5: error: ‘MissionControlImpl’ was not declared in this scope; did you mean ‘drone_mapper::MissionControlImpl’?
+   34 |     MissionControlImpl mission(testConfigPath);
+      |     ^~~~~~~~~~~~~~~~~~
+      |     drone_mapper::MissionControlImpl
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/MissionControlImpl.h:12:7: note: ‘drone_mapper::MissionControlImpl’ declared here
+   12 | class MissionControlImpl final : public IMissionControl {
+      |       ^~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:35:5: error: ‘Position3D’ was not declared in this scope; did you mean ‘drone_mapper::Position3D’?
+   35 |     Position3D validPos{50, 50, 50};
+      |     ^~~~~~~~~~
+      |     drone_mapper::Position3D
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/DroneTypes.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Types.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IDroneControl.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/MissionControlImpl.h:3:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:26:8: note: ‘drone_mapper::Position3D’ declared here
+   26 | struct Position3D {
+      |        ^~~~~~~~~~
+In file included from /usr/include/gtest/gtest-printers.h:122,
+                 from /usr/include/gtest/gtest-matchers.h:49,
+                 from /usr/include/gtest/internal/gtest-death-test-internal.h:47,
+                 from /usr/include/gtest/gtest-death-test.h:43,
+                 from /usr/include/gtest/gtest.h:65:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:36:17: error: ‘mission’ was not declared in this scope
+   36 |     EXPECT_TRUE(mission.isWithinBoundaries(validPos));
+      |                 ^~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:36:44: error: ‘validPos’ was not declared in this scope
+   36 |     EXPECT_TRUE(mission.isWithinBoundaries(validPos));
+      |                                            ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp: In member function ‘virtual void MissionControlTest_PositionOutsideBoundaries_Test::TestBody()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:40:5: error: ‘MissionControlImpl’ was not declared in this scope; did you mean ‘drone_mapper::MissionControlImpl’?
+   40 |     MissionControlImpl mission(testConfigPath);
+      |     ^~~~~~~~~~~~~~~~~~
+      |     drone_mapper::MissionControlImpl
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/MissionControlImpl.h:12:7: note: ‘drone_mapper::MissionControlImpl’ declared here
+   12 | class MissionControlImpl final : public IMissionControl {
+      |       ^~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:41:5: error: ‘Position3D’ was not declared in this scope; did you mean ‘drone_mapper::Position3D’?
+   41 |     Position3D invalidPos{150, 50, 50}; // X is out of bounds
+      |     ^~~~~~~~~~
+      |     drone_mapper::Position3D
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:26:8: note: ‘drone_mapper::Position3D’ declared here
+   26 | struct Position3D {
+      |        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:42:18: error: ‘mission’ was not declared in this scope
+   42 |     EXPECT_FALSE(mission.isWithinBoundaries(invalidPos));
+      |                  ^~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:42:45: error: ‘invalidPos’ was not declared in this scope
+   42 |     EXPECT_FALSE(mission.isWithinBoundaries(invalidPos));
+      |                                             ^~~~~~~~~~
+[14/26] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/." -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -Wall -Wextra -Werror -pedantic -std=gnu++20 -DGTEST_HAS_PTHREAD=1 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:13:55: error: expected class-name before ‘{’ token
+   13 | class MockMappingAlgorithm : public IMappingAlgorithm {
+      |                                                       ^
+In file included from /usr/include/gmock/gmock-actions.h:147,
+                 from /usr/include/gmock/gmock.h:56,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:2:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:17: error: ‘DroneCommand’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                 ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:17: error: ‘DroneCommand’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                 ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: expected ‘(’ before ‘>’ token
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:17: error: ‘DroneCommand’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                 ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: expected identifier before ‘::’ token
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: invalid use of ‘::’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: expected ‘;’ at end of member declaration
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:17: error: ‘DroneCommand’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                 ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: invalid use of template-name ‘testing::internal::Function’ without an argument list
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+In file included from /usr/include/gmock/gmock-actions.h:145:
+/usr/include/gmock/internal/gmock-internal-utils.h:454:8: note: ‘template<class T> struct testing::internal::Function’ declared here
+  454 | struct Function;
+      |        ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: expected ‘,’ or ‘...’ before ‘<’ token
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:31: error: ISO C++ forbids declaration of ‘calculateNextMove’ with no type [-fpermissive]
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                               ^~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:17: error: ‘DroneCommand’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                 ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:17: error: ‘DroneCommand’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                 ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:17: error: ‘DroneCommand’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                 ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:23: error: ‘testing::internal::Function<void(const int&, const int&)>::Result MockMappingAlgorithm::updateMap(testing::internal::ElemFromList<0, const int&, const int&>::type, testing::internal::ElemFromList<1, const int&, const int&>::type)’ marked ‘override’, but does not override
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                       ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:31: error: ‘int MockMappingAlgorithm::calculateNextMove(int)’ marked ‘override’, but does not override
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                               ^~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: In member function ‘testing::internal::Function<void(const int&, const int&)>::Result MockMappingAlgorithm::updateMap(testing::internal::ElemFromList<0, const int&, const int&>::type, testing::internal::ElemFromList<1, const int&, const int&>::type)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: In member function ‘testing::internal::MockSpec<void(const int&, const int&)> MockMappingAlgorithm::gmock_updateMap(const testing::internal::WithoutMatchers&, testing::internal::Function<void(const int&, const int&)>*) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:41: error: ‘Position3D’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:15:60: error: ‘LidarScanResult’ does not name a type
+   15 |     MOCK_METHOD(void, updateMap, (const Position3D&, const LidarScanResult&), (override));
+      |                                                            ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: In member function ‘int MockMappingAlgorithm::calculateNextMove(int)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: ‘gmock01_calculateNextMove_16’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:17: error: ‘DroneCommand’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |                 ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: template argument 1 is invalid
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: parse error in template argument list
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:16:5: error: ‘gmock_a0’ was not declared in this scope
+   16 |     MOCK_METHOD(DroneCommand, calculateNextMove, (const Position3D&), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: At global scope:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:19:39: error: expected class-name before ‘{’ token
+   19 | class MockLidarSensor : public ILidar {
+      |                                       ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:17: error: ‘LidarScanResult’ was not declared in this scope; did you mean ‘drone_mapper::types::LidarScanResult’?
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |                 ^~~~~~~~~~~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Types.h:4,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/IDroneControl.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/DroneControlImpl.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:3:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/LidarTypes.h:23:7: note: ‘drone_mapper::types::LidarScanResult’ declared here
+   23 | using LidarScanResult = std::vector<LidarHit>;
+      |       ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:17: error: ‘LidarScanResult’ was not declared in this scope; did you mean ‘drone_mapper::types::LidarScanResult’?
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |                 ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/LidarTypes.h:23:7: note: ‘drone_mapper::types::LidarScanResult’ declared here
+   23 | using LidarScanResult = std::vector<LidarHit>;
+      |       ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: ‘<declaration error>’ is not a template [-fpermissive]
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:17: error: ‘LidarScanResult’ was not declared in this scope; did you mean ‘drone_mapper::types::LidarScanResult’?
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |                 ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/LidarTypes.h:23:7: note: ‘drone_mapper::types::LidarScanResult’ declared here
+   23 | using LidarScanResult = std::vector<LidarHit>;
+      |       ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: ‘<declaration error>’ is not a template [-fpermissive]
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:17: error: ‘LidarScanResult’ was not declared in this scope; did you mean ‘drone_mapper::types::LidarScanResult’?
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |                 ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/LidarTypes.h:23:7: note: ‘drone_mapper::types::LidarScanResult’ declared here
+   23 | using LidarScanResult = std::vector<LidarHit>;
+      |       ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:17: error: ‘LidarScanResult’ was not declared in this scope; did you mean ‘drone_mapper::types::LidarScanResult’?
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |                 ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/LidarTypes.h:23:7: note: ‘drone_mapper::types::LidarScanResult’ declared here
+   23 | using LidarScanResult = std::vector<LidarHit>;
+      |       ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:17: error: ‘LidarScanResult’ was not declared in this scope; did you mean ‘drone_mapper::types::LidarScanResult’?
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |                 ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/LidarTypes.h:23:7: note: ‘drone_mapper::types::LidarScanResult’ declared here
+   23 | using LidarScanResult = std::vector<LidarHit>;
+      |       ^~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: template argument 1 is invalid
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:34: error: ‘int MockLidarSensor::performScan()’ marked ‘override’, but does not override
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |                                  ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: In member function ‘int MockLidarSensor::performScan()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:21:5: error: ‘gmock00_performScan_21’ was not declared in this scope
+   21 |     MOCK_METHOD(LidarScanResult, performScan, (), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: At global scope:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:24:35: error: expected class-name before ‘{’ token
+   24 | class MockGPSSensor : public IGPS {
+      |                                   ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:17: error: ‘Position3D’ was not declared in this scope; did you mean ‘drone_mapper::Position3D’?
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |                 ^~~~~~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/DroneTypes.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Types.h:3:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:26:8: note: ‘drone_mapper::Position3D’ declared here
+   26 | struct Position3D {
+      |        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:17: error: ‘Position3D’ was not declared in this scope; did you mean ‘drone_mapper::Position3D’?
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |                 ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:26:8: note: ‘drone_mapper::Position3D’ declared here
+   26 | struct Position3D {
+      |        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: ‘<declaration error>’ is not a template [-fpermissive]
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:17: error: ‘Position3D’ was not declared in this scope; did you mean ‘drone_mapper::Position3D’?
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |                 ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:26:8: note: ‘drone_mapper::Position3D’ declared here
+   26 | struct Position3D {
+      |        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: ‘<declaration error>’ is not a template [-fpermissive]
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:17: error: ‘Position3D’ was not declared in this scope; did you mean ‘drone_mapper::Position3D’?
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |                 ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:26:8: note: ‘drone_mapper::Position3D’ declared here
+   26 | struct Position3D {
+      |        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:17: error: ‘Position3D’ was not declared in this scope; did you mean ‘drone_mapper::Position3D’?
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |                 ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:26:8: note: ‘drone_mapper::Position3D’ declared here
+   26 | struct Position3D {
+      |        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:17: error: ‘Position3D’ was not declared in this scope; did you mean ‘drone_mapper::Position3D’?
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |                 ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:26:8: note: ‘drone_mapper::Position3D’ declared here
+   26 | struct Position3D {
+      |        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: template argument 1 is invalid
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:29: error: ‘int MockGPSSensor::getPosition() const’ marked ‘override’, but does not override
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |                             ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: In member function ‘int MockGPSSensor::getPosition() const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:26:5: error: ‘gmock10_getPosition_26’ was not declared in this scope
+   26 |     MOCK_METHOD(Position3D, getPosition, (), (const, override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: At global scope:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:29:54: error: expected class-name before ‘{’ token
+   29 | class MockMovementController : public IDroneMovement {
+      |                                                      ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:40: error: ‘DroneCommand’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |                                        ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: template argument 1 is invalid
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:40: error: ‘DroneCommand’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |                                        ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: template argument 1 is invalid
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: ‘<declaration error>’ is not a template [-fpermissive]
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: template argument 1 is invalid
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:40: error: ‘DroneCommand’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |                                        ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: template argument 1 is invalid
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: ‘<declaration error>’ is not a template [-fpermissive]
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:40: error: ‘DroneCommand’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |                                        ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: template argument 1 is invalid
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: ‘<declaration error>’ is not a template [-fpermissive]
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: expected template-name before ‘<’ token
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: expected identifier before ‘<’ token
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: expected ‘,’ or ‘...’ before ‘<’ token
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:40: error: ‘DroneCommand’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |                                        ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: template argument 1 is invalid
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:40: error: ‘DroneCommand’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |                                        ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: template argument 1 is invalid
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:40: error: ‘DroneCommand’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |                                        ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: template argument 1 is invalid
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: ‘<expression error>’ in namespace ‘testing’ does not name a type
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:23: error: ‘int MockMovementController::executeCommand(int)’ marked ‘override’, but does not override
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |                       ^~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: In member function ‘int MockMovementController::executeCommand(int)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: ‘gmock01_executeCommand_31’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:40: error: ‘DroneCommand’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |                                        ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: template argument 1 is invalid
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: ‘<declaration error>’ is not a template [-fpermissive]
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: parse error in template argument list
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:31:5: error: ‘gmock_a0’ was not declared in this scope
+   31 |     MOCK_METHOD(void, executeCommand, (DroneCommand), (override));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: In member function ‘virtual void DroneControlTest_StepExecutesCorrectSequence_Test::TestBody()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:43:5: error: ‘Position3D’ was not declared in this scope; did you mean ‘drone_mapper::Position3D’?
+   43 |     Position3D dummyPos{10, 10, 10};
+      |     ^~~~~~~~~~
+      |     drone_mapper::Position3D
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/Units.h:26:8: note: ‘drone_mapper::Position3D’ declared here
+   26 | struct Position3D {
+      |        ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:44:5: error: ‘LidarScanResult’ was not declared in this scope; did you mean ‘drone_mapper::types::LidarScanResult’?
+   44 |     LidarScanResult dummyScan;
+      |     ^~~~~~~~~~~~~~~
+      |     drone_mapper::types::LidarScanResult
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/./drone_mapper/types/LidarTypes.h:23:7: note: ‘drone_mapper::types::LidarScanResult’ declared here
+   23 | using LidarScanResult = std::vector<LidarHit>;
+      |       ^~~~~~~~~~~~~~~
+In file included from /usr/include/gmock/gmock-function-mocker.h:43,
+                 from /usr/include/gmock/gmock.h:58:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:47:5: error: ‘class MockGPSSensor’ has no member named ‘gmock_getPosition’; did you mean ‘getPosition’?
+   47 |     EXPECT_CALL(mockGPS, getPosition()).WillOnce(Return(dummyPos));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:47:57: error: ‘dummyPos’ was not declared in this scope
+   47 |     EXPECT_CALL(mockGPS, getPosition()).WillOnce(Return(dummyPos));
+      |                                                         ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:48:5: error: ‘class MockLidarSensor’ has no member named ‘gmock_performScan’; did you mean ‘performScan’?
+   48 |     EXPECT_CALL(mockLidar, performScan()).WillOnce(Return(dummyScan));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:48:59: error: ‘dummyScan’ was not declared in this scope
+   48 |     EXPECT_CALL(mockLidar, performScan()).WillOnce(Return(dummyScan));
+      |                                                           ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:50:5: error: ‘class MockMappingAlgorithm’ has no member named ‘gmock_calculateNextMove’; did you mean ‘calculateNextMove’?
+   50 |     EXPECT_CALL(*algoPtr, calculateNextMove(_)).WillOnce(Return(DroneCommand::Advance));
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:50:65: error: ‘DroneCommand’ has not been declared
+   50 |     EXPECT_CALL(*algoPtr, calculateNextMove(_)).WillOnce(Return(DroneCommand::Advance));
+      |                                                                 ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:51:5: error: ‘class MockMovementController’ has no member named ‘gmock_executeCommand’; did you mean ‘executeCommand’?
+   51 |     EXPECT_CALL(mockMovement, executeCommand(DroneCommand::Advance)).Times(1);
+      |     ^~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:51:46: error: ‘DroneCommand’ has not been declared
+   51 |     EXPECT_CALL(mockMovement, executeCommand(DroneCommand::Advance)).Times(1);
+      |                                              ^~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:54:5: error: ‘DroneControlImpl’ was not declared in this scope; did you mean ‘drone_mapper::DroneControlImpl’?
+   54 |     DroneControlImpl droneControl(std::move(mockMappingAlgo), &mockLidar, &mockGPS, &mockMovement);
+      |     ^~~~~~~~~~~~~~~~
+      |     drone_mapper::DroneControlImpl
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/drone_mapper/DroneControlImpl.h:12:7: note: ‘drone_mapper::DroneControlImpl’ declared here
+   12 | class DroneControlImpl final : public IDroneControl {
+      |       ^~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:57:5: error: ‘droneControl’ was not declared in this scope
+   57 |     droneControl.step();
+      |     ^~~~~~~~~~~~
+ninja: build stopped: subcommand failed.

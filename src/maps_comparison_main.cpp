@@ -44,14 +44,14 @@ int main(int argc, char** argv) {
                         cfg.map_offset.height_offset = node["map_offset"]["height_offset"].as<int>();
                     }
                     
-                    if (node["map_boundaries"]) {
-                        auto b = node["map_boundaries"];
-                        cfg.map_boundaries.x_boundary.min_cm = b["x_boundary"]["min_cm"].as<int>();
-                        cfg.map_boundaries.x_boundary.max_cm = b["x_boundary"]["max_cm"].as<int>();
-                        cfg.map_boundaries.y_boundary.min_cm = b["y_boundary"]["min_cm"].as<int>();
-                        cfg.map_boundaries.y_boundary.max_cm = b["y_boundary"]["max_cm"].as<int>();
-                        cfg.map_boundaries.height_boundary.min_cm = b["height_boundary"]["min_cm"].as<int>();
-                        cfg.map_boundaries.height_boundary.max_cm = b["height_boundary"]["max_cm"].as<int>();
+                    if (node["boundaries"]) {
+                        auto b = node["boundaries"];
+                        cfg.boundaries.x_boundary.min_cm = b["x_boundary"]["min_cm"].as<int>();
+                        cfg.boundaries.x_boundary.max_cm = b["x_boundary"]["max_cm"].as<int>();
+                        cfg.boundaries.y_boundary.min_cm = b["y_boundary"]["min_cm"].as<int>();
+                        cfg.boundaries.y_boundary.max_cm = b["y_boundary"]["max_cm"].as<int>();
+                        cfg.boundaries.height_boundary.min_cm = b["height_boundary"]["min_cm"].as<int>();
+                        cfg.boundaries.height_boundary.max_cm = b["height_boundary"]["max_cm"].as<int>();
                     }
                 };
 
@@ -62,14 +62,14 @@ int main(int argc, char** argv) {
             origin_config.map_res_cm = 10;
             target_config.map_res_cm = 10;
             
-            origin_config.map_boundaries.x_boundary.min_cm = -1000;
-            origin_config.map_boundaries.x_boundary.max_cm = 1000;
-            origin_config.map_boundaries.y_boundary.min_cm = -1000;
-            origin_config.map_boundaries.y_boundary.max_cm = 1000;
-            origin_config.map_boundaries.height_boundary.min_cm = 0;
-            origin_config.map_boundaries.height_boundary.max_cm = 1000;
+            origin_config.boundaries.x_boundary.min_cm = -1000;
+            origin_config.boundaries.x_boundary.max_cm = 1000;
+            origin_config.boundaries.y_boundary.min_cm = -1000;
+            origin_config.boundaries.y_boundary.max_cm = 1000;
+            origin_config.boundaries.height_boundary.min_cm = 0;
+            origin_config.boundaries.height_boundary.max_cm = 1000;
             
-            target_config.map_boundaries = origin_config.map_boundaries;
+            target_config.boundaries = origin_config.boundaries;
         }
 
         auto origin_npy = std::make_shared<NpyArray>(origin_map_path);

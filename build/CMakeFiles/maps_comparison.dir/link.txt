@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -Werror -pedantic CMakeFiles/maps_comparison.dir/maps_comparison_main.cpp.o CMakeFiles/maps_comparison.dir/MapsComparison.cpp.o CMakeFiles/maps_comparison.dir/Map3DImpl.cpp.o -o maps_comparison 

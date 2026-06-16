@@ -24,9 +24,6 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 // MinSizeRel ...
 CMAKE_BUILD_TYPE:STRING=
 
-//Enable/Disable color output during build.
-CMAKE_COLOR_MAKEFILE:BOOL=ON
-
 //CXX compiler
 CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
 
@@ -52,32 +49,6 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
-
-//C compiler
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
-
-//A wrapper around 'ar' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_C_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar-13
-
-//A wrapper around 'ranlib' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_C_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib-13
-
-//Flags used by the C compiler during all build types.
-CMAKE_C_FLAGS:STRING=
-
-//Flags used by the C compiler during DEBUG builds.
-CMAKE_C_FLAGS_DEBUG:STRING=-g
-
-//Flags used by the C compiler during MINSIZEREL builds.
-CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
-
-//Flags used by the C compiler during RELEASE builds.
-CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
-
-//Flags used by the C compiler during RELWITHDEBINFO builds.
-CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Path to a program.
 CMAKE_DLLTOOL:FILEPATH=CMAKE_DLLTOOL-NOTFOUND
@@ -109,8 +80,8 @@ CMAKE_INSTALL_PREFIX:PATH=/usr/local
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/usr/bin/ld
 
-//Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake
+//Program used to build from build.ninja files.
+CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/ninja
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -209,6 +180,9 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 //Path to a program.
 CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 
+//The CMake toolchain file
+CMAKE_TOOLCHAIN_FILE:FILEPATH=/home/rtami/vcpkg/scripts/buildsystems/vcpkg.cmake
+
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
@@ -227,8 +201,94 @@ DroneMapperSimulation_SOURCE_DIR:STATIC=/mnt/c/Users/rtami/Downloads/Computer/Y3
 //The directory containing a CMake configuration file for GTest.
 GTest_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/GTest
 
+//Automatically copy dependencies into the output directory for
+// executables.
+VCPKG_APPLOCAL_DEPS:BOOL=ON
+
+//Additional options to bootstrap vcpkg
+VCPKG_BOOTSTRAP_OPTIONS:STRING=
+
+//The directory which contains the installed libraries for each
+// triplet
+VCPKG_INSTALLED_DIR:PATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed
+
+//Additional install options to pass to vcpkg
+VCPKG_INSTALL_OPTIONS:STRING=
+
+//The path to the vcpkg manifest directory.
+VCPKG_MANIFEST_DIR:PATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2
+
+//Install the dependencies listed in your manifest:
+//\n    If this is off, you will have to manually install your dependencies.
+//\n    See https://github.com/microsoft/vcpkg/tree/master/docs/specifications/manifests.md
+// for more info.
+//\n
+VCPKG_MANIFEST_INSTALL:BOOL=ON
+
+//Use manifest mode, as opposed to classic mode.
+VCPKG_MANIFEST_MODE:BOOL=ON
+
+//Overlay ports to use for vcpkg install in manifest mode
+VCPKG_OVERLAY_PORTS:STRING=
+
+//Overlay triplets to use for vcpkg install in manifest mode
+VCPKG_OVERLAY_TRIPLETS:STRING=
+
+//Appends the vcpkg paths to CMAKE_PREFIX_PATH, CMAKE_LIBRARY_PATH
+// and CMAKE_FIND_ROOT_PATH so that vcpkg libraries/packages are
+// found after toolchain/system libraries/packages.
+VCPKG_PREFER_SYSTEM_LIBS:BOOL=OFF
+
+//Enable the setup of CMAKE_PROGRAM_PATH to vcpkg paths
+VCPKG_SETUP_CMAKE_PROGRAM_PATH:BOOL=ON
+
+//Vcpkg target triplet (ex. x86-windows)
+VCPKG_TARGET_TRIPLET:STRING=x64-linux
+
+//Trace calls to find_package()
+VCPKG_TRACE_FIND_PACKAGE:BOOL=OFF
+
+//Enables messages from the VCPKG toolchain for debugging purposes.
+VCPKG_VERBOSE:BOOL=OFF
+
+//(experimental) Automatically copy dependencies into the install
+// target directory for executables. Requires CMake 3.14.
+X_VCPKG_APPLOCAL_DEPS_INSTALL:BOOL=OFF
+
+//(experimental) Add USES_TERMINAL to VCPKG_APPLOCAL_DEPS to force
+// serialization.
+X_VCPKG_APPLOCAL_DEPS_SERIALIZED:BOOL=OFF
+
+//Path to a file.
+ZLIB_INCLUDE_DIR:PATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include
+
+//Path to a library.
+ZLIB_LIBRARY_DEBUG:FILEPATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/debug/lib/libz.a
+
+//Path to a library.
+ZLIB_LIBRARY_RELEASE:FILEPATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/lib/libz.a
+
+//Path to a program.
+Z_VCPKG_CL:FILEPATH=Z_VCPKG_CL-NOTFOUND
+
+//The directory which contains the installed libraries for each
+// triplet
+_VCPKG_INSTALLED_DIR:PATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed
+
+//The directory containing a CMake configuration file for fmt.
+fmt_DIR:PATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/share/fmt
+
+//The directory containing a CMake configuration file for gsl-lite.
+gsl-lite_DIR:PATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/share/gsl-lite
+
+//The directory containing a CMake configuration file for mp-units.
+mp-units_DIR:PATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/share/mp-units
+
+//The directory containing a CMake configuration file for tinynpy.
+tinynpy_DIR:PATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/share/tinynpy
+
 //The directory containing a CMake configuration file for yaml-cpp.
-yaml-cpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp
+yaml-cpp_DIR:PATH=/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/share/yaml-cpp
 
 
 ########################
@@ -247,8 +307,6 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=28
 //Patch version of cmake used to create the current loaded cache
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
-//ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
-CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
 //Path to cpack program executable.
@@ -271,22 +329,6 @@ CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_COMPILER
-CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_COMPILER_AR
-CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
-CMAKE_C_COMPILER_RANLIB-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_FLAGS
-CMAKE_C_FLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG
-CMAKE_C_FLAGS_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_FLAGS_MINSIZEREL
-CMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_FLAGS_RELEASE
-CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO
-CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_DLLTOOL
 CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
 //Executable file format
@@ -306,7 +348,7 @@ CMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=
 //Name of generator.
-CMAKE_GENERATOR:INTERNAL=Unix Makefiles
+CMAKE_GENERATOR:INTERNAL=Ninja
 //Generator instance identifier.
 CMAKE_GENERATOR_INSTANCE:INTERNAL=
 //Name of generator platform.
@@ -378,12 +420,28 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_TAPI
 CMAKE_TAPI-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_TOOLCHAIN_FILE
+CMAKE_TOOLCHAIN_FILE-ADVANCED:INTERNAL=1
 //uname command
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding GTest
 FIND_PACKAGE_MESSAGE_DETAILS_GTest:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake][c ][v1.14.0()]
+//Details about finding ZLIB
+FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/lib/libz.a][/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include][c ][v1.3.2()]
+//ADVANCED property for variable: VCPKG_VERBOSE
+VCPKG_VERBOSE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_INCLUDE_DIR
+ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_DEBUG
+ZLIB_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_RELEASE
+ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//Making sure VCPKG_MANIFEST_MODE doesn't change
+Z_VCPKG_CHECK_MANIFEST_MODE:INTERNAL=ON
+//Vcpkg root directory
+Z_VCPKG_ROOT_DIR:INTERNAL=/home/rtami/vcpkg
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 

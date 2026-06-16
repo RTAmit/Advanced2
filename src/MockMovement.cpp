@@ -23,9 +23,9 @@ types::MovementResult MockMovement::advance(PhysicalLength distance) {
     const auto dy = cos_altitude * si::sin(current.horizontal);
     const auto dz = si::sin(current.altitude);
     
-    pos.x += distance * dx;
-    pos.y += distance * dy;
-    pos.z += distance * dz;
+    pos.x += XLength{distance * dx};
+    pos.y += YLength{distance * dy};
+    pos.z += ZLength{distance * dz};
     
     gps_.setPosition(pos);
     return types::MovementResult{true, {}};
@@ -34,7 +34,7 @@ types::MovementResult MockMovement::advance(PhysicalLength distance) {
 types::MovementResult MockMovement::elevate(PhysicalLength distance) {
     Position3D pos = gps_.position();
     
-    pos.z += distance;
+    pos.z += ZLength{distance};
     
     gps_.setPosition(pos);
     return types::MovementResult{true, {}};
