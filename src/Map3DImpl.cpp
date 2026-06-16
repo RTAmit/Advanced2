@@ -15,9 +15,9 @@ bool Map3DImpl::getIndices(const Position3D& pos, int& x_idx, int& y_idx, int& z
     y_idx = rel_y / res;
     z_idx = rel_z / res;
 
-    if (x_idx < 0 || x_idx >= static_cast<int>(map_->shape()[0]) ||
-        y_idx < 0 || y_idx >= static_cast<int>(map_->shape()[1]) ||
-        z_idx < 0 || z_idx >= static_cast<int>(map_->shape()[2])) {
+    if (x_idx < 0 || x_idx >= static_cast<int>(map_->Shape()[0]) ||
+        y_idx < 0 || y_idx >= static_cast<int>(map_->Shape()[1]) ||
+        z_idx < 0 || z_idx >= static_cast<int>(map_->Shape()[2])) {
         return false; 
     }
     return true;
@@ -28,8 +28,8 @@ types::VoxelOccupancy Map3DImpl::atVoxel(const Position3D& pos) const {
     if (!getIndices(pos, x_idx, y_idx, z_idx)) {
         return types::VoxelOccupancy::Occupied; 
     }
-    size_t flat_idx = x_idx + map_->shape()[0] * (y_idx + map_->shape()[1] * z_idx);
-    uint8_t voxel_val = map_->data()[flat_idx];
+    size_t flat_idx = x_idx + map_->Shape()[0] * (y_idx + map_->Shape()[1] * z_idx);
+    uint8_t voxel_val = map_->Data()[flat_idx];
 
     if (voxel_val > 0) {
         return types::VoxelOccupancy::Occupied;
@@ -41,8 +41,8 @@ void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy value) {
     int x_idx, y_idx, z_idx;
     if (!getIndices(pos, x_idx, y_idx, z_idx)) return;
     
-    size_t flat_idx = x_idx + map_->shape()[0] * (y_idx + map_->shape()[1] * z_idx);
-    uint8_t* mut_data = const_cast<uint8_t*>(map_->data().data());
+    size_t flat_idx = x_idx + map_->Shape()[0] * (y_idx + map_->Shape()[1] * z_idx);
+    uint8_t* mut_data = const_cast<uint8_t*>(map_->Data().data());
     
     if (value == types::VoxelOccupancy::Occupied) {
         mut_data[flat_idx] = 1;

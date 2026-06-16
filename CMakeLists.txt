@@ -42,12 +42,12 @@ target_link_libraries(drone_mapper_simulation PRIVATE
 
 # 2. יצירת תוכנית השוואת המפות (Utility)
 # (במידה והקובץ maps_comparison_main.cpp נמצא בתיקייה הראשית ולא ב-src, יש למחוק את הקידומת /src משמו למטה)
-#add_executable(maps_comparison src/maps_comparison_main.cpp src/MapsComparison.cpp src/Map3DImpl.cpp)
-#target_link_libraries(maps_comparison PRIVATE 
-#    yaml-cpp 
-#    mp-units::mp-units 
-#    TinyNPY::TinyNPY
-#)
+add_executable(maps_comparison src/maps_comparison_main.cpp src/MapsComparison.cpp src/Map3DImpl.cpp)
+target_link_libraries(maps_comparison PRIVATE 
+    yaml-cpp 
+    mp-units::mp-units 
+    TinyNPY::TinyNPY
+)
 
 # 3. יצירת קובץ ההרצה לבדיקות האוטומטיות (Tests)
 set(TEST_SOURCES
@@ -56,13 +56,13 @@ set(TEST_SOURCES
     tests/components/test_DroneControl.cpp
     tests/integration/test_integration_real_algorithm.cpp
 )
-add_executable(drone_mapper_simulation_test ${TEST_SOURCES} src/MapsComparison.cpp ${COMMON_SOURCES})
-target_link_libraries(drone_mapper_simulation_test PRIVATE 
-    GTest::gtest 
-    GTest::gtest_main 
-    GTest::gmock 
-    yaml-cpp 
-    mp-units::mp-units 
-    TinyNPY::TinyNPY 
-    pthread
-)
+#add_executable(drone_mapper_simulation_test ${TEST_SOURCES} src/MapsComparison.cpp ${COMMON_SOURCES})
+#target_link_libraries(drone_mapper_simulation_test PRIVATE 
+#    GTest::gtest 
+#    GTest::gtest_main 
+#    GTest::gmock 
+#    yaml-cpp 
+#    mp-units::mp-units 
+#    TinyNPY::TinyNPY 
+#    pthread
+#)
