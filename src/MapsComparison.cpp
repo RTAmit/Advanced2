@@ -3,7 +3,7 @@
 
 namespace drone_mapper {
 
-std::vector<double> MapsComparison::compare(const IMap3D& origin,
+std::vector<double> MapsComparison::compare(const IMap3D& origin, 
                                             const std::vector<IMap3D*> targets) {
     std::vector<double> results;
     

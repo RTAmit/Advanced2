@@ -50,12 +50,12 @@ target_link_libraries(maps_comparison PRIVATE
 )
 
 # 3. יצירת קובץ ההרצה לבדיקות האוטומטיות (Tests)
-set(TEST_SOURCES
-    tests/components/test_MissionControl.cpp
-    tests/components/test_MapsComparison.cpp
-    tests/components/test_DroneControl.cpp
-    tests/integration/test_integration_real_algorithm.cpp
-)
+#set(TEST_SOURCES
+#    tests/components/test_MissionControl.cpp
+#    tests/components/test_MapsComparison.cpp
+#    tests/components/test_DroneControl.cpp
+#    tests/integration/test_integration_real_algorithm.cpp
+#)
 #add_executable(drone_mapper_simulation_test ${TEST_SOURCES} src/MapsComparison.cpp ${COMMON_SOURCES})
 #target_link_libraries(drone_mapper_simulation_test PRIVATE 
 #    GTest::gtest 

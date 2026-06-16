@@ -10,31 +10,31 @@ The following packages will be built and installed:
     yaml-cpp:x64-linux@0.9.0#1
   * zlib:x64-linux@1.3.2#1
 Additional packages (*) will be modified to complete this operation.
-Restored 8 package(s) from /home/rtami/.cache/vcpkg/archives in 117 ms. Use --debug to see more details.
+Restored 8 package(s) from /home/rtami/.cache/vcpkg/archives in 85.4 ms. Use --debug to see more details.
 Installing 1/8 vcpkg-cmake-config:x64-linux@2024-05-23...
 vcpkg-cmake-config:x64-linux@2024-05-23 package ABI: 94b5ea84c5c6d660eab242448776a067d7affd451a2ca6b1b0ea3ea4f7f104a3
-Elapsed time to handle vcpkg-cmake-config:x64-linux: 73.3 ms
+Elapsed time to handle vcpkg-cmake-config:x64-linux: 54.1 ms
 Installing 2/8 vcpkg-cmake:x64-linux@2024-04-23...
 vcpkg-cmake:x64-linux@2024-04-23 package ABI: 82732cafa54bcf299d1e6bd75d61ca4422b0d8c7173cca5cac5f8b5da212006f
-Elapsed time to handle vcpkg-cmake:x64-linux: 101 ms
+Elapsed time to handle vcpkg-cmake:x64-linux: 66.2 ms
 Installing 3/8 gsl-lite:x64-linux@1.1.0...
 gsl-lite:x64-linux@1.1.0 package ABI: 9b788e98031d42cdf24c7b670655ec30fc0593fdb13dca90eb7a6dce79d93bec
-Elapsed time to handle gsl-lite:x64-linux: 110 ms
+Elapsed time to handle gsl-lite:x64-linux: 69.4 ms
 Installing 4/8 fmt:x64-linux@12.1.0...
 fmt:x64-linux@12.1.0 package ABI: 0933e73fa9acfe637a5935652d94d1a0fd8a7531706c9e76eea8d3f603b01d70
-Elapsed time to handle fmt:x64-linux: 216 ms
+Elapsed time to handle fmt:x64-linux: 137 ms
 Installing 5/8 mp-units:x64-linux@2.5.0...
 mp-units:x64-linux@2.5.0 package ABI: a96918efc287a14987079462678bc89f95ca0c7eafbf571c7594b7c464b0a38d
-Elapsed time to handle mp-units:x64-linux: 267 ms
+Elapsed time to handle mp-units:x64-linux: 266 ms
 Installing 6/8 zlib:x64-linux@1.3.2#1...
 zlib:x64-linux@1.3.2#1 package ABI: 3d45b686b3796b7ca2417108340cc662bd9f218da65608d4890e4c375117b71f
-Elapsed time to handle zlib:x64-linux: 136 ms
+Elapsed time to handle zlib:x64-linux: 138 ms
 Installing 7/8 tinynpy:x64-linux@1.1...
 tinynpy:x64-linux@1.1 package ABI: b1afe99c0d53469f261315bc8cb04ff888507a356dc73be458950d9ef1d8eec3
-Elapsed time to handle tinynpy:x64-linux: 147 ms
+Elapsed time to handle tinynpy:x64-linux: 111 ms
 Installing 8/8 yaml-cpp:x64-linux@0.9.0#1...
 yaml-cpp:x64-linux@0.9.0#1 package ABI: aa3de15f60e9076c95eb34b02bd03bf1a29f550344c5ebf265cdd959731a2d55
-Elapsed time to handle yaml-cpp:x64-linux: 285 ms
+Elapsed time to handle yaml-cpp:x64-linux: 258 ms
 Installed contents are licensed to you by owners. Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
 Some packages did not declare an SPDX license. Check the `copyright` file for each package for more information about their licensing.
 Packages installed in this vcpkg installation declare the following licenses:
@@ -63,4 +63,4 @@ yaml-cpp provides pkg-config modules:
   # A YAML parser and emitter for C++
   yaml-cpp
 
-All requested installations completed successfully in: 1.4 s
+All requested installations completed successfully in: 1.2 s

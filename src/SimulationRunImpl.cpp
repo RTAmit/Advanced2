@@ -31,7 +31,14 @@ SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
 
 types::SimulationResult SimulationRunImpl::run() {
     types::MissionRunResult mission_res = mission_control_->runMission();
-    std::vector<IMap3D*> targets = { output_map_.get() };
+    // 1. צור וקטור של shared_ptr
+    std::vector<std::shared_ptr<IMap3D>> targets;
+
+    // 2. הוסף את המפה (שים לב: output_map_ אצלך הוא unique_ptr, לכן צריך shared_ptr)
+    // אם המפה שלך היא מסוג IMap3D, השתמש ב-shared_ptr
+    targets.push_back(std::shared_ptr<IMap3D>(output_map_.get(), [](IMap3D*){})); 
+
+    // 3. בצע את ההשוואה
     std::vector<double> scores = MapsComparison::compare(*hidden_map_, targets);
     double final_score = scores.empty() ? 0.0 : scores[0];
 
