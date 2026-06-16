@@ -1,16 +1,15 @@
 # ninja log v5
-578	6133	1781516407789337500	CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o	b215d08acd0f856
-727	37172	1781516386747700500	CMakeFiles/drone_mapper_simulation.dir/src/DroneControlImpl.cpp.o	e264659fc8d21935
-775	37153	1781516386734958600	CMakeFiles/drone_mapper_simulation.dir/src/MappingAlgorithmImpl.cpp.o	ec1bbf340748a271
-788	34523	1781516384126674900	CMakeFiles/drone_mapper_simulation.dir/src/MockMovement.cpp.o	4bb74394c4cb8fb6
-207	46485	1781514525225233200	CMakeFiles/drone_mapper_simulation.dir/src/MockLidar.cpp.o	fc59acdddd5a1a8b
-180	28348	1781514507611953900	CMakeFiles/drone_mapper_simulation.dir/src/MockGPS.cpp.o	e014f59d0c1b4151
-377	39614	1781604299439188900	CMakeFiles/drone_mapper_simulation.dir/src/MockMovement.cpp.o	4bb74394c4cb8fb6
-387	39813	1781604299618403100	CMakeFiles/drone_mapper_simulation.dir/src/MockLidar.cpp.o	fc59acdddd5a1a8b
 371	42722	1781604302585731500	CMakeFiles/drone_mapper_simulation.dir/src/MockGPS.cpp.o	e014f59d0c1b4151
-358	44212	1781604304084715100	CMakeFiles/drone_mapper_simulation.dir/src/DroneControlImpl.cpp.o	e264659fc8d21935
 354	44362	1781604304224028300	CMakeFiles/drone_mapper_simulation.dir/src/MissionControlImpl.cpp.o	bfbefe9d4bbbeff4
+387	39813	1781604299618403100	CMakeFiles/drone_mapper_simulation.dir/src/MockLidar.cpp.o	fc59acdddd5a1a8b
 337	44401	1781604304257348300	CMakeFiles/drone_mapper_simulation.dir/SimulationManager.cpp.o	78878a3161e7d237
-366	45172	1781604305024050600	CMakeFiles/drone_mapper_simulation.dir/src/MappingAlgorithmImpl.cpp.o	ec1bbf340748a271
-400	5002	1781605014231009200	CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o	b215d08acd0f856
+377	39614	1781604299439188900	CMakeFiles/drone_mapper_simulation.dir/src/MockMovement.cpp.o	4bb74394c4cb8fb6
 408	30049	1781605039313742500	CMakeFiles/drone_mapper_simulation_test.dir/SimulationManager.cpp.o	b304e355193fed8
+366	45172	1781604305024050600	CMakeFiles/drone_mapper_simulation.dir/src/MappingAlgorithmImpl.cpp.o	ec1bbf340748a271
+358	44212	1781604304084715100	CMakeFiles/drone_mapper_simulation.dir/src/DroneControlImpl.cpp.o	e264659fc8d21935
+400	5002	1781605014231009200	CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o	b215d08acd0f856
+68	15643	1781605641605169900	build.ninja	a3bd0dd1b4b16908
+454	24548	1781605666216155100	CMakeFiles/drone_mapper_simulation_test.dir/src/DroneControlImpl.cpp.o	6cc1c2bdb0408235
+464	27059	1781605668728311900	CMakeFiles/drone_mapper_simulation_test.dir/src/MappingAlgorithmImpl.cpp.o	4f8b627dfd7637b4
+450	27449	1781605669115837200	CMakeFiles/drone_mapper_simulation_test.dir/src/MissionControlImpl.cpp.o	40362faaad8c6262
+438	27732	1781605669401165200	CMakeFiles/drone_mapper_simulation_test.dir/src/MapsComparison.cpp.o	93965f931b30259d

@@ -1,5 +1,4 @@
 /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles/drone_mapper_simulation.dir
-/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles/maps_comparison.dir
 /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles/drone_mapper_simulation_test.dir
 /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles/edit_cache.dir
 /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/CMakeFiles/rebuild_cache.dir

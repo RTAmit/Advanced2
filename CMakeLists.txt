@@ -42,12 +42,12 @@ target_link_libraries(drone_mapper_simulation PRIVATE
 
 # 2. יצירת תוכנית השוואת המפות (Utility)
 # (במידה והקובץ maps_comparison_main.cpp נמצא בתיקייה הראשית ולא ב-src, יש למחוק את הקידומת /src משמו למטה)
-add_executable(maps_comparison src/maps_comparison_main.cpp src/MapsComparison.cpp src/Map3DImpl.cpp)
-target_link_libraries(maps_comparison PRIVATE 
-    yaml-cpp 
-    mp-units::mp-units 
-    TinyNPY::TinyNPY
-)
+#add_executable(maps_comparison src/maps_comparison_main.cpp src/MapsComparison.cpp src/Map3DImpl.cpp)
+#target_link_libraries(maps_comparison PRIVATE 
+#    yaml-cpp 
+#    mp-units::mp-units 
+#    TinyNPY::TinyNPY
+#)
 
 # 3. יצירת קובץ ההרצה לבדיקות האוטומטיות (Tests)
 set(TEST_SOURCES

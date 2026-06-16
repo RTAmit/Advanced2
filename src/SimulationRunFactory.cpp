@@ -8,6 +8,7 @@
 #include "MockMovement.h"
 #include "SimulationRunImpl.h"
 #include <vector>
+#include <cstdint>
 
 namespace drone_mapper {
 std::unique_ptr<ISimulationRun>
@@ -17,12 +18,14 @@ SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
                                  const types::LidarConfigData& lidar,
                                  const std::filesystem::path& output_path) {
     
-    // NPY dummy vectors to satisfy the constructor
-    std::vector<size_t> dummy_shape = {1, 1, 1};
+    // שימוש ב-uint32_t שמתאים ל-TinyNPY במקום size_t
+    std::vector<uint32_t> dummy_shape = {1, 1, 1};
     std::vector<uint8_t> dummy_data = {0};
     
-    auto hidden_npy = std::make_shared<NpyArray>(dummy_shape, dummy_data, false); 
+    // טעינת המפה המקורית ישירות מהנתיב שב-YAML
+    auto hidden_npy = std::make_shared<NpyArray>(simulation.map_filename.string()); 
     auto hidden_map = std::make_unique<Map3DImpl>(hidden_npy); 
+
     auto output_map = std::make_unique<Map3DImpl>(std::make_shared<NpyArray>(dummy_shape, dummy_data, false));
 
     auto gps = std::make_unique<MockGPS>(

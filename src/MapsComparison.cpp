@@ -1,4 +1,5 @@
-#include <drone_mapper/MapsComparison.h>
+#include "MapsComparison.h"
+#include <iostream>
 
 namespace drone_mapper {
 
@@ -7,7 +8,8 @@ std::vector<double> MapsComparison::compare(const IMap3D& origin,
     std::vector<double> results;
     
     types::MapConfig origin_config = origin.getMapConfig();
-    int step = origin_config.resolution;
+    // שימוש נכון ביחידות הפיזיקליות החדשות
+    int step = origin_config.resolution.force_numerical_value_in(cm);
     if (step <= 0) {
         step = 10; 
     }
@@ -15,12 +17,12 @@ std::vector<double> MapsComparison::compare(const IMap3D& origin,
     for (auto* target : targets) {
         types::MapConfig target_config = target->getMapConfig();
         
-        int min_x = target_config.boundaries.x_boundary.min_cm;
-        int max_x = target_config.boundaries.x_boundary.max_cm;
-        int min_y = target_config.boundaries.y_boundary.min_cm;
-        int max_y = target_config.boundaries.y_boundary.max_cm;
-        int min_z = target_config.boundaries.height_boundary.min_cm;
-        int max_z = target_config.boundaries.height_boundary.max_cm;
+        int min_x = target_config.boundaries.min_x.force_numerical_value_in(cm);
+        int max_x = target_config.boundaries.max_x.force_numerical_value_in(cm);
+        int min_y = target_config.boundaries.min_y.force_numerical_value_in(cm);
+        int max_y = target_config.boundaries.max_y.force_numerical_value_in(cm);
+        int min_z = target_config.boundaries.min_height.force_numerical_value_in(cm);
+        int max_z = target_config.boundaries.max_height.force_numerical_value_in(cm);
         
         long long total_voxels = 0;
         long long matching_voxels = 0;
@@ -28,9 +30,10 @@ std::vector<double> MapsComparison::compare(const IMap3D& origin,
         for (int x = min_x; x <= max_x; x += step) {
             for (int y = min_y; y <= max_y; y += step) {
                 for (int z = min_z; z <= max_z; z += step) {
-                    Position3D pos{x, y, z};
+                    Position3D pos{XLength{static_cast<double>(x) * cm}, 
+                                   YLength{static_cast<double>(y) * cm}, 
+                                   ZLength{static_cast<double>(z) * cm}};
                     
-    
                     types::VoxelOccupancy v_origin = origin.atVoxel(pos);
                     types::VoxelOccupancy v_target = target->atVoxel(pos);
                     
