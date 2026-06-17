@@ -1,4 +1,4 @@
-#include "MappingAlgorithmImpl.h"
+#include "drone_mapper/MappingAlgorithmImpl.h"
 
 namespace drone_mapper {
 

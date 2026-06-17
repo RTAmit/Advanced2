@@ -1,4 +1,4 @@
-#include "MapsComparison.h"
+#include "drone_mapper/MapsComparison.h"
 #include <iostream>
 
 namespace drone_mapper {
