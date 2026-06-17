@@ -4,6 +4,7 @@
   "dependencies": [
     "yaml-cpp",
     "mp-units",
-    "tinynpy"
+    "tinynpy",
+    "gtest"
   ]
 }

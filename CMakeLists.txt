@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 find_package(mp-units CONFIG REQUIRED)
 find_package(tinynpy CONFIG REQUIRED)
+find_package(GTest CONFIG REQUIRED) 
 find_package(yaml-cpp REQUIRED) # new!
 
 add_library(drone_mapper
@@ -18,7 +19,7 @@ add_library(drone_mapper
     src/MockMovement.cpp
 #    src/ScanResultToVoxels.cpp
     src/SimulationManager.cpp
-#    src/SimulationRunFactoryImpl.cpp
+    src/SimulationRunFactoryImpl.cpp
     src/SimulationRunImpl.cpp
 )
 
@@ -39,7 +40,7 @@ target_link_libraries(drone_mapper
     PUBLIC
         mp-units::mp-units
         TinyNPY::TinyNPY
-        #yaml-cpp::yaml-cpp you #you should add this when you actually use yaml parsing
+        yaml-cpp::yaml-cpp 
 )
 
 add_executable(drone_mapper_simulation src/drone_mapper_simulation_main.cpp)
@@ -51,3 +52,11 @@ target_link_libraries(maps_comparison PRIVATE drone_mapper)
 # Compile the yaml example file
 #add_executable(example_yml cpp_yaml_example/main.cpp)
 #target_link_libraries(example_yml PRIVATE yaml-cpp::yaml-cpp)
+
+add_executable(drone_mapper_simulation_test
+    tests/components/test_DroneControl.cpp
+    tests/components/test_MapsComparison.cpp
+    tests/components/test_MissionControl.cpp
+    tests/integration/test_integration_real_algorithm.cpp
+)
+target_link_libraries(drone_mapper_simulation_test PRIVATE drone_mapper GTest::gtest GTest::gtest_main GTest::gmock pthread)

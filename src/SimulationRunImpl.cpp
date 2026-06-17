@@ -1,8 +1,5 @@
 #include <drone_mapper/SimulationRunImpl.h>
 #include <drone_mapper/MapsComparison.h>
-#include <stdexcept>
-#include <utility>
-#include <vector>
 
 namespace drone_mapper {
 
@@ -31,14 +28,11 @@ SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
 
 types::SimulationResult SimulationRunImpl::run() {
     types::MissionRunResult mission_res = mission_control_->runMission();
-    // 1. צור וקטור של shared_ptr
-    std::vector<std::shared_ptr<IMap3D>> targets;
-
-    // 2. הוסף את המפה (שים לב: output_map_ אצלך הוא unique_ptr, לכן צריך shared_ptr)
-    // אם המפה שלך היא מסוג IMap3D, השתמש ב-shared_ptr
-    targets.push_back(std::shared_ptr<IMap3D>(output_map_.get(), [](IMap3D*){})); 
-
-    // 3. בצע את ההשוואה
+    
+    // כאן התיקון הקריטי: יצירת וקטור של מצביעים רגילים מתוך ה-unique_ptr
+    std::vector<IMap3D*> targets;
+    targets.push_back(output_map_.get());
+    
     std::vector<double> scores = MapsComparison::compare(*hidden_map_, targets);
     double final_score = scores.empty() ? 0.0 : scores[0];
 
@@ -46,15 +40,10 @@ types::SimulationResult SimulationRunImpl::run() {
     result.simulation_config = simulation_config_;
     result.mission_config = mission_config_;
     
-    // שימוש נכון בווקטור התוצאות החדש:
     result.mission_results.push_back(mission_res); 
-    
-    // שימוש בשם המשתנה המעודכן עבור הציון:
     result.mission_score = final_score;
     
     result.output_map_file = output_map_file_;
-    
-    // שמירת קונפיגורציית המפה לפלט:
     result.output_map_config = output_map_->getMapConfig();
     
     return result;
