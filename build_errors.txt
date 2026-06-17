@@ -1,0 +1,85 @@
+[1/15] Building CXX object CMakeFiles/drone_mapper.dir/src/MappingAlgorithmImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/MappingAlgorithmImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/MappingAlgorithmImpl.cpp.o -MF CMakeFiles/drone_mapper.dir/src/MappingAlgorithmImpl.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/MappingAlgorithmImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MappingAlgorithmImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MappingAlgorithmImpl.cpp:1:10: fatal error: MappingAlgorithmImpl.h: No such file or directory
+    1 | #include "MappingAlgorithmImpl.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[2/15] Building CXX object CMakeFiles/drone_mapper.dir/src/MapsComparison.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/MapsComparison.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/MapsComparison.cpp.o -MF CMakeFiles/drone_mapper.dir/src/MapsComparison.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/MapsComparison.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MapsComparison.cpp:1:10: fatal error: MapsComparison.h: No such file or directory
+    1 | #include "MapsComparison.h"
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+[3/15] Building CXX object CMakeFiles/drone_mapper.dir/src/DroneControlImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/DroneControlImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/DroneControlImpl.cpp.o -MF CMakeFiles/drone_mapper.dir/src/DroneControlImpl.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/DroneControlImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/DroneControlImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/DroneControlImpl.cpp:1:10: fatal error: DroneControlImpl.h: No such file or directory
+    1 | #include "DroneControlImpl.h" // שים לב לכלול את הקובץ המקומי שלנו
+      |          ^~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[4/15] Building CXX object CMakeFiles/drone_mapper.dir/src/MissionControlImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/MissionControlImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/MissionControlImpl.cpp.o -MF CMakeFiles/drone_mapper.dir/src/MissionControlImpl.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/MissionControlImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MissionControlImpl.cpp:1:10: fatal error: MissionControlImpl.h: No such file or directory
+    1 | #include "MissionControlImpl.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[5/15] Building CXX object CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o -MF CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:1:10: fatal error: Map3DImpl.h: No such file or directory
+    1 | #include "Map3DImpl.h"
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+[6/15] Building CXX object CMakeFiles/drone_mapper.dir/src/MockGPS.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/MockGPS.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/MockGPS.cpp.o -MF CMakeFiles/drone_mapper.dir/src/MockGPS.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/MockGPS.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MockGPS.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MockGPS.cpp:1:10: fatal error: drone_mapper/MockGPS.h: No such file or directory
+    1 | #include <drone_mapper/MockGPS.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[7/15] Building CXX object CMakeFiles/drone_mapper.dir/src/MockLidar.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/MockLidar.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/MockLidar.cpp.o -MF CMakeFiles/drone_mapper.dir/src/MockLidar.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/MockLidar.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MockLidar.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MockLidar.cpp:1:10: fatal error: drone_mapper/MockLidar.h: No such file or directory
+    1 | #include <drone_mapper/MockLidar.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[8/15] Building CXX object CMakeFiles/drone_mapper.dir/src/SimulationManager.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/SimulationManager.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/SimulationManager.cpp.o -MF CMakeFiles/drone_mapper.dir/src/SimulationManager.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/SimulationManager.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationManager.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationManager.cpp:1:10: fatal error: SimulationManager.h: No such file or directory
+    1 | #include "SimulationManager.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[9/15] Building CXX object CMakeFiles/drone_mapper.dir/src/MockMovement.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/MockMovement.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/MockMovement.cpp.o -MF CMakeFiles/drone_mapper.dir/src/MockMovement.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/MockMovement.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MockMovement.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/MockMovement.cpp:1:10: fatal error: drone_mapper/MockMovement.h: No such file or directory
+    1 | #include <drone_mapper/MockMovement.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[10/15] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp:1:10: fatal error: drone_mapper/SimulationManager.h: No such file or directory
+    1 | #include <drone_mapper/SimulationManager.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[11/15] Building CXX object CMakeFiles/drone_mapper.dir/src/SimulationRunImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/SimulationRunImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/SimulationRunImpl.cpp.o -MF CMakeFiles/drone_mapper.dir/src/SimulationRunImpl.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/SimulationRunImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/SimulationRunImpl.cpp:1:10: fatal error: drone_mapper/SimulationRunImpl.h: No such file or directory
+    1 | #include <drone_mapper/SimulationRunImpl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+[12/15] Building CXX object CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o
+FAILED: CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -MD -MT CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o -MF CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o.d -o CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/maps_comparison_main.cpp:1:10: fatal error: drone_mapper/MapsComparison.h: No such file or directory
+    1 | #include <drone_mapper/MapsComparison.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+ninja: build stopped: subcommand failed.

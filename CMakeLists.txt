@@ -1,68 +1,53 @@
-cmake_minimum_required(VERSION 3.16)
-project(DroneMapperSimulation LANGUAGES CXX)
-
-# הגדרות קומפילציה קשיחות לפי דרישות המטלה
+cmake_minimum_required(VERSION 3.15)
+project(drone_mapper LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")
 
-# הגדרת נתיבים לחיפוש קובצי Header (הממשקים של השלד והקבצים שלנו)
-include_directories(.)
-include_directories(drone_mapper)
 
-# ייבוא ספריות חיצוניות (vcpkg דואג להוריד ולספק אותן)
 find_package(mp-units CONFIG REQUIRED)
 find_package(tinynpy CONFIG REQUIRED)
-find_package(yaml-cpp REQUIRED)
+find_package(yaml-cpp REQUIRED) # new!
 
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
-
-# רשימת קובצי המקור המשותפים (נתיבים מותאמים לתיקיית src ולתיקייה הראשית)
-set(COMMON_SOURCES
-    SimulationManager.cpp
-    src/SimulationRunFactory.cpp
-    src/SimulationRunImpl.cpp
-    src/MissionControlImpl.cpp
+add_library(drone_mapper
     src/DroneControlImpl.cpp
-    src/Map3DImpl.cpp
     src/MappingAlgorithmImpl.cpp
+    src/MapsComparison.cpp
+    src/MissionControlImpl.cpp
+    src/Map3DImpl.cpp
     src/MockGPS.cpp
-    src/MockMovement.cpp
     src/MockLidar.cpp
+    src/MockMovement.cpp
+#    src/ScanResultToVoxels.cpp
+    src/SimulationManager.cpp
+#    src/SimulationRunFactoryImpl.cpp
+    src/SimulationRunImpl.cpp
 )
 
-# 1. יצירת קובץ ההרצה הראשי של הסימולציה
-add_executable(drone_mapper_simulation main.cpp ${COMMON_SOURCES})
-target_link_libraries(drone_mapper_simulation PRIVATE 
-    yaml-cpp 
-    mp-units::mp-units 
-    TinyNPY::TinyNPY
+target_compile_features(drone_mapper PUBLIC cxx_std_20)
+target_compile_options(drone_mapper
+    PRIVATE
+        -Wall
+        -Wextra
+        -Werror
+        -pedantic
+)
+target_include_directories(drone_mapper
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
-# 2. יצירת תוכנית השוואת המפות (Utility)
-# (במידה והקובץ maps_comparison_main.cpp נמצא בתיקייה הראשית ולא ב-src, יש למחוק את הקידומת /src משמו למטה)
-add_executable(maps_comparison src/maps_comparison_main.cpp src/MapsComparison.cpp src/Map3DImpl.cpp)
-target_link_libraries(maps_comparison PRIVATE 
-    yaml-cpp 
-    mp-units::mp-units 
-    TinyNPY::TinyNPY
+target_link_libraries(drone_mapper
+    PUBLIC
+        mp-units::mp-units
+        TinyNPY::TinyNPY
+        #yaml-cpp::yaml-cpp you #you should add this when you actually use yaml parsing
 )
 
-# 3. יצירת קובץ ההרצה לבדיקות האוטומטיות (Tests)
-#set(TEST_SOURCES
-#    tests/components/test_MissionControl.cpp
-#    tests/components/test_MapsComparison.cpp
-#    tests/components/test_DroneControl.cpp
-#    tests/integration/test_integration_real_algorithm.cpp
-#)
-#add_executable(drone_mapper_simulation_test ${TEST_SOURCES} src/MapsComparison.cpp ${COMMON_SOURCES})
-#target_link_libraries(drone_mapper_simulation_test PRIVATE 
-#    GTest::gtest 
-#    GTest::gtest_main 
-#    GTest::gmock 
-#    yaml-cpp 
-#    mp-units::mp-units 
-#    TinyNPY::TinyNPY 
-#    pthread
-#)
+add_executable(drone_mapper_simulation src/drone_mapper_simulation_main.cpp)
+target_link_libraries(drone_mapper_simulation PRIVATE drone_mapper)
+#Compile the maps_comparison util
+add_executable(maps_comparison src/maps_comparison_main.cpp)
+target_link_libraries(maps_comparison PRIVATE drone_mapper)
+
+# Compile the yaml example file
+#add_executable(example_yml cpp_yaml_example/main.cpp)
+#target_link_libraries(example_yml PRIVATE yaml-cpp::yaml-cpp)
