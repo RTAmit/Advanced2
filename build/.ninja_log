@@ -40,3 +40,5 @@
 15669	20594	1782137683309159700	drone_mapper_simulation_test	68bf309ab0502aa0
 540	11466	1782137868158862800	CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o	cb875870b7e011ca
 11477	14802	1782137871490090800	drone_mapper_simulation_test	68bf309ab0502aa0
+670	15631	1782146648495184200	CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MapsComparison.cpp.o	5e1ad2ac4183454a
+15641	20847	1782146653702816400	drone_mapper_simulation_test	68bf309ab0502aa0

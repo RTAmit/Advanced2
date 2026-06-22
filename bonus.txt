@@ -1,0 +1,19 @@
+======================================================================
+Drone Mapper Simulation - Assignment 2 Bonus Features
+======================================================================
+
+Implemented Bonus Feature:
+--------------------------
+1. Support for comparing maps with different resolutions within the MapsComparison utility.
+
+Description:
+------------
+The MapsComparison::compare utility has been enhanced/designed to abstract away the underlying matrix grid dimensions by leveraging physical spacing (using mp-units). It iterates through the continuous 3D physical boundaries of the origin map and queries the virtual `atVoxel(Position3D)` method on both the origin and target maps. 
+Since each map independently translates physical coordinates into its respective voxel indices based on its own internal resolution configuration, the utility seamlessly and correctly computes an accuracy score even when the origin and target maps have completely different voxel sizes (resolutions).
+
+How to Verify & Test:
+---------------------
+A dedicated automated unit test has been added to the components test suite to rigorously validate this behavior using mock maps with mismatched resolutions (10 cm vs 20 cm).
+
+You can run this specific bonus test using the following Google Test filter:
+./drone_mapper_simulation_test --gtest_filter=MapsComparisonTest.SupportsDifferentResolutionsBonus
