@@ -1,0 +1,24 @@
+[1/3] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp'
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/gtest/gtest.h:71,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:1:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp: In member function ‘virtual void MissionControlTest_RunMissionCompletesSuccessfully_Test::TestBody()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_MissionControl.cpp:46:19: error: ‘struct drone_mapper::types::MissionRunResult’ has no member named ‘steps_taken’
+   46 |     EXPECT_EQ(res.steps_taken, 1);
+      |                   ^~~~~~~~~~~
+[2/3] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: In member function ‘virtual void DroneControlTest_StepExecutesCorrectSequence_Test::TestBody()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:36:12: error: ‘DronePosition’ is not a member of ‘drone_mapper::types’
+   36 |     types::DronePosition initial_pos{0 * cm, 0 * cm, 0 * cm};
+      |            ^~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:39:17: error: ‘initial_pos’ was not declared in this scope; did you mean ‘initial_ori’?
+   39 |     MockGPS gps(initial_pos, initial_ori);
+      |                 ^~~~~~~~~~~
+      |                 initial_ori
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:53:48: error: ‘Continue’ is not a member of ‘drone_mapper::types::AlgorithmStatus’
+   53 |     dummy_cmd.status = types::AlgorithmStatus::Continue;
+      |                                                ^~~~~~~~
+ninja: build stopped: subcommand failed.
