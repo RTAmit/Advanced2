@@ -1,2 +1,0 @@
-[1/2] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o
-[2/2] Linking CXX executable drone_mapper_simulation_test
