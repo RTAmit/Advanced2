@@ -1,0 +1,23 @@
+[1/5] Building CXX object CMakeFiles/drone_mapper.dir/src/ScanResultToVoxels.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/ScanResultToVoxels.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/ScanResultToVoxels.cpp.o -MF CMakeFiles/drone_mapper.dir/src/ScanResultToVoxels.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/ScanResultToVoxels.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp: In function ‘int drone_mapper::{anonymous}::occupancyPriority(drone_mapper::types::VoxelOccupancy)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp:58:33: error: ‘PotentiallyOccupied’ is not a member of ‘drone_mapper::types::VoxelOccupancy’
+   58 |     case types::VoxelOccupancy::PotentiallyOccupied:
+      |                                 ^~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp: In function ‘void drone_mapper::{anonymous}::setIfStronger(drone_mapper::IMutableMap3D&, const drone_mapper::Position3D&, drone_mapper::types::VoxelOccupancy)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp:71:21: error: ‘class drone_mapper::IMutableMap3D’ has no member named ‘isInBounds’
+   71 |     if (!output_map.isInBounds(position)) {
+      |                     ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp: In function ‘void drone_mapper::{anonymous}::markBeamSegment(drone_mapper::IMutableMap3D&, const drone_mapper::Position3D&, const drone_mapper::Orientation&, drone_mapper::PhysicalLength, drone_mapper::PhysicalLength, drone_mapper::PhysicalLength, drone_mapper::types::VoxelOccupancy)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp:91:25: error: ‘class drone_mapper::IMutableMap3D’ has no member named ‘isInBounds’
+   91 |         if (!output_map.isInBounds(current_point)) {
+      |                         ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp: In static member function ‘static void drone_mapper::ScanResultToVoxels::applyToMap(drone_mapper::IMutableMap3D&, const drone_mapper::Position3D&, const drone_mapper::Orientation&, const drone_mapper::types::LidarScanResult&, const drone_mapper::types::LidarConfigData&)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp:105:21: error: ‘class drone_mapper::IMutableMap3D’ has no member named ‘isInBounds’
+  105 |     if (!output_map.isInBounds(scan_origin)) {
+      |                     ^~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/ScanResultToVoxels.cpp:128:52: error: ‘PotentiallyOccupied’ is not a member of ‘drone_mapper::types::VoxelOccupancy’
+  128 |                             types::VoxelOccupancy::PotentiallyOccupied);
+      |                                                    ^~~~~~~~~~~~~~~~~~~
+ninja: build stopped: subcommand failed.

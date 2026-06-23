@@ -17,7 +17,7 @@ add_library(drone_mapper
     src/MockGPS.cpp
     src/MockLidar.cpp
     src/MockMovement.cpp
-#    src/ScanResultToVoxels.cpp
+    src/ScanResultToVoxels.cpp
     src/SimulationManager.cpp
     src/SimulationRunFactoryImpl.cpp
     src/SimulationRunImpl.cpp
