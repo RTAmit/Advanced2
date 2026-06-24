@@ -1,0 +1,152 @@
+[1/9] Building CXX object CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o -MF CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘std::vector<long unsigned int> drone_mapper::Map3DImpl::positionToIndices(const drone_mapper::Position3D&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:21:61: error: no matching function for call to ‘floor(mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::x_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>)’
+   21 |     unsigned long ix = static_cast<unsigned long>(std::floor((pos.x - m_config.boundaries.min_x) / m_config.resolution));
+      |                                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:16,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Map3DImpl.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:1:
+/usr/include/c++/13/cmath:265:5: note: candidate: ‘template<class _Tp> constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::floor(_Tp)’
+  265 |     floor(_Tp __x)
+      |     ^~~~~
+/usr/include/c++/13/cmath:265:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/cmath: In substitution of ‘template<class _Tp> constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::floor(_Tp) [with _Tp = mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::x_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>]’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:21:61:   required from here
+/usr/include/c++/13/cmath:265:5: error: no type named ‘__type’ in ‘struct __gnu_cxx::__enable_if<false, double>’
+In file included from /usr/include/features.h:502,
+                 from /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:39,
+                 from /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:679,
+                 from /usr/include/c++/13/bits/requires_hosted.h:31,
+                 from /usr/include/c++/13/cmath:41:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:165:1: note: candidate: ‘double floor(double)’
+  165 | __MATHCALLX (floor,, (_Mdouble_ __x), (__const__));
+      | ^~~~~~~~~~~
+In file included from /usr/include/c++/13/cmath:47:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:165:1: note:   no known conversion for argument 1 from ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::x_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>’ to ‘double’
+  165 | __MATHCALLX (floor,, (_Mdouble_ __x), (__const__));
+      | ^
+/usr/include/c++/13/cmath:253:3: note: candidate: ‘constexpr float std::floor(float)’
+  253 |   floor(float __x)
+      |   ^~~~~
+/usr/include/c++/13/cmath:253:15: note:   no known conversion for argument 1 from ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::x_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>’ to ‘float’
+  253 |   floor(float __x)
+      |         ~~~~~~^~~
+/usr/include/c++/13/cmath:257:3: note: candidate: ‘constexpr long double std::floor(long double)’
+  257 |   floor(long double __x)
+      |   ^~~~~
+/usr/include/c++/13/cmath:257:21: note:   no known conversion for argument 1 from ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::x_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>’ to ‘long double’
+  257 |   floor(long double __x)
+      |         ~~~~~~~~~~~~^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:22:61: error: no matching function for call to ‘floor(mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::y_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>)’
+   22 |     unsigned long iy = static_cast<unsigned long>(std::floor((pos.y - m_config.boundaries.min_y) / m_config.resolution));
+      |                                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/13/cmath:265:5: note: candidate: ‘template<class _Tp> constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::floor(_Tp)’
+  265 |     floor(_Tp __x)
+      |     ^~~~~
+/usr/include/c++/13/cmath:265:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/cmath: In substitution of ‘template<class _Tp> constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::floor(_Tp) [with _Tp = mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::y_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>]’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:22:61:   required from here
+/usr/include/c++/13/cmath:265:5: error: no type named ‘__type’ in ‘struct __gnu_cxx::__enable_if<false, double>’
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:165:1: note: candidate: ‘double floor(double)’
+  165 | __MATHCALLX (floor,, (_Mdouble_ __x), (__const__));
+      | ^~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:165:1: note:   no known conversion for argument 1 from ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::y_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>’ to ‘double’
+  165 | __MATHCALLX (floor,, (_Mdouble_ __x), (__const__));
+      | ^
+/usr/include/c++/13/cmath:253:3: note: candidate: ‘constexpr float std::floor(float)’
+  253 |   floor(float __x)
+      |   ^~~~~
+/usr/include/c++/13/cmath:253:15: note:   no known conversion for argument 1 from ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::y_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>’ to ‘float’
+  253 |   floor(float __x)
+      |         ~~~~~~^~~
+/usr/include/c++/13/cmath:257:3: note: candidate: ‘constexpr long double std::floor(long double)’
+  257 |   floor(long double __x)
+      |   ^~~~~
+/usr/include/c++/13/cmath:257:21: note:   no known conversion for argument 1 from ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::y_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>’ to ‘long double’
+  257 |   floor(long double __x)
+      |         ~~~~~~~~~~~~^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:23:61: error: no matching function for call to ‘floor(mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::z_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>)’
+   23 |     unsigned long iz = static_cast<unsigned long>(std::floor((pos.z - m_config.boundaries.min_height) / m_config.resolution));
+      |                                                   ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/13/cmath:265:5: note: candidate: ‘template<class _Tp> constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::floor(_Tp)’
+  265 |     floor(_Tp __x)
+      |     ^~~~~
+/usr/include/c++/13/cmath:265:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/cmath: In substitution of ‘template<class _Tp> constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::floor(_Tp) [with _Tp = mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::z_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>]’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:23:61:   required from here
+/usr/include/c++/13/cmath:265:5: error: no type named ‘__type’ in ‘struct __gnu_cxx::__enable_if<false, double>’
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:165:1: note: candidate: ‘double floor(double)’
+  165 | __MATHCALLX (floor,, (_Mdouble_ __x), (__const__));
+      | ^~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:165:1: note:   no known conversion for argument 1 from ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::z_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>’ to ‘double’
+  165 | __MATHCALLX (floor,, (_Mdouble_ __x), (__const__));
+      | ^
+/usr/include/c++/13/cmath:253:3: note: candidate: ‘constexpr float std::floor(float)’
+  253 |   floor(float __x)
+      |   ^~~~~
+/usr/include/c++/13/cmath:253:15: note:   no known conversion for argument 1 from ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::z_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>’ to ‘float’
+  253 |   floor(float __x)
+      |         ~~~~~~^~~
+/usr/include/c++/13/cmath:257:3: note: candidate: ‘constexpr long double std::floor(long double)’
+  257 |   floor(long double __x)
+      |   ^~~~~
+/usr/include/c++/13/cmath:257:21: note:   no known conversion for argument 1 from ‘mp_units::quantity<mp_units::reference<mp_units::derived_quantity_spec<drone_mapper::z_extent, mp_units::per<mp_units::isq::length> >, mp_units::one>(), double>’ to ‘long double’
+  257 |   floor(long double __x)
+      |         ~~~~~~~~~~~~^~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual drone_mapper::types::VoxelOccupancy drone_mapper::Map3DImpl::atVoxel(const drone_mapper::Position3D&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:34:36: error: ‘NpyArray::shape_t NpyArray::shape’ is private within this context
+   34 |     if (indices[0] >= m_npy_array->shape[0] ||
+      |                                    ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:69:17: note: declared private here
+   69 |         shape_t shape;
+      |                 ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:35:36: error: ‘NpyArray::shape_t NpyArray::shape’ is private within this context
+   35 |         indices[1] >= m_npy_array->shape[1] ||
+      |                                    ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:69:17: note: declared private here
+   69 |         shape_t shape;
+      |                 ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:36:36: error: ‘NpyArray::shape_t NpyArray::shape’ is private within this context
+   36 |         indices[2] >= m_npy_array->shape[2]) {
+      |                                    ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:69:17: note: declared private here
+   69 |         shape_t shape;
+      |                 ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:40:33: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘getValue’
+   40 |     uint8_t val = *m_npy_array->getValue<uint8_t>(indices);
+      |                                 ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:40:49: error: expected primary-expression before ‘>’ token
+   40 |     uint8_t val = *m_npy_array->getValue<uint8_t>(indices);
+      |                                                 ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual void drone_mapper::Map3DImpl::set(const drone_mapper::Position3D&, drone_mapper::types::VoxelOccupancy)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:57:36: error: ‘NpyArray::shape_t NpyArray::shape’ is private within this context
+   57 |     if (indices[0] >= m_npy_array->shape[0] ||
+      |                                    ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:69:17: note: declared private here
+   69 |         shape_t shape;
+      |                 ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:58:36: error: ‘NpyArray::shape_t NpyArray::shape’ is private within this context
+   58 |         indices[1] >= m_npy_array->shape[1] ||
+      |                                    ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:69:17: note: declared private here
+   69 |         shape_t shape;
+      |                 ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:59:36: error: ‘NpyArray::shape_t NpyArray::shape’ is private within this context
+   59 |         indices[2] >= m_npy_array->shape[2]) {
+      |                                    ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/TinyNPY.h:69:17: note: declared private here
+   69 |         shape_t shape;
+      |                 ^~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:81:33: error: ‘using std::__shared_ptr_access<NpyArray, __gnu_cxx::_S_atomic, false, false>::element_type = class NpyArray’ {aka ‘class NpyArray’} has no member named ‘getValue’
+   81 |     uint8_t* ptr = m_npy_array->getValue<uint8_t>(indices);
+      |                                 ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:81:49: error: expected primary-expression before ‘>’ token
+   81 |     uint8_t* ptr = m_npy_array->getValue<uint8_t>(indices);
+      |                                                 ^
+[2/9] Building CXX object CMakeFiles/drone_mapper.dir/src/SimulationRunFactoryImpl.cpp.o
+[3/9] Building CXX object CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o
+[4/9] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o
+[5/9] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o
+ninja: build stopped: subcommand failed.

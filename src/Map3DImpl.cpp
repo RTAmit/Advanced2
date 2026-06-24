@@ -26,24 +26,31 @@ std::vector<unsigned long> Map3DImpl::positionToIndices(const Position3D& pos) c
 
 types::VoxelOccupancy Map3DImpl::atVoxel(const Position3D& pos) const {
     if (!isInBounds(pos)) {
-        return types::VoxelOccupancy::OutOfBounds; // השם החדש של הסגל
+        return types::VoxelOccupancy::OutOfBounds; 
     }
 
     std::vector<unsigned long> indices = positionToIndices(pos);
+    
+    // 1. שימוש בפונקציה GetShape במקום גישה ישירה למשתנה הפרטי
+    const auto& shape = m_npy_array->GetShape(); 
 
-    if (indices[0] >= m_npy_array->shape[0] || 
-        indices[1] >= m_npy_array->shape[1] || 
-        indices[2] >= m_npy_array->shape[2]) {
-        return types::VoxelOccupancy::OutOfBounds; // השם החדש של הסגל
+    if (indices[0] >= shape[0] || 
+        indices[1] >= shape[1] || 
+        indices[2] >= shape[2]) {
+        return types::VoxelOccupancy::OutOfBounds; 
     }
 
-    uint8_t val = m_npy_array->getValue<uint8_t>(indices);
+    // 2. חישוב האינדקס השטוח (Flat Index) במערך הזיכרון
+    size_t flat_idx = indices[0] * shape[1] * shape[2] + indices[1] * shape[2] + indices[2];
+    
+    // 3. שליפת הערך בעזרת הפונקציה Data של הספרייה החדשה
+    uint8_t val = m_npy_array->Data<uint8_t>()[flat_idx];
 
     switch (val) {
         case 0: return types::VoxelOccupancy::Empty;
         case 1: return types::VoxelOccupancy::Occupied;
-        case 2: return types::VoxelOccupancy::PotentiallyOccupied; // המצב החדש
-        default: return types::VoxelOccupancy::Unmapped; // השם החדש של הסגל
+        case 2: return types::VoxelOccupancy::PotentiallyOccupied; 
+        default: return types::VoxelOccupancy::Unmapped; 
     }
 }
 
@@ -53,10 +60,13 @@ void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy state) {
     }
 
     std::vector<unsigned long> indices = positionToIndices(pos);
+    
+    // 1. שימוש ב-GetShape
+    const auto& shape = m_npy_array->GetShape(); 
 
-    if (indices[0] >= m_npy_array->shape[0] || 
-        indices[1] >= m_npy_array->shape[1] || 
-        indices[2] >= m_npy_array->shape[2]) {
+    if (indices[0] >= shape[0] || 
+        indices[1] >= shape[1] || 
+        indices[2] >= shape[2]) {
         return;
     }
 
@@ -71,14 +81,16 @@ void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy state) {
         case types::VoxelOccupancy::PotentiallyOccupied: 
             val = 2; 
             break;
-        case types::VoxelOccupancy::Unmapped: // השם החדש של הסגל
+        case types::VoxelOccupancy::Unmapped: 
             val = 255;
             break;
-        case types::VoxelOccupancy::OutOfBounds: // השם החדש של הסגל
+        case types::VoxelOccupancy::OutOfBounds: 
             return; 
     }
 
-    m_npy_array->setValue<uint8_t>(indices, val);
+    // 2. חישוב האינדקס השטוח וכתיבה ישירה לזיכרון דרך Data()
+    size_t flat_idx = indices[0] * shape[1] * shape[2] + indices[1] * shape[2] + indices[2];
+    m_npy_array->Data<uint8_t>()[flat_idx] = val;
 }
 
 } // namespace drone_mapper

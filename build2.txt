@@ -1,0 +1,68 @@
+[1/6] Building CXX object CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o
+FAILED: CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -Wall -Wextra -Werror -pedantic -MD -MT CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o -MF CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o.d -o CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:6:1: error: no declaration matches ‘drone_mapper::Map3DImpl::Map3DImpl(std::shared_ptr<NpyArray>, const drone_mapper::types::MapConfig&)’
+    6 | Map3DImpl::Map3DImpl(std::shared_ptr<NpyArray> npy_array, const types::MapConfig& config)
+      | ^~~~~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:1:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Map3DImpl.h:12:7: note: candidates are: ‘drone_mapper::Map3DImpl::Map3DImpl(drone_mapper::Map3DImpl&&)’
+   12 | class Map3DImpl final : public IMutableMap3D {
+      |       ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Map3DImpl.h:12:7: note:                 ‘drone_mapper::Map3DImpl::Map3DImpl(const drone_mapper::Map3DImpl&)’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Map3DImpl.h:16:5: note:                 ‘drone_mapper::Map3DImpl::Map3DImpl(std::shared_ptr<NpyArray>, drone_mapper::types::MapConfig)’
+   16 |     Map3DImpl(std::shared_ptr<NpyArray> map_ptr, const types::MapConfig map_config);
+      |     ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Map3DImpl.h:14:5: note:                 ‘drone_mapper::Map3DImpl::Map3DImpl(std::shared_ptr<NpyArray>)’
+   14 |     Map3DImpl(std::shared_ptr<NpyArray> map_ptr);
+      |     ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Map3DImpl.h:12:7: note: ‘class drone_mapper::Map3DImpl’ defined here
+   12 | class Map3DImpl final : public IMutableMap3D {
+      |       ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual drone_mapper::types::MapConfig drone_mapper::Map3DImpl::getMapConfig() const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:10:12: error: ‘m_config’ was not declared in this scope
+   10 |     return m_config;
+      |            ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual bool drone_mapper::Map3DImpl::isInBounds(const drone_mapper::Position3D&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:14:21: error: ‘m_config’ was not declared in this scope
+   14 |     const auto& b = m_config.boundaries;
+      |                     ^~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: At global scope:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:20:28: error: no declaration matches ‘std::vector<long unsigned int> drone_mapper::Map3DImpl::positionToIndices(const drone_mapper::Position3D&) const’
+   20 | std::vector<unsigned long> Map3DImpl::positionToIndices(const Position3D& pos) const {
+      |                            ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:20:28: note: no functions named ‘std::vector<long unsigned int> drone_mapper::Map3DImpl::positionToIndices(const drone_mapper::Position3D&) const’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Map3DImpl.h:12:7: note: ‘class drone_mapper::Map3DImpl’ defined here
+   12 | class Map3DImpl final : public IMutableMap3D {
+      |       ^~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual drone_mapper::types::VoxelOccupancy drone_mapper::Map3DImpl::atVoxel(const drone_mapper::Position3D&) const’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:32:42: error: ‘positionToIndices’ was not declared in this scope
+   32 |     std::vector<unsigned long> indices = positionToIndices(pos);
+      |                                          ^~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:34:23: error: ‘m_npy_array’ was not declared in this scope; did you mean ‘NpyArray’?
+   34 |     if (indices[0] >= m_npy_array->shape[0] ||
+      |                       ^~~~~~~~~~~
+      |                       NpyArray
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:40:20: error: ‘m_npy_array’ was not declared in this scope; did you mean ‘NpyArray’?
+   40 |     uint8_t val = *m_npy_array->getValue<uint8_t>(indices);
+      |                    ^~~~~~~~~~~
+      |                    NpyArray
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:40:49: error: expected primary-expression before ‘>’ token
+   40 |     uint8_t val = *m_npy_array->getValue<uint8_t>(indices);
+      |                                                 ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp: In member function ‘virtual void drone_mapper::Map3DImpl::set(const drone_mapper::Position3D&, drone_mapper::types::VoxelOccupancy)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:55:42: error: ‘positionToIndices’ was not declared in this scope
+   55 |     std::vector<unsigned long> indices = positionToIndices(pos);
+      |                                          ^~~~~~~~~~~~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:57:23: error: ‘m_npy_array’ was not declared in this scope; did you mean ‘NpyArray’?
+   57 |     if (indices[0] >= m_npy_array->shape[0] ||
+      |                       ^~~~~~~~~~~
+      |                       NpyArray
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:81:20: error: ‘m_npy_array’ was not declared in this scope; did you mean ‘NpyArray’?
+   81 |     uint8_t* ptr = m_npy_array->getValue<uint8_t>(indices);
+      |                    ^~~~~~~~~~~
+      |                    NpyArray
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/Map3DImpl.cpp:81:49: error: expected primary-expression before ‘>’ token
+   81 |     uint8_t* ptr = m_npy_array->getValue<uint8_t>(indices);
+      |                                                 ^
+[2/6] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o
+ninja: build stopped: subcommand failed.
