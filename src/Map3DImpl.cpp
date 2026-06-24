@@ -3,7 +3,6 @@
 
 namespace drone_mapper {
 
-// --- הבנאי שהיה חסר והוסף כעת ---
 Map3DImpl::Map3DImpl(std::shared_ptr<NpyArray> map_ptr)
     : m_npy_array(std::move(map_ptr)) {}
 
@@ -84,10 +83,8 @@ void Map3DImpl::set(const Position3D& pos, types::VoxelOccupancy state) {
     m_npy_array->Data<uint8_t>()[flat_idx] = val;
 }
 
-// --- פונקציית השמירה שהייתה חסרה והוספה כעת ---
 void Map3DImpl::save(const std::filesystem::path& output_path) const {
     if (m_npy_array) {
-        // שימוש בפונקציה הפנימית של TinyNPY לשמירת הקובץ
         m_npy_array->SaveNPY(output_path.string());
     }
 }

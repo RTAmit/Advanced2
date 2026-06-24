@@ -29,7 +29,6 @@ SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
 types::SimulationResult SimulationRunImpl::run() {
     types::MissionRunResult mission_res = mission_control_->runMission();
     
-    // כאן התיקון הקריטי: יצירת וקטור של מצביעים רגילים מתוך ה-unique_ptr
     std::vector<IMap3D*> targets;
     targets.push_back(output_map_.get());
     

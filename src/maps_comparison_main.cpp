@@ -34,7 +34,6 @@ int main(int argc, char** argv) {
             if (yaml_config["comparison_config"]) {
                 auto comp_node = yaml_config["comparison_config"];
                 
-                // פונקציית עזר לפענוח הגדרות מפה מקובץ YAML
                 auto parse_config = [](const YAML::Node& node, drone_mapper::types::MapConfig& cfg) {
                     if (node["map_res_cm"]) {
                         cfg.resolution = node["map_res_cm"].as<int>() * drone_mapper::cm;
@@ -61,7 +60,6 @@ int main(int argc, char** argv) {
                 if (comp_node["target"]) parse_config(comp_node["target"], target_config);
             }
         } else {
-            // הגדרות ברירת מחדל אם לא סופק קובץ קונפיגורציה
             origin_config.resolution = 10 * drone_mapper::cm;
             target_config.resolution = 10 * drone_mapper::cm;
             
@@ -75,20 +73,17 @@ int main(int argc, char** argv) {
             target_config.boundaries = origin_config.boundaries;
         }
 
-        // טעינת המערכים מתוך הקבצים
         auto origin_npy = std::make_shared<NpyArray>();
         origin_npy->LoadNPY(origin_map_path);
 
         auto target_npy = std::make_shared<NpyArray>();
         target_npy->LoadNPY(target_map_path);
 
-        // יצירת אובייקטי המפה כולל הקונפיגורציה שלהם
         drone_mapper::Map3DImpl origin_map(origin_npy, origin_config);
         drone_mapper::Map3DImpl target_map(target_npy, target_config);
 
         std::vector<drone_mapper::IMap3D*> targets = { &target_map };
         
-        // ביצוע ההשוואה
         std::vector<double> scores = drone_mapper::MapsComparison::compare(origin_map, targets);
         
         if (!scores.empty()) {

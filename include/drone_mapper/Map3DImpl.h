@@ -5,13 +5,12 @@
 #include <drone_mapper/types/MapTypes.h>
 #include <filesystem>
 #include <memory>
-#include <vector> // הוספנו כדי לתמוך בפונקציית העזר
+#include <vector> 
 
 namespace drone_mapper {
 
 class Map3DImpl final : public IMutableMap3D {
 public:
-    // הבנאים כפי שהיו לך במקור
     Map3DImpl(std::shared_ptr<NpyArray> map_ptr);
     Map3DImpl(std::shared_ptr<NpyArray> npy_array, const types::MapConfig& config);
 
@@ -25,11 +24,9 @@ public:
     void save(const std::filesystem::path& output_path) const override;
 
 private:
-    // שמות המשתנים עודכנו כדי שיתאימו בדיוק לקובץ ה-CPP שלך
     std::shared_ptr<NpyArray> m_npy_array;
     types::MapConfig m_config;
 
-    // הצהרה על פונקציית העזר כדי שהקומפיילר יכיר אותה
     [[nodiscard]] std::vector<unsigned long> positionToIndices(const Position3D& pos) const;
 };
 

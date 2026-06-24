@@ -8,14 +8,12 @@
 #include <drone_mapper/Units.h>
 #include <memory>
 
-// השתמש ב-namespace כדי למנוע כפילויות
 using namespace drone_mapper;
 using ::testing::_;
 using ::testing::Return;
 
 class MockMappingAlgorithm : public IMappingAlgorithm {
 public:
-    // העברת הפרמטרים לבנאי מחלקת האב
     MockMappingAlgorithm(const types::DroneConfigData& drone_config, const IMap3D& output_map)
         : IMappingAlgorithm(drone_config, output_map) {}
 
@@ -35,7 +33,6 @@ TEST(DroneControlTest, StepExecutesCorrectSequence) {
     
     Map3DImpl map(npy, map_cfg);
 
-    // הגדרת המיקום בעזרת Position3D הסטנדרטי
     Position3D initial_pos{0 * cm, 0 * cm, 0 * cm};
     Orientation initial_ori{0 * deg, 0 * deg};
     

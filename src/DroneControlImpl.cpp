@@ -1,4 +1,4 @@
-#include "drone_mapper/DroneControlImpl.h" // שים לב לכלול את הקובץ המקומי שלנו
+#include "drone_mapper/DroneControlImpl.h" 
 
 #include <utility>
 
@@ -26,13 +26,10 @@ types::DroneStepResult DroneControlImpl::step() {
         return types::DroneStepResult{types::DroneStepStatus::Error, "Max steps reached"};
     }
 
-    // 1. קריאה לסריקה מהליידאר
     types::LidarScanResult scan_result = lidar_.scan(current_state.heading); 
 
-    // 2. קבלת הפקודה מהאלגוריתם
     types::MappingStepCommand next_move = mapping_algorithm_.nextStep(current_state, &scan_result);
 
-    // 3. ביצוע התנועה אם נדרשת
     if (next_move.movement.has_value()) {
         auto move_cmd = next_move.movement.value();
         if (move_cmd.type == types::MovementCommandType::Advance) {

@@ -8,7 +8,6 @@ std::vector<double> MapsComparison::compare(const IMap3D& origin,
     std::vector<double> results;
     
     types::MapConfig origin_config = origin.getMapConfig();
-    // שימוש נכון ביחידות הפיזיקליות החדשות
     int step = origin_config.resolution.force_numerical_value_in(cm);
     if (step <= 0) {
         step = 10; 

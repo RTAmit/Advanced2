@@ -21,16 +21,13 @@ SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
                                  const types::LidarConfigData& lidar,
                                  const std::filesystem::path& output_path) {
     
-    // תיקון: שימוש בטיפוס המדויק של הספרייה עבור ה-Shape (שהוא std::vector<size_t>)
     NpyArray::shape_t dummy_shape = {1, 1, 1};
     std::vector<uint8_t> dummy_data = {0};
     
-    // תיקון: טעינת המפה המקורית באמצעות יצירת אובייקט ריק וקריאה ל-LoadNPY
     auto hidden_npy = std::make_shared<NpyArray>();
     hidden_npy->LoadNPY(simulation.map_filename.string()); 
     auto hidden_map = std::make_unique<Map3DImpl>(hidden_npy); 
 
-    // תיקון: העברת המצביע הגולמי dummy_data.data() לבנאי של NpyArray
     auto output_npy = std::make_shared<NpyArray>(dummy_shape, dummy_data.data(), false);
     auto output_map = std::make_unique<Map3DImpl>(output_npy);
 
