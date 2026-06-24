@@ -60,3 +60,10 @@
 514	18293	1782233822207500300	CMakeFiles/maps_comparison.dir/src/maps_comparison_main.cpp.o	4ed2eeca3470d2df
 520	19604	1782233823575461600	CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_MissionControl.cpp.o	cb875870b7e011ca
 517	19661	1782233823624192800	CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o	a963e7ba61f05115
+912	11387	1782297653716462400	CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o	95aad9477ae8f9e1
+11401	14652	1782297656938160800	libdrone_mapper.a	2787800d36f7faa6
+929	11644	1782297997447768800	CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o	95aad9477ae8f9e1
+11658	14348	1782298000182166600	libdrone_mapper.a	2787800d36f7faa6
+14350	17641	1782298003487138100	drone_mapper_simulation	c10e0bf97ab5eab1
+14351	18725	1782298004527970500	maps_comparison	f15f97eb8385ce66
+14352	20402	1782298006247474800	drone_mapper_simulation_test	68bf309ab0502aa0
