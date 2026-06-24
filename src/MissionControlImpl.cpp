@@ -2,7 +2,8 @@
 #include <utility>
 
 namespace drone_mapper {
-    MissionControlImpl::MissionControlImpl(
+
+MissionControlImpl::MissionControlImpl(
     types::MissionConfigData mission,
     types::DroneConfigData drone,
     const IMap3D& hidden_map,
@@ -17,10 +18,12 @@ namespace drone_mapper {
       output_map_file_(std::move(output_map_file)) 
 {
 }
+
 types::MissionRunResult MissionControlImpl::runMission() {
     types::MissionRunStatus final_status = types::MissionRunStatus::Completed;
     std::vector<types::ErrorRef> error_refs; 
     std::size_t steps_taken = 0;
+    bool mission_finished = false; // משתנה עזר לדעת אם עצרנו בזמן
 
     types::MappingBounds bounds = output_map_.getMapConfig().boundaries;
 
@@ -32,6 +35,7 @@ types::MissionRunResult MissionControlImpl::runMission() {
         double py = pos.y.force_numerical_value_in(cm);
         double pz = pos.z.force_numerical_value_in(cm);
 
+        // 1. בדיקת חריגה מגבולות המשימה
         if (px < bounds.min_x.force_numerical_value_in(cm) || px > bounds.max_x.force_numerical_value_in(cm) ||
             py < bounds.min_y.force_numerical_value_in(cm) || py > bounds.max_y.force_numerical_value_in(cm) ||
             pz < bounds.min_height.force_numerical_value_in(cm) || pz > bounds.max_height.force_numerical_value_in(cm)) {
@@ -41,24 +45,37 @@ types::MissionRunResult MissionControlImpl::runMission() {
             break;
         }
 
+        // 2. ביצוע צעד
         types::DroneStepResult step_result = drone_control_.step();
         steps_taken++;
 
+        // 3. בדיקה אם הצעד נכשל
         if (step_result.status == types::DroneStepStatus::Error) {
             final_status = types::MissionRunStatus::Error;
             error_refs.push_back(types::ErrorRef{"DRONE_ERROR", step_result.message});
             break;
         }
-        
-        if (step_result.status == types::DroneStepStatus::Completed) { break; }
+
+        // * התיקון הקריטי: עצירה כאשר המשימה מסתיימת בהצלחה *
+        if (step_result.status == types::DroneStepStatus::Completed) { 
+            final_status = types::MissionRunStatus::Completed;
+            mission_finished = true;
+            break; 
+        }
     }
 
-    output_map_.save(output_map_file_);
+    // * התיקון הקריטי: עדכון סטטוס אם מיצינו את כל הצעדים ללא סיום *
+    if (!mission_finished && final_status != types::MissionRunStatus::Error) {
+        final_status = types::MissionRunStatus::MaxSteps;
+    }
 
-    return types::MissionRunResult{
-        final_status,
-        steps_taken,
-        error_refs
-    };
+    // * התיקון הקריטי: שמירת המפה רק אם סופק נתיב חוקי (מונע קריסה בטסטים) *
+    if (!output_map_file_.empty()) {
+        output_map_.save(output_map_file_);
+    }
+
+    // החזרת האובייקט הסופי כנדרש
+    return types::MissionRunResult{final_status, steps_taken, error_refs};
 }
+
 } // namespace drone_mapper

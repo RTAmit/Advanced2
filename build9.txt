@@ -1,5 +1,0 @@
-[1/5] Building CXX object CMakeFiles/drone_mapper.dir/src/Map3DImpl.cpp.o
-[2/5] Linking CXX static library libdrone_mapper.a
-[3/5] Linking CXX executable drone_mapper_simulation
-[4/5] Linking CXX executable maps_comparison
-[5/5] Linking CXX executable drone_mapper_simulation_test

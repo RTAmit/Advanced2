@@ -22,8 +22,12 @@ TEST(MissionControlTest, RunMissionCompletesSuccessfully) {
     
     // 1. הגדרת מערך מינימלי של 1x1x1 ווקסלים
     std::vector<unsigned long> shape = {1, 1, 1};
+    
     auto npy_hidden = std::make_shared<NpyArray>(shape, 1, 'u', false);
+    npy_hidden->Allocate(); // חובה! מקצה את הזיכרון בפועל למערך
+    
     auto npy_output = std::make_shared<NpyArray>(shape, 1, 'u', false);
+    npy_output->Allocate(); // חובה! מקצה את הזיכרון בפועל למערך
     
     // 2. התאמת גבולות המפה בדיוק לגודל המערך (רזולוציה של 10 ס"מ)
     types::MapConfig map_cfg{};
