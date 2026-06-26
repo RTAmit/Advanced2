@@ -1,58 +1,94 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include <drone_mapper/DroneControlImpl.h>
-#include <drone_mapper/Map3DImpl.h>
-#include <drone_mapper/MockGPS.h>
-#include <drone_mapper/MockLidar.h>
-#include <drone_mapper/MockMovement.h>
+#include <drone_mapper/Types.h>
 #include <drone_mapper/Units.h>
 #include <memory>
 
 using namespace drone_mapper;
+using namespace mp_units;
 using ::testing::_;
 using ::testing::Return;
+using ::testing::NiceMock;
 
-class MockMappingAlgorithm : public IMappingAlgorithm {
+// ==========================================
+// Mocks Definitions
+// ==========================================
+class MockIGPS : public IGPS {
 public:
-    MockMappingAlgorithm(const types::DroneConfigData& drone_config, const IMap3D& output_map)
-        : IMappingAlgorithm(drone_config, output_map) {}
+    MOCK_METHOD(Position3D, position, (), (const, override));
+    MOCK_METHOD(Orientation, orientation, (), (const, override));
+};
 
+class MockILidar : public ILidar {
+public:
+    MOCK_METHOD(types::LidarScanResult, scan, (const Position3D&, const types::Angle3D&), (override));
+    MOCK_METHOD(types::LidarConfigData, config, (), (const, override));
+};
+
+class MockIDroneMovement : public IDroneMovement {
+public:
+    // חתימות מתוקנות בהתאם לממשק המקורי
+    MOCK_METHOD(types::MovementResult, rotate, (types::RotationDirection direction, HorizontalAngle angle), (override));
+    MOCK_METHOD(types::MovementResult, advance, (PhysicalLength distance), (override));
+    MOCK_METHOD(types::MovementResult, elevate, (PhysicalLength distance), (override));
+};
+
+class MockIMutableMap3D : public IMutableMap3D {
+public:
+    MOCK_METHOD(types::MapConfig, getMapConfig, (), (const, override));
+    MOCK_METHOD(bool, isInBounds, (const Position3D&), (const, override));
+    MOCK_METHOD(types::VoxelOccupancy, atVoxel, (const Position3D&), (const, override));
+    MOCK_METHOD(void, set, (const Position3D&, types::VoxelOccupancy), (override));
+    MOCK_METHOD(void, save, (const std::filesystem::path&), (const, override));
+};
+
+class MockIMappingAlgorithm : public IMappingAlgorithm {
+public:
+    MockIMappingAlgorithm(const types::DroneConfigData& d, const IMap3D& m) : IMappingAlgorithm(d, m) {}
     MOCK_METHOD(types::MappingStepCommand, nextStep, (const types::DroneState&, const types::LidarScanResult*), (override));
 };
 
-TEST(DroneControlTest, StepExecutesCorrectSequence) {
+// ==========================================
+// Test Cases
+// ==========================================
+TEST(DroneControlTest, StepExecutesCorrectSequenceAndReturnsStatus) {
     types::DroneConfigData drone_cfg{};
     types::MissionConfigData mission_cfg{};
-    mission_cfg.max_steps = 100;
-
-    std::vector<unsigned long> shape = {1, 1, 1};
-    auto npy = std::make_shared<NpyArray>(shape, 1, 'u', false);
     
-    types::MapConfig map_cfg{};
-    map_cfg.resolution = 10 * cm;
-    
-    Map3DImpl map(npy, map_cfg);
+    // יצירת ה-Mocks
+    NiceMock<MockIGPS> mock_gps;
+    NiceMock<MockILidar> mock_lidar;
+    NiceMock<MockIDroneMovement> mock_movement;
+    NiceMock<MockIMutableMap3D> mock_map;
+    MockIMappingAlgorithm mock_algo(drone_cfg, mock_map);
 
-    Position3D initial_pos{0 * cm, 0 * cm, 0 * cm};
-    Orientation initial_ori{0 * deg, 0 * deg};
-    
-    MockGPS gps(initial_pos, initial_ori);
-    MockMovement movement(gps);
-    MockLidar lidar(types::LidarConfigData{}, map, gps);
-    
-    auto mockAlgo = std::make_unique<MockMappingAlgorithm>(drone_cfg, map);
-    MockMappingAlgorithm* algoPtr = mockAlgo.get();
+    // הכנה לתוצאת הצלחה בתנועה
+    types::MovementResult success_result{types::MovementStatus::Success};
 
-    DroneControlImpl droneControl(drone_cfg, mission_cfg, lidar, gps, movement, map, *mockAlgo);
-
+    // הגדרת פקודת תנועה (דרך מפורשת למניעת שגיאת אתחול)
     types::MappingStepCommand dummy_cmd;
-    dummy_cmd.movement = types::MovementCommand{
-        types::MovementCommandType::Advance, types::RotationDirection::Left, 0.0 * deg, 10.0 * cm
-    };
-    dummy_cmd.status = types::AlgorithmStatus::Working;
+    types::MovementCommand cmd;
+    cmd.type = types::MovementCommandType::Advance;
+    cmd.rotation = types::RotationDirection::Left;
+    cmd.angle = 0.0 * isq::angle::deg;
+    cmd.distance = 10.0 * si::cm; // וודא שזה תואם ל-PhysicalLength
+    dummy_cmd.movement = cmd;
+    
+    // הגדרת התנהגות מצופה
+    EXPECT_CALL(mock_algo, nextStep(_, _)).WillOnce(Return(dummy_cmd));
+    
+    // הטיפ להמשך: הגדרת החזרה תקינה ל-Mock של התנועה
+    EXPECT_CALL(mock_movement, advance(_))
+        .Times(1)
+        .WillOnce(Return(success_result));
 
-    EXPECT_CALL(*algoPtr, nextStep(_, _)).WillOnce(Return(dummy_cmd));
+    // אתחול בקר הרחפן עם ה-Mocks (הזרקת תלויות)
+    DroneControlImpl droneControl(drone_cfg, mission_cfg, mock_lidar, mock_gps, mock_movement, mock_map, mock_algo);
 
-    types::DroneStepResult res = droneControl.step();
-    EXPECT_EQ(res.status, types::DroneStepStatus::Continue);
+    // הפעלת צעד ובדיקת תוצאה
+    types::DroneStepResult result = droneControl.step();
+
+    // ווידוא שהצעד עבר בהצלחה
+    EXPECT_EQ(result.status, types::DroneStepStatus::InProgress);
 }

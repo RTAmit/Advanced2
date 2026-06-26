@@ -1,7 +1,18 @@
 #include "drone_mapper/MissionControlImpl.h"
 #include <utility>
+#include <fstream>
+#include <string>
 
 namespace drone_mapper {
+
+void logErrorImmediately(const std::string& error_code, const std::string& message) {
+    std::ofstream log_file("error_log.txt", std::ios_base::app);
+    if (log_file.is_open()) {
+        log_file << "[ERROR] Code: " << error_code << " | Message: " << message << "\n";
+        log_file.flush(); 
+        log_file.close();
+    }
+}
 
 MissionControlImpl::MissionControlImpl(
     types::MissionConfigData mission,
@@ -16,14 +27,13 @@ MissionControlImpl::MissionControlImpl(
       output_map_(output_map),
       drone_control_(drone_control),
       output_map_file_(std::move(output_map_file)) 
-{
-}
+{}
 
 types::MissionRunResult MissionControlImpl::runMission() {
     types::MissionRunStatus final_status = types::MissionRunStatus::Completed;
     std::vector<types::ErrorRef> error_refs; 
     std::size_t steps_taken = 0;
-    bool mission_finished = false; 
+    bool mission_finished = false;
 
     types::MappingBounds bounds = output_map_.getMapConfig().boundaries;
 
@@ -31,16 +41,11 @@ types::MissionRunResult MissionControlImpl::runMission() {
         types::DroneState current_state = drone_control_.state();
         auto pos = current_state.position;
 
-        double px = pos.x.force_numerical_value_in(cm);
-        double py = pos.y.force_numerical_value_in(cm);
-        double pz = pos.z.force_numerical_value_in(cm);
-
-        if (px < bounds.min_x.force_numerical_value_in(cm) || px > bounds.max_x.force_numerical_value_in(cm) ||
-            py < bounds.min_y.force_numerical_value_in(cm) || py > bounds.max_y.force_numerical_value_in(cm) ||
-            pz < bounds.min_height.force_numerical_value_in(cm) || pz > bounds.max_height.force_numerical_value_in(cm)) {
-            
+        if (!output_map_.isInBounds(pos)) {
+            std::string err_msg = "Drone exited mission boundaries";
+            error_refs.push_back(types::ErrorRef{"MISSION_BOUNDARY_INVALID", err_msg});
+            logErrorImmediately("MISSION_BOUNDARY_INVALID", err_msg);
             final_status = types::MissionRunStatus::Error;
-            error_refs.push_back(types::ErrorRef{"MISSION_BOUNDARY_INVALID", "Drone exited mission boundaries"});
             break;
         }
 
@@ -48,8 +53,9 @@ types::MissionRunResult MissionControlImpl::runMission() {
         steps_taken++;
 
         if (step_result.status == types::DroneStepStatus::Error) {
-            final_status = types::MissionRunStatus::Error;
             error_refs.push_back(types::ErrorRef{"DRONE_ERROR", step_result.message});
+            logErrorImmediately("DRONE_ERROR", step_result.message);
+            final_status = types::MissionRunStatus::Error;
             break;
         }
 
@@ -62,6 +68,7 @@ types::MissionRunResult MissionControlImpl::runMission() {
 
     if (!mission_finished && final_status != types::MissionRunStatus::Error) {
         final_status = types::MissionRunStatus::MaxSteps;
+        logErrorImmediately("MISSION_MAX_STEPS", "Mission did not finish within allocated steps");
     }
 
     if (!output_map_file_.empty()) {
