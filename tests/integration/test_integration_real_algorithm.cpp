@@ -7,22 +7,25 @@
 #include <drone_mapper/MockMovement.h>
 #include <drone_mapper/Map3DImpl.h>
 #include <drone_mapper/MapsComparison.h>
+#include <drone_mapper/Units.h>
 #include <TinyNPY.h>
 #include <memory>
 #include <string>
 
 using namespace drone_mapper;
-using namespace mp_units;
+using namespace mp_units::si::unit_symbols;
+using namespace mp_units::angular::unit_symbols;
 
 void RunIntegrationOnMap(const std::string& map_path) {
-    auto hidden_array = std::make_shared<NpyArray>(map_path);
+    auto hidden_array = std::make_shared<NpyArray>();
+    hidden_array->LoadNPY(map_path);
     
     types::MapConfig map_config;
-    map_config.resolution = 10.0 * si::centi * si::metre; 
+    map_config.resolution = 10.0 * cm; 
     map_config.boundaries = types::MappingBounds{
-        0.0 * si::metre, static_cast<double>(hidden_array->Shape()[0]) * map_config.resolution,
-        0.0 * si::metre, static_cast<double>(hidden_array->Shape()[1]) * map_config.resolution,
-        0.0 * si::metre, static_cast<double>(hidden_array->Shape()[2]) * map_config.resolution
+        0.0 * cm, static_cast<double>(hidden_array->Shape()[0]) * 10.0 * cm,
+        0.0 * cm, static_cast<double>(hidden_array->Shape()[1]) * 10.0 * cm,
+        0.0 * cm, static_cast<double>(hidden_array->Shape()[2]) * 10.0 * cm
     };
     Map3DImpl hidden_map(hidden_array, map_config);
 
@@ -33,17 +36,21 @@ void RunIntegrationOnMap(const std::string& map_path) {
                 255); 
     Map3DImpl output_map(output_array, map_config);
 
-    types::MissionConfigData mission_config{2000, map_config.boundaries}; // מספיק צעדים למיפוי
+    types::MissionConfigData mission_config{2000, map_config.boundaries}; 
     types::DroneConfigData drone_config;
-    types::LidarConfigData lidar_config{5.0 * si::metre, 360.0 * isq::angle::degree, 0.1 * si::metre};
+    types::LidarConfigData lidar_config{500.0 * cm, 360.0 * deg, 10.0 * cm};
 
-    MockLidar lidar(lidar_config, hidden_map);
-    MockGPS gps(hidden_map);
-    MockMovement movement(hidden_map);
-    MappingAlgorithmImpl mapping_alg(drone_config, output_map); // ודא חתימת בנאי נכונה
+    Position3D start_pos{0.0 * cm, 0.0 * cm, 0.0 * cm};
+    
+    // העברת זווית יחידה לבנאי ה-GPS כפי שהוגדר
+    MockGPS gps(start_pos, 0.0 * deg);
+    MockMovement movement(gps);
+    MockLidar lidar(lidar_config, hidden_map, gps); 
+
+    MappingAlgorithmImpl mapping_alg(drone_config, output_map); 
     
     DroneControlImpl drone_control(drone_config, mission_config, lidar, gps, movement, output_map, mapping_alg);
-    MissionControlImpl mission_control(mission_config, drone_config, hidden_map, output_map, drone_control, ""); // ללא קובץ יציאה בטסט
+    MissionControlImpl mission_control(mission_config, drone_config, hidden_map, output_map, drone_control, ""); 
 
     types::MissionRunResult result = mission_control.runMission();
     
@@ -55,7 +62,6 @@ void RunIntegrationOnMap(const std::string& map_path) {
     EXPECT_GE(score, 90.0) 
         << "Mapping score too low (" << score << ") on map: " << map_path;
 }
-
 
 TEST(IntegrationRealAlgorithmTest, MapsFiveVoxelsPattern) {
     RunIntegrationOnMap("data_maps/five_voxels_y4_pattern.npy");

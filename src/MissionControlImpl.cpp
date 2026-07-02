@@ -1,4 +1,5 @@
 #include "drone_mapper/MissionControlImpl.h"
+#include "drone_mapper/Units.h" // חובה לייבא את היחידות!
 #include <utility>
 #include <fstream>
 #include <string>
@@ -35,12 +36,11 @@ types::MissionRunResult MissionControlImpl::runMission() {
     std::size_t steps_taken = 0;
     bool mission_finished = false;
 
-    types::MappingBounds bounds = output_map_.getMapConfig().boundaries;
-
     for (std::size_t i = 0; i < mission_.max_steps; ++i) {
         types::DroneState current_state = drone_control_.state();
         auto pos = current_state.position;
 
+        // שימוש בפונקציה הקצרה והבטוחה לבדיקת גבולות
         if (!output_map_.isInBounds(pos)) {
             std::string err_msg = "Drone exited mission boundaries";
             error_refs.push_back(types::ErrorRef{"MISSION_BOUNDARY_INVALID", err_msg});
