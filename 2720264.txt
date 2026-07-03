@@ -1,0 +1,97 @@
+[1/5] Building CXX object CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o -MF CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o.d -o CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp: In function ‘int main(int, char**)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp:23:33: error: ‘degree’ is not a member of ‘drone_mapper’; did you mean ‘mp_units::non_si::degree’?
+   23 |             0.0 * drone_mapper::degree,
+      |                                 ^~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/systems/si/unit_symbols.h:27,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Units.h:5,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/types/DroneTypes.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Types.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/ISimulation.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/SimulationManager.h:2,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp:1:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/systems/si/units.h:103:113: note: ‘mp_units::non_si::degree’ declared here
+  103 | inline constexpr struct degree final : named_unit<symbol_text{u8"°", "deg"}, mag<π> / mag<180> * si::radian> {} degree;
+      |                                                                                                                 ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp:28:34: error: ‘degree’ is not a member of ‘drone_mapper’; did you mean ‘mp_units::non_si::degree’?
+   28 |             45.0 * drone_mapper::degree,
+      |                                  ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/systems/si/units.h:103:113: note: ‘mp_units::non_si::degree’ declared here
+  103 | inline constexpr struct degree final : named_unit<symbol_text{u8"°", "deg"}, mag<π> / mag<180> * si::radian> {} degree;
+      |                                                                                                                 ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp:34:35: error: ‘degree’ is not a member of ‘drone_mapper’; did you mean ‘mp_units::non_si::degree’?
+   34 |             120.0 * drone_mapper::degree,
+      |                                   ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/systems/si/units.h:103:113: note: ‘mp_units::non_si::degree’ declared here
+  103 | inline constexpr struct degree final : named_unit<symbol_text{u8"°", "deg"}, mag<π> / mag<180> * si::radian> {} degree;
+      |                                                                                                                 ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp:37:5: error: could not convert ‘{{"data_maps/single_voxel_x2_y4_z2.npy", mp_units::operator*<double, si::centi_<si::metre> >(1.0e+1, (mp_units::si::unit_symbols::cm, const mp_units::si::centi_<mp_units::si::metre>())), drone_mapper::Position3D{drone_mapper::XLength{0.0}, drone_mapper::YLength{0.0}, drone_mapper::ZLength{0.0}}, drone_mapper::Position3D{drone_mapper::XLength{0.0}, drone_mapper::YLength{0.0}, drone_mapper::ZLength{0.0}}, <expression error>}}’ from ‘<brace-enclosed initializer list>’ to ‘std::vector<drone_mapper::types::SimulationConfigData>’
+   37 |     };
+      |     ^
+      |     |
+      |     <brace-enclosed initializer list>
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/src/drone_mapper_simulation_main.cpp:39:45: warning: ignoring return value of ‘virtual drone_mapper::types::SimulationManagerReport drone_mapper::SimulationManager::run(const drone_mapper::types::SimulationCompositionData&, const std::filesystem::__cxx11::path&)’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   39 |     simulation.run(composition, output_path);
+      |                                             ^
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/SimulationManager.h:12:50: note: declared here
+   12 |     [[nodiscard]] types::SimulationManagerReport run(const types::SimulationCompositionData& composition,
+      |                                                  ^~~
+[2/5] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/integration/test_integration_real_algorithm.cpp'
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/integration/test_integration_real_algorithm.cpp: In function ‘void RunIntegrationOnMap(const std::string&)’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/integration/test_integration_real_algorithm.cpp:37:62: error: could not convert ‘map_config.drone_mapper::types::MapConfig::boundaries’ from ‘drone_mapper::types::MappingBounds’ to ‘drone_mapper::PhysicalLength’ {aka ‘mp_units::quantity<mp_units::reference<mp_units::isq::length, mp_units::si::centi_<mp_units::si::metre> >(), double>’}
+   37 |     types::MissionConfigData mission_config{2000, map_config.boundaries};
+      |                                                   ~~~~~~~~~~~^~~~~~~~~~
+      |                                                              |
+      |                                                              drone_mapper::types::MappingBounds
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/integration/test_integration_real_algorithm.cpp:39:89: error: ‘degree’ is not a member of ‘drone_mapper’; did you mean ‘mp_units::non_si::degree’?
+   39 |     types::LidarConfigData lidar_config{500.0 * drone_mapper::cm, 360.0 * drone_mapper::degree, 10.0 * drone_mapper::cm};
+      |                                                                                         ^~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/systems/si/unit_symbols.h:27,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Units.h:5,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/types/DroneTypes.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/Types.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/IDroneControl.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/MissionControlImpl.h:3,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/integration/test_integration_real_algorithm.cpp:2:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/mp-units/systems/si/units.h:103:113: note: ‘mp_units::non_si::degree’ declared here
+  103 | inline constexpr struct degree final : named_unit<symbol_text{u8"°", "deg"}, mag<π> / mag<180> * si::radian> {} degree;
+      |                                                                                                                 ^~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/integration/test_integration_real_algorithm.cpp:43:54: error: no matching function for call to ‘drone_mapper::MockGPS::MockGPS(drone_mapper::Position3D&, mp_units::quantity<mp_units::non_si::degree(), double>)’
+   43 |     MockGPS gps(start_pos, 0.0 * mp_units::si::degree);
+      |                                                      ^
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/integration/test_integration_real_algorithm.cpp:6:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/MockGPS.h:9:5: note: candidate: ‘drone_mapper::MockGPS::MockGPS(drone_mapper::Position3D, drone_mapper::Orientation)’
+    9 |     MockGPS(Position3D position, Orientation heading);
+      |     ^~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/MockGPS.h:9:46: note:   no known conversion for argument 2 from ‘mp_units::quantity<mp_units::non_si::degree(), double>’ to ‘drone_mapper::Orientation’
+    9 |     MockGPS(Position3D position, Orientation heading);
+      |                                  ~~~~~~~~~~~~^~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/MockGPS.h:7:7: note: candidate: ‘constexpr drone_mapper::MockGPS::MockGPS(const drone_mapper::MockGPS&)’
+    7 | class MockGPS final : public IGPS {
+      |       ^~~~~~~
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/MockGPS.h:7:7: note:   candidate expects 1 argument, 2 provided
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/MockGPS.h:7:7: note: candidate: ‘constexpr drone_mapper::MockGPS::MockGPS(drone_mapper::MockGPS&&)’
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/MockGPS.h:7:7: note:   candidate expects 1 argument, 2 provided
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/integration/test_integration_real_algorithm.cpp:55:49: error: cannot convert ‘drone_mapper::Map3DImpl’ to ‘std::vector<drone_mapper::IMap3D*>’
+   55 |     double score = comparer.compare(hidden_map, output_map);
+      |                                                 ^~~~~~~~~~
+      |                                                 |
+      |                                                 drone_mapper::Map3DImpl
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/integration/test_integration_real_algorithm.cpp:9:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include/drone_mapper/MapsComparison.h:12:81: note:   initializing argument 2 of ‘static std::vector<double> drone_mapper::MapsComparison::compare(const drone_mapper::IMap3D&, std::vector<drone_mapper::IMap3D*>)’
+   12 |                                                      const std::vector<IMap3D*> targets);
+      |                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+[3/5] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp'
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/gmock/gmock-actions.h:148,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/gmock/gmock.h:56,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:2:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:22:41: error: ‘testing::internal::Function<drone_mapper::types::LidarConfigData()>::Result MockILidar::config() const’ marked ‘override’, but does not override
+   22 |     MOCK_METHOD(types::LidarConfigData, config, (), (const, override));
+      |                                         ^~~~~~
+ninja: build stopped: subcommand failed.

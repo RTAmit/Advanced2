@@ -11,10 +11,12 @@
 #include <TinyNPY.h>
 #include <memory>
 #include <string>
+#include <vector>
+
+#include <mp-units/systems/si/units.h>
 
 using namespace drone_mapper;
 using namespace mp_units::si::unit_symbols;
-using namespace mp_units::angular::unit_symbols;
 
 void RunIntegrationOnMap(const std::string& map_path) {
     auto hidden_array = std::make_shared<NpyArray>();
@@ -36,14 +38,16 @@ void RunIntegrationOnMap(const std::string& map_path) {
                 255); 
     Map3DImpl output_map(output_array, map_config);
 
-    types::MissionConfigData mission_config{2000, map_config.boundaries}; 
+    types::MissionConfigData mission_config{2000, 10.0 * cm, 1}; 
     types::DroneConfigData drone_config;
-    types::LidarConfigData lidar_config{500.0 * cm, 360.0 * deg, 10.0 * cm};
+    
+    // התיקון: חזרנו ל-cm כי ה-struct דורש PhysicalLength
+    types::LidarConfigData lidar_config{500.0 * cm, 360.0 * cm, 10.0 * cm};
 
     Position3D start_pos{0.0 * cm, 0.0 * cm, 0.0 * cm};
+    Orientation start_ori{0.0 * mp_units::non_si::degree};
+    MockGPS gps(start_pos, start_ori);
     
-    // העברת זווית יחידה לבנאי ה-GPS כפי שהוגדר
-    MockGPS gps(start_pos, 0.0 * deg);
     MockMovement movement(gps);
     MockLidar lidar(lidar_config, hidden_map, gps); 
 
@@ -55,7 +59,9 @@ void RunIntegrationOnMap(const std::string& map_path) {
     types::MissionRunResult result = mission_control.runMission();
     
     MapsComparison comparer;
-    double score = comparer.compare(hidden_map, output_map);
+    std::vector<IMap3D*> targets = {&output_map};
+    std::vector<double> scores = comparer.compare(hidden_map, targets);
+    double score = scores.empty() ? 0.0 : scores[0]; 
 
     EXPECT_EQ(result.status, types::MissionRunStatus::Completed) 
         << "Mission failed or got stuck in infinite loop on map: " << map_path;

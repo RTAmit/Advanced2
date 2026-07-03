@@ -26,3 +26,5 @@
 1285	45693	1782896392055667900	CMakeFiles/drone_mapper.dir/src/MissionControlImpl.cpp.o	3536f072ae873839
 45738	58431	1782896403918766000	libdrone_mapper.a	2787800d36f7faa6
 2861	16668	1782896513392223800	maps_comparison	f15f97eb8385ce66
+756	13203	1783061715024129200	CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o	642a5bce202ddc20
+762	14247	1783061716056263000	CMakeFiles/drone_mapper_simulation_test.dir/tests/integration/test_integration_real_algorithm.cpp.o	9f6847d222bf9b5e

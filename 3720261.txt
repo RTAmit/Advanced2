@@ -1,0 +1,22 @@
+[1/3] Linking CXX executable drone_mapper_simulation
+FAILED: drone_mapper_simulation 
+: && /usr/bin/c++   CMakeFiles/drone_mapper_simulation.dir/src/drone_mapper_simulation_main.cpp.o -o drone_mapper_simulation  libdrone_mapper.a  vcpkg_installed/x64-linux/debug/lib/libfmtd.a  vcpkg_installed/x64-linux/debug/lib/libTinyNPY.a  vcpkg_installed/x64-linux/lib/libz.a  vcpkg_installed/x64-linux/debug/lib/libyaml-cppd.a && :
+/usr/bin/ld: libdrone_mapper.a(SimulationRunFactoryImpl.cpp.o): in function `std::__detail::_MakeUniq<drone_mapper::MappingAlgorithmImpl>::__single_object std::make_unique<drone_mapper::MappingAlgorithmImpl, drone_mapper::types::DroneConfigData const&, drone_mapper::Map3DImpl&>(drone_mapper::types::DroneConfigData const&, drone_mapper::Map3DImpl&)':
+SimulationRunFactoryImpl.cpp:(.text._ZSt11make_uniqueIN12drone_mapper20MappingAlgorithmImplEJRKNS0_5types15DroneConfigDataERNS0_9Map3DImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_[_ZSt11make_uniqueIN12drone_mapper20MappingAlgorithmImplEJRKNS0_5types15DroneConfigDataERNS0_9Map3DImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_]+0x7a): undefined reference to `drone_mapper::MappingAlgorithmImpl::MappingAlgorithmImpl(drone_mapper::types::DroneConfigData, drone_mapper::IMap3D const&)'
+collect2: error: ld returned 1 exit status
+[2/3] Building CXX object CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o
+FAILED: CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o 
+/usr/bin/c++ -DMP_UNITS_API_CONTRACTS=2 -DMP_UNITS_API_NATURAL_UNITS=1 -DMP_UNITS_API_NO_CRTP=0 -DMP_UNITS_API_STD_FORMAT=0 -DMP_UNITS_API_THROWING_CONSTRAINTS=0 -DMP_UNITS_HOSTED=1 -DYAML_CPP_STATIC_DEFINE -I"/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/include" -isystem "/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include" -std=gnu++20 -MD -MT CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o -MF CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o.d -o CMakeFiles/drone_mapper_simulation_test.dir/tests/components/test_DroneControl.cpp.o -c '/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp'
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/gmock/gmock-actions.h:148,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/gmock/gmock.h:56,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:2:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:27:41: error: ‘testing::internal::Function<drone_mapper::types::LidarConfigData()>::Result MockILidar::config() const’ marked ‘override’, but does not override
+   27 |     MOCK_METHOD(types::LidarConfigData, config, (), (const, override));
+      |                                         ^~~~~~
+In file included from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/build/vcpkg_installed/x64-linux/include/gtest/gtest.h:71,
+                 from /mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:1:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp: In member function ‘virtual void DroneControlTest_StepExecutesCorrectSequenceAndReturnsStatus_Test::TestBody()’:
+/mnt/c/Users/rtami/Downloads/Computer/Y3S2/Advanced/HW/מטלה 2/tests/components/test_DroneControl.cpp:82:54: error: ‘InProgress’ is not a member of ‘drone_mapper::types::DroneStepStatus’
+   82 |     EXPECT_EQ(result.status, types::DroneStepStatus::InProgress);
+      |                                                      ^~~~~~~~~~
+ninja: build stopped: subcommand failed.

@@ -6,9 +6,7 @@
 #include <iostream>
 #include <memory>
 
-// ייבוא מפורש למניעת שגיאות סינטקס עם היחידות
-using namespace mp_units::si::unit_symbols;
-using namespace mp_units::angular::unit_symbols;
+#include <mp-units/systems/si/units.h>
 
 int main(int argc, char** argv) {
     const std::filesystem::path composition_file = (argc >= 2) ? std::filesystem::path{argv[1]} : std::filesystem::path{"simulation.yaml"};
@@ -19,27 +17,28 @@ int main(int argc, char** argv) {
 
     drone_mapper::types::SimulationCompositionData composition{
         composition_file,
-        {drone_mapper::types::SimulationConfigData{
+        {{
             "data_maps/single_voxel_x2_y4_z2.npy",
-            10.0 * cm,
+            10.0 * drone_mapper::cm,
             drone_mapper::Position3D{},
             drone_mapper::Position3D{},
-            0.0 * deg, 
+            0.0 * mp_units::non_si::degree,
         }},
-        {drone_mapper::types::MissionConfigData{1, 10.0 * cm, 1}},
+        {drone_mapper::types::MissionConfigData{1, 10.0 * drone_mapper::cm, 1}},
         {drone_mapper::types::DroneConfigData{
-            30.0 * cm,
-            45.0 * deg,
-            50.0 * cm,
-            40.0 * cm,
+            30.0 * drone_mapper::cm,
+            45.0 * mp_units::non_si::degree,
+            50.0 * drone_mapper::cm,
+            40.0 * drone_mapper::cm,
         }},
         {drone_mapper::types::LidarConfigData{
-            20.0 * cm,
-            120.0 * deg,
-            2.5 * cm
+            20.0 * drone_mapper::cm,
+            120.0 * drone_mapper::cm, // התיקון: חזרנו ל-cm כי ה-struct דורש PhysicalLength
+            2.5 * drone_mapper::cm
         }}
     };
 
-    simulation.run(composition, output_path);
+    static_cast<void>(simulation.run(composition, output_path));
+    
     return 0;
 }

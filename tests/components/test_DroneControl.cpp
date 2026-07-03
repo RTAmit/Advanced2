@@ -5,9 +5,10 @@
 #include <drone_mapper/Units.h>
 #include <memory>
 
+#include <mp-units/systems/si/units.h> 
+
 using namespace drone_mapper;
 using namespace mp_units::si::unit_symbols;
-using namespace mp_units::angular::unit_symbols;
 using ::testing::_;
 using ::testing::Return;
 using ::testing::NiceMock;
@@ -15,13 +16,15 @@ using ::testing::NiceMock;
 class MockIGPS : public IGPS {
 public:
     MOCK_METHOD(Position3D, position, (), (const, override));
-    MOCK_METHOD(Orientation, heading, (), (const, override)); // רק פונקציות שבאמת קיימות בממשק
+    MOCK_METHOD(Orientation, heading, (), (const, override));
 };
 
 class MockILidar : public ILidar {
 public:
     MOCK_METHOD(types::LidarScanResult, scan, (Orientation scan_orientation), (const, override));
-    MOCK_METHOD(types::LidarConfigData, config, (), (const, override));
+    
+    // התיקון: חזרנו לחתימה המקורית והנכונה שהייתה לך
+    MOCK_METHOD(types::LidarConfigData, config, (), (const, override)); 
 };
 
 class MockIDroneMovement : public IDroneMovement {
@@ -62,7 +65,7 @@ TEST(DroneControlTest, StepExecutesCorrectSequenceAndReturnsStatus) {
     types::MovementCommand cmd;
     cmd.type = types::MovementCommandType::Advance;
     cmd.rotation = types::RotationDirection::Left;
-    cmd.angle = 0.0 * deg;
+    cmd.angle = 0.0 * mp_units::non_si::degree; 
     cmd.distance = 10.0 * cm; 
     dummy_cmd.movement = cmd;
     
@@ -76,5 +79,5 @@ TEST(DroneControlTest, StepExecutesCorrectSequenceAndReturnsStatus) {
 
     types::DroneStepResult result = droneControl.step();
 
-    EXPECT_EQ(result.status, types::DroneStepStatus::Continue);
+    EXPECT_EQ(result.status, types::DroneStepStatus::InProgress);
 }
