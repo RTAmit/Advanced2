@@ -21,10 +21,8 @@ public:
 
 class MockILidar : public ILidar {
 public:
+    // נשארה רק הפונקציה האחת שקיימת בממשק
     MOCK_METHOD(types::LidarScanResult, scan, (Orientation scan_orientation), (const, override));
-    
-    // התיקון: חזרנו לחתימה המקורית והנכונה שהייתה לך
-    MOCK_METHOD(types::LidarConfigData, config, (), (const, override)); 
 };
 
 class MockIDroneMovement : public IDroneMovement {
@@ -45,7 +43,7 @@ public:
 
 class MockIMappingAlgorithm : public IMappingAlgorithm {
 public:
-    MockIMappingAlgorithm(const types::DroneConfigData& d, const IMap3D& m) : IMappingAlgorithm(d, m) {}
+    MockIMappingAlgorithm(types::DroneConfigData d, const IMap3D& m) : IMappingAlgorithm(d, m) {}
     MOCK_METHOD(types::MappingStepCommand, nextStep, (const types::DroneState&, const types::LidarScanResult*), (override));
 };
 
@@ -79,5 +77,5 @@ TEST(DroneControlTest, StepExecutesCorrectSequenceAndReturnsStatus) {
 
     types::DroneStepResult result = droneControl.step();
 
-    EXPECT_EQ(result.status, types::DroneStepStatus::InProgress);
+    EXPECT_EQ(result.status, types::DroneStepStatus::Continue);
 }

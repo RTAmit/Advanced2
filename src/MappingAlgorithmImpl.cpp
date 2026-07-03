@@ -1,87 +1,95 @@
-#include "drone_mapper/MissionControlImpl.h"
-#include "drone_mapper/Units.h" // הוספת ייבוא היחידות
-#include <utility>
-#include <fstream>
-#include <string>
+#include "drone_mapper/MappingAlgorithmImpl.h"
+#include "drone_mapper/IMap3D.h"
+#include "drone_mapper/Units.h"
+#include <cmath>
 
-// ייבוא מפורש כדי למנוע את שגיאת ה-Ambiguity של cm
 using namespace mp_units::si::unit_symbols;
 
 namespace drone_mapper {
 
-// פונקציית עזר לכתיבה מיידית לקובץ לוג
-void logErrorImmediately(const std::string& error_code, const std::string& message) {
-    std::ofstream log_file("error_log.txt", std::ios_base::app);
-    if (log_file.is_open()) {
-        log_file << "[ERROR] Code: " << error_code << " | Message: " << message << "\n";
-        log_file.flush(); // כתיבה מיידית לדיסק כפי שנדרש
-        log_file.close();
+MappingAlgorithmImpl::MappingAlgorithmImpl(types::DroneConfigData drone_config, const IMap3D& output_map)
+    : IMappingAlgorithm(drone_config, output_map), is_finished_(false) {}
+
+types::MappingStepCommand MappingAlgorithmImpl::nextStep(const types::DroneState& state, 
+                                                         const types::LidarScanResult* latest_scan) {
+    (void)latest_scan; 
+
+    types::MappingStepCommand cmd;
+    types::MovementCommand move_cmd;
+    
+    // אם סיימנו - נמסור פקודת עמידה במקום
+    if (is_finished_) {
+        move_cmd.type = types::MovementCommandType::Rotate;
+        move_cmd.rotation = types::RotationDirection::Left;
+        move_cmd.angle = 0.0 * deg;
+        move_cmd.distance = 0.0 * cm;
+        
+        cmd.movement = move_cmd;
+        return cmd;
     }
-}
 
-MissionControlImpl::MissionControlImpl(
-    types::MissionConfigData mission,
-    types::DroneConfigData drone,
-    const IMap3D& hidden_map,
-    IMutableMap3D& output_map,
-    IDroneControl& drone_control,
-    std::filesystem::path output_map_file)
-    : mission_(std::move(mission)),
-      drone_(std::move(drone)),
-      hidden_map_(hidden_map),
-      output_map_(output_map),
-      drone_control_(drone_control),
-      output_map_file_(std::move(output_map_file)) 
-{
-}
+    // אם התור ריק, נייצר נקודות חדשות מסביב
+    if (target_queue_.empty()) {
+        // התיקון: חילוץ הערכים המספריים (double) כדי למנוע שגיאות חיבור יחידות
+        double r = _output_map.getMapConfig().resolution.force_numerical_value_in(cm);
+        double px = state.position.x.force_numerical_value_in(cm);
+        double py = state.position.y.force_numerical_value_in(cm);
+        double pz = state.position.z.force_numerical_value_in(cm);
+        
+        // יצירת הנקודות בבטחה אחרי החישוב המתמטי
+        Position3D p1 = {(px + r) * cm, py * cm, pz * cm};
+        Position3D p2 = {(px - r) * cm, py * cm, pz * cm};
+        Position3D p3 = {px * cm, (py + r) * cm, pz * cm};
+        Position3D p4 = {px * cm, (py - r) * cm, pz * cm};
 
-types::MissionRunResult MissionControlImpl::runMission() {
-    types::MissionRunStatus final_status = types::MissionRunStatus::Completed;
-    std::vector<types::ErrorRef> error_refs; 
-    std::size_t steps_taken = 0;
-    bool mission_finished = false; 
-
-    for (std::size_t i = 0; i < mission_.max_steps; ++i) {
-        types::DroneState current_state = drone_control_.state();
-        auto pos = current_state.position;
-
-        // בדיקת גבולות משימה - שימוש בפונקציה המובנית שהיא גם קצרה וגם בטוחה יותר
-        if (!output_map_.isInBounds(pos)) {
-            std::string err_msg = "Drone exited mission boundaries";
-            final_status = types::MissionRunStatus::Error;
-            error_refs.push_back(types::ErrorRef{"MISSION_BOUNDARY_INVALID", err_msg});
-            logErrorImmediately("MISSION_BOUNDARY_INVALID", err_msg);
-            break;
+        for (const auto& p : {p1, p2, p3, p4}) {
+            if (_output_map.isInBounds(p) && _output_map.atVoxel(p) == types::VoxelOccupancy::Unmapped) {
+                target_queue_.push(p);
+            }
         }
 
-        types::DroneStepResult step_result = drone_control_.step();
-        steps_taken++;
-
-        if (step_result.status == types::DroneStepStatus::Error) {
-            final_status = types::MissionRunStatus::Error;
-            error_refs.push_back(types::ErrorRef{"DRONE_ERROR", step_result.message});
-            logErrorImmediately("DRONE_ERROR", step_result.message);
-            break;
-        }
-
-        if (step_result.status == types::DroneStepStatus::Completed) { 
-            final_status = types::MissionRunStatus::Completed;
-            mission_finished = true;
-            break; 
+        if (target_queue_.empty()) {
+            is_finished_ = true;
+            move_cmd.type = types::MovementCommandType::Rotate;
+            move_cmd.rotation = types::RotationDirection::Left;
+            move_cmd.angle = 0.0 * deg;
+            move_cmd.distance = 0.0 * cm;
+            
+            cmd.movement = move_cmd;
+            return cmd;
         }
     }
 
-    // טיפול במידה ונגמרו הצעדים והרחפן לא סיים
-    if (!mission_finished && final_status != types::MissionRunStatus::Error) {
-        final_status = types::MissionRunStatus::MaxSteps;
-        logErrorImmediately("MISSION_MAX_STEPS", "Mission did not finish within allocated steps");
+    Position3D next_target = target_queue_.front();
+    target_queue_.pop();
+
+    if (_output_map.atVoxel(next_target) == types::VoxelOccupancy::Occupied) {
+        move_cmd.type = types::MovementCommandType::Rotate;
+        move_cmd.rotation = types::RotationDirection::Left;
+        move_cmd.angle = 0.0 * deg;
+        move_cmd.distance = 0.0 * cm;
+        
+        cmd.movement = move_cmd;
+        return cmd;
     }
 
-    if (!output_map_file_.empty()) {
-        output_map_.save(output_map_file_);
-    }
+    // התיקון: חילוץ בטוח של הערכים כדי לחשב מרחק ללא התערבות של mp_units
+    double tx = next_target.x.force_numerical_value_in(cm);
+    double ty = next_target.y.force_numerical_value_in(cm);
+    double cx = state.position.x.force_numerical_value_in(cm);
+    double cy = state.position.y.force_numerical_value_in(cm);
+    
+    double dx = tx - cx;
+    double dy = ty - cy;
+    double distance_to_target = std::sqrt(dx*dx + dy*dy);
 
-    return types::MissionRunResult{final_status, steps_taken, error_refs};
+    move_cmd.type = types::MovementCommandType::Advance;
+    move_cmd.rotation = types::RotationDirection::Left;
+    move_cmd.angle = 0.0 * deg;
+    move_cmd.distance = distance_to_target * cm;
+    
+    cmd.movement = move_cmd;
+    return cmd;
 }
 
 } // namespace drone_mapper
