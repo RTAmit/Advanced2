@@ -34,12 +34,25 @@ std::array<long long, 3> gridKey(const Position3D& p, double resolution_cm) {
     return {toIdx(x), toIdx(y), toIdx(z)};
 }
 
+// MockLidar's concentric-ring beams can offset at most just under 90 degrees
+// from the scan direction they're given (the offset angle is an atan2 that
+// saturates below 90 as the ring radius grows), so a single scan call only
+// ever covers a forward hemisphere around whatever direction it's aimed at.
+// Requesting all 6 axis directions once per newly-reached cell gives full
+// spherical coverage from that vantage point instead of leaving whatever is
+// behind the drone's arrival heading permanently unresolved.
+const std::array<Orientation, 6> kPanoramaDirections = {
+    Orientation{0.0 * deg, 0.0 * deg},
+    Orientation{90.0 * deg, 0.0 * deg},
+    Orientation{180.0 * deg, 0.0 * deg},
+    Orientation{270.0 * deg, 0.0 * deg},
+    Orientation{0.0 * deg, 90.0 * deg},
+    Orientation{0.0 * deg, -90.0 * deg},
+};
+
 } // namespace
 
-MappingAlgorithmImpl::MappingAlgorithmImpl(types::DroneConfigData drone_config, const IMap3D& output_map)
-    : IMappingAlgorithm(drone_config, output_map), is_finished_(false) {}
-
-types::MappingStepCommand MappingAlgorithmImpl::nextStep(const types::DroneState& state, 
+types::MappingStepCommand MappingAlgorithmImpl::nextStep(const types::DroneState& state,
                                                          const types::LidarScanResult* latest_scan) {
     (void)latest_scan; 
 
@@ -68,8 +81,30 @@ types::MappingStepCommand MappingAlgorithmImpl::nextStep(const types::DroneState
 // never expanded at all, leaving large stretches of reachable space
 // unexplored. expanded_cells_ makes this a proper multi-source flood fill:
 // each cell expands exactly once, the first time it's the current position.
-double r = _output_map.getMapConfig().resolution.force_numerical_value_in(cm);
+double r = output_map_.getMapConfig().resolution.force_numerical_value_in(cm);
 auto current_key = gridKey(state.position, r);
+
+// Every subsequent return in this function requests a scan too, so mapping
+// keeps progressing opportunistically while traveling between cells, not
+// just during a cell's dedicated panorama below.
+cmd.scan_orientation = Orientation{0.0 * deg, 0.0 * deg};
+
+if (panorama_started_cells_.insert(current_key).second) {
+    for (const auto& direction : kPanoramaDirections) {
+        pending_scan_orientations_.push(direction);
+    }
+}
+
+if (!pending_scan_orientations_.empty()) {
+    Orientation next_scan = pending_scan_orientations_.front();
+    pending_scan_orientations_.pop();
+
+    move_cmd.type = types::MovementCommandType::Hover;
+    move_cmd.distance = 0.0 * cm;
+    cmd.movement = move_cmd;
+    cmd.scan_orientation = next_scan;
+    return cmd;
+}
 
 if (expanded_cells_.insert(current_key).second) {
     visited_cells_.insert(current_key);
@@ -90,14 +125,14 @@ if (expanded_cells_.insert(current_key).second) {
 
     for (const auto& p : candidates) {
         // בדיקת גבולות קפדנית לפני הכנסה לתור
-        if (!_output_map.isInBounds(p)) {
+        if (!output_map_.isInBounds(p)) {
             continue;
         }
         // A neighbor already known to be Empty is still worth visiting: its
         // own occupancy is settled, but the space beyond it might not be.
         // Only Occupied voxels are non-traversable; a visited-set (below)
         // is what keeps this from re-queuing cells forever.
-        if (_output_map.atVoxel(p) == types::VoxelOccupancy::Occupied) {
+        if (output_map_.atVoxel(p) == types::VoxelOccupancy::Occupied) {
             continue;
         }
         if (visited_cells_.insert(gridKey(p, r)).second) {
@@ -121,7 +156,7 @@ if (target_queue_.empty() && !pending_target_.has_value()) {
     }
     Position3D next_target = pending_target_.value();
 
-    if (_output_map.atVoxel(next_target) == types::VoxelOccupancy::Occupied) {
+    if (output_map_.atVoxel(next_target) == types::VoxelOccupancy::Occupied) {
         // Give up on this target and let the next call pick a fresh one.
         pending_target_.reset();
         move_cmd.type = types::MovementCommandType::Hover;

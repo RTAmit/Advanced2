@@ -27,7 +27,9 @@ public:
                       std::unique_ptr<IMissionControl> mission_control,
                       types::SimulationConfigData simulation_config,
                       types::MissionConfigData mission_config,
-                      std::filesystem::path output_map_file);
+                      std::filesystem::path output_map_file,
+                      types::ResolutionRequestStatus resolution_request_status =
+                          types::ResolutionRequestStatus::Accepted);
 
     [[nodiscard]] types::SimulationResult run() override;
 
@@ -43,6 +45,7 @@ private:
     types::SimulationConfigData simulation_config_;
     types::MissionConfigData mission_config_;
     std::filesystem::path output_map_file_;
+    types::ResolutionRequestStatus resolution_request_status_;
 };
 
 } // namespace drone_mapper

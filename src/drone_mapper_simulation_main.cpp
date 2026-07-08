@@ -1,44 +1,40 @@
+#include <drone_mapper/CompositionLoader.h>
+#include <drone_mapper/ErrorLog.h>
 #include <drone_mapper/SimulationManager.h>
+#include <drone_mapper/SimulationReportWriter.h>
 #include <drone_mapper/SimulationRunFactoryImpl.h>
-#include <drone_mapper/Units.h>
 
 #include <filesystem>
 #include <iostream>
 #include <memory>
 
-#include <mp-units/systems/si/units.h>
-
 int main(int argc, char** argv) {
-    const std::filesystem::path composition_file = (argc >= 2) ? std::filesystem::path{argv[1]} : std::filesystem::path{"simulation.yaml"};
-    const std::filesystem::path output_path = (argc >= 3) ? std::filesystem::path{argv[2]} : std::filesystem::current_path();
+    // Relative paths (whether just a filename or a longer relative path)
+    // resolve against the current working directory, same as an absolute
+    // path resolves to itself -- both are handled by default
+    // std::filesystem::path/ifstream semantics, no extra logic needed.
+    const std::filesystem::path composition_file =
+        (argc >= 2) ? std::filesystem::path{argv[1]} : std::filesystem::path{"simulation.yaml"};
+    const std::filesystem::path output_path =
+        (argc >= 3) ? std::filesystem::path{argv[2]} : std::filesystem::current_path();
+
+    drone_mapper::types::SimulationCompositionData composition;
+    try {
+        composition = drone_mapper::CompositionLoader::load(composition_file);
+    } catch (const std::exception& e) {
+        drone_mapper::ErrorLog::log("COMPOSITION_LOAD_FAILED", e.what());
+        std::cerr << "Failed to load composition file " << composition_file << ": " << e.what() << "\n";
+        return 1;
+    }
 
     auto run_factory = std::make_unique<drone_mapper::SimulationRunFactoryImpl>();
     drone_mapper::SimulationManager simulation{std::move(run_factory)};
 
-    drone_mapper::types::SimulationCompositionData composition{
-        composition_file,
-        {{
-            "data_maps/single_voxel_x2_y4_z2.npy",
-            10.0 * drone_mapper::cm,
-            drone_mapper::Position3D{},
-            drone_mapper::Position3D{},
-            0.0 * mp_units::non_si::degree,
-        }},
-        {drone_mapper::types::MissionConfigData{1, 10.0 * drone_mapper::cm, 1}},
-        {drone_mapper::types::DroneConfigData{
-            30.0 * drone_mapper::cm,
-            45.0 * mp_units::non_si::degree,
-            50.0 * drone_mapper::cm,
-            40.0 * drone_mapper::cm,
-        }},
-        {drone_mapper::types::LidarConfigData{
-            20.0 * drone_mapper::cm,
-            120.0 * drone_mapper::cm, // התיקון: חזרנו ל-cm כי ה-struct דורש PhysicalLength
-            2.5 * drone_mapper::cm
-        }}
-    };
+    const drone_mapper::types::SimulationManagerReport report = simulation.run(composition, output_path);
+    drone_mapper::SimulationReportWriter::write(composition, report, output_path);
 
-    static_cast<void>(simulation.run(composition, output_path));
-    
+    std::cout << "Ran " << report.runs.size() << " simulation run(s). "
+              << "Report written to " << (output_path / "simulation_output.yaml") << "\n";
+
     return 0;
 }

@@ -1,19 +1,9 @@
 #include "drone_mapper/MissionControlImpl.h"
+#include "drone_mapper/ErrorLog.h"
 #include "drone_mapper/Units.h" // חובה לייבא את היחידות!
 #include <utility>
-#include <fstream>
-#include <string>
 
 namespace drone_mapper {
-
-void logErrorImmediately(const std::string& error_code, const std::string& message) {
-    std::ofstream log_file("error_log.txt", std::ios_base::app);
-    if (log_file.is_open()) {
-        log_file << "[ERROR] Code: " << error_code << " | Message: " << message << "\n";
-        log_file.flush(); 
-        log_file.close();
-    }
-}
 
 MissionControlImpl::MissionControlImpl(
     types::MissionConfigData mission,
@@ -44,7 +34,7 @@ types::MissionRunResult MissionControlImpl::runMission() {
         if (!output_map_.isInBounds(pos)) {
             std::string err_msg = "Drone exited mission boundaries";
             error_refs.push_back(types::ErrorRef{"MISSION_BOUNDARY_INVALID", err_msg});
-            logErrorImmediately("MISSION_BOUNDARY_INVALID", err_msg);
+            ErrorLog::log("MISSION_BOUNDARY_INVALID", err_msg);
             final_status = types::MissionRunStatus::Error;
             break;
         }
@@ -54,7 +44,7 @@ types::MissionRunResult MissionControlImpl::runMission() {
 
         if (step_result.status == types::DroneStepStatus::Error) {
             error_refs.push_back(types::ErrorRef{"DRONE_ERROR", step_result.message});
-            logErrorImmediately("DRONE_ERROR", step_result.message);
+            ErrorLog::log("DRONE_ERROR", step_result.message);
             final_status = types::MissionRunStatus::Error;
             break;
         }
@@ -68,7 +58,7 @@ types::MissionRunResult MissionControlImpl::runMission() {
 
     if (!mission_finished && final_status != types::MissionRunStatus::Error) {
         final_status = types::MissionRunStatus::MaxSteps;
-        logErrorImmediately("MISSION_MAX_STEPS", "Mission did not finish within allocated steps");
+        ErrorLog::log("MISSION_MAX_STEPS", "Mission did not finish within allocated steps");
     }
 
     if (!output_map_file_.empty()) {

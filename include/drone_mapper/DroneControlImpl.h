@@ -6,7 +6,6 @@
 #include <drone_mapper/ILidar.h>
 #include <drone_mapper/IMappingAlgorithm.h>
 #include <drone_mapper/IMutableMap3D.h>
-#include <drone_mapper/types/LidarTypes.h>
 
 namespace drone_mapper {
 
@@ -18,8 +17,7 @@ public:
                      IGPS& gps,
                      IDroneMovement& movement,
                      IMutableMap3D& output_map,
-                     IMappingAlgorithm& mapping_algorithm,
-                     types::LidarConfigData lidar_config = {});
+                     IMappingAlgorithm& mapping_algorithm);
 
     [[nodiscard]] types::DroneStepResult step() override;
     [[nodiscard]] types::DroneState state() const override;
@@ -32,8 +30,12 @@ private:
     IDroneMovement& movement_;
     IMutableMap3D& output_map_;
     IMappingAlgorithm& mapping_algorithm_;
-    types::LidarConfigData lidar_config_;
     std::size_t step_index_ = 0;
+    // The scan taken during the previous step (if the algorithm requested
+    // one), fed back into the next nextStep() call as `latest_scan`. Null on
+    // the very first call and on any step where no scan was requested.
+    types::LidarScanResult latest_scan_;
+    bool has_latest_scan_ = false;
 };
 
 } // namespace drone_mapper

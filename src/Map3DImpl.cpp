@@ -41,9 +41,15 @@ bool Map3DImpl::isInBounds(const Position3D& pos) const {
 }
 
 std::vector<unsigned long> Map3DImpl::positionToIndices(const Position3D& pos) const {
-    double x_ratio = static_cast<double>((pos.x - m_config.boundaries.min_x) / m_config.resolution);
-    double y_ratio = static_cast<double>((pos.y - m_config.boundaries.min_y) / m_config.resolution);
-    double z_ratio = static_cast<double>((pos.z - m_config.boundaries.min_height) / m_config.resolution);
+    // offset maps world-space (0,0,0) onto the array's own origin, per
+    // map_axes_offset in the config spec: array_position = world_position +
+    // offset. This is independent of `boundaries`, which is only the
+    // mission's operational constraint on where the drone may fly, not the
+    // array's own coordinate frame -- a mission can legitimately operate
+    // over a sub-region that doesn't start at the array's corner.
+    double x_ratio = static_cast<double>((pos.x + m_config.offset.x) / m_config.resolution);
+    double y_ratio = static_cast<double>((pos.y + m_config.offset.y) / m_config.resolution);
+    double z_ratio = static_cast<double>((pos.z + m_config.offset.z) / m_config.resolution);
 
     // isInBounds() tolerates a tiny epsilon past the exact edge, so the ratio
     // here can come out marginally negative or marginally >= extent for a

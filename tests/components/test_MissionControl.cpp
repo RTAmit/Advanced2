@@ -15,7 +15,7 @@ public:
     MOCK_METHOD(types::DroneStepResult, step, (), (override));
 };
 
-TEST(MissionControlTest, RunMissionCompletesSuccessfully) {
+TEST(MissionControl, RunMissionCompletesSuccessfully) {
     types::MissionConfigData mission_cfg{};
     mission_cfg.max_steps = 5;
     types::DroneConfigData drone_cfg{};

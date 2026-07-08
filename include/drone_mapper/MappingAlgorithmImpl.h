@@ -7,10 +7,9 @@
 
 namespace drone_mapper {
 
-class MappingAlgorithmImpl : public IMappingAlgorithm {
+class MappingAlgorithmImpl final : public IMappingAlgorithm {
 public:
-    // התיקון: DroneConfigData עובר By Value
-    MappingAlgorithmImpl(types::DroneConfigData drone_config, const IMap3D& output_map);
+    using IMappingAlgorithm::IMappingAlgorithm;
 
     types::MappingStepCommand nextStep(const types::DroneState& state,
                                        const types::LidarScanResult* latest_scan) override;
@@ -34,6 +33,17 @@ private:
     // own frontier instead of only whichever cell happens to be current when
     // the queue drains.
     std::set<std::array<long long, 3>> expanded_cells_;
+    // The LiDAR's single-scan field of view only spans roughly a forward
+    // hemisphere around whatever orientation it's given (see MockLidar), so
+    // one scan can't see what's behind the drone. The first time a cell is
+    // reached, this queues up a full look-around (all 6 axis directions)
+    // before committing to a frontier decision from that cell, so nothing
+    // gets permanently shadowed by the drone's current facing.
+    std::queue<Orientation> pending_scan_orientations_;
+    // Marks a cell's panorama as having been queued already (even after it
+    // drains), distinct from pending_scan_orientations_ being empty -- so
+    // the drain doesn't look like "never started" and refill itself forever.
+    std::set<std::array<long long, 3>> panorama_started_cells_;
     bool is_finished_ = false;
 };
 

@@ -23,8 +23,10 @@ struct SimulationConfigData {
 
 struct SimulationCompositionData {
     std::filesystem::path composition_file;
-    std::vector<SimulationConfigData> simulations;
-    std::vector<MissionConfigData> missions;
+    // Each simulation carries its own list of missions (a mission is only
+    // meaningful for the map/scenario it was written against), so this is a
+    // list of groups rather than two flat, independently-combined lists.
+    std::vector<std::tuple<SimulationConfigData, std::vector<MissionConfigData>>> simulation_mission_groups;
     std::vector<DroneConfigData> drones;
     std::vector<LidarConfigData> lidars;
 };

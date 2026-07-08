@@ -52,14 +52,14 @@ void RunIntegrationOnMap(const std::string& map_path) {
 
     Position3D start_pos{0.0 * cm, 0.0 * cm, 0.0 * cm};
     Orientation start_ori{0.0 * mp_units::non_si::degree};
-    MockGPS gps(start_pos, start_ori);
-    
-    MockMovement movement(gps);
-    MockLidar lidar(lidar_config, hidden_map, gps); 
+    MockGPS gps(start_pos, start_ori, mission_config.gps_resolution);
 
-    MappingAlgorithmImpl mapping_alg(drone_config, output_map); 
-    
-    DroneControlImpl drone_control(drone_config, mission_config, lidar, gps, movement, output_map, mapping_alg, lidar_config);
+    MockMovement movement(gps);
+    MockLidar lidar(lidar_config, hidden_map, gps);
+
+    MappingAlgorithmImpl mapping_alg(mission_config, lidar_config, drone_config, output_map);
+
+    DroneControlImpl drone_control(drone_config, mission_config, lidar, gps, movement, output_map, mapping_alg);
     MissionControlImpl mission_control(mission_config, drone_config, hidden_map, output_map, drone_control, ""); 
 
     types::MissionRunResult result = mission_control.runMission();
@@ -75,18 +75,18 @@ void RunIntegrationOnMap(const std::string& map_path) {
         << "Mapping score too low (" << score << ") on map: " << map_path;
 }
 
-TEST(IntegrationRealAlgorithmTest, MapsFiveVoxelsPattern) {
+TEST(Integration, MapsFiveVoxelsPattern) {
     RunIntegrationOnMap("data_maps/five_voxels_y4_pattern.npy");
 }
 
-TEST(IntegrationRealAlgorithmTest, MapsSingleVoxelX2Y4Z2) {
+TEST(Integration, MapsSingleVoxelX2Y4Z2) {
     RunIntegrationOnMap("data_maps/single_voxel_x2_y4_z2.npy");
 }
 
-TEST(IntegrationRealAlgorithmTest, MapsSingleVoxelX4Y4Z4) {
+TEST(Integration, MapsSingleVoxelX4Y4Z4) {
     RunIntegrationOnMap("data_maps/single_voxel_x4_y4_z4.npy");
 }
 
-TEST(IntegrationRealAlgorithmTest, MapsTwoFullXPlanesPlusUpperPattern) {
+TEST(Integration, MapsTwoFullXPlanesPlusUpperPattern) {
     RunIntegrationOnMap("data_maps/two_full_x_planes_plus_upper_pattern.npy");
 }

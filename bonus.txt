@@ -16,4 +16,4 @@ How to Verify & Test:
 A dedicated automated unit test has been added to the components test suite to rigorously validate this behavior using mock maps with mismatched resolutions (10 cm vs 20 cm).
 
 You can run this specific bonus test using the following Google Test filter:
-./drone_mapper_simulation_test --gtest_filter=MapsComparisonTest.SupportsDifferentResolutionsBonus
+./drone_mapper_simulation_test --gtest_filter=MapsComparison.SupportsDifferentResolutionsBonus

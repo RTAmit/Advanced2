@@ -7,7 +7,7 @@
 
 namespace drone_mapper {
 
-class SimulationRunFactoryImpl : public ISimulationRunFactory {
+class SimulationRunFactoryImpl final : public ISimulationRunFactory {
 public:
     std::unique_ptr<ISimulationRun> create(
         const types::SimulationConfigData& simulation,

@@ -22,6 +22,7 @@ public:
 class MockILidar : public ILidar {
 public:
     MOCK_METHOD(types::LidarScanResult, scan, (Orientation scan_orientation), (const, override));
+    MOCK_METHOD(types::LidarConfigData, config, (), (const, override));
 };
 
 class MockIDroneMovement : public IDroneMovement {
@@ -42,11 +43,11 @@ public:
 
 class MockIMappingAlgorithm : public IMappingAlgorithm {
 public:
-    MockIMappingAlgorithm(types::DroneConfigData d, const IMap3D& m) : IMappingAlgorithm(d, m) {}
+    using IMappingAlgorithm::IMappingAlgorithm;
     MOCK_METHOD(types::MappingStepCommand, nextStep, (const types::DroneState&, const types::LidarScanResult*), (override));
 };
 
-TEST(DroneControlTest, StepExecutesCorrectSequenceAndReturnsStatus) {
+TEST(DroneControl, StepExecutesCorrectSequenceAndReturnsStatus) {
     types::DroneConfigData drone_cfg{};
     types::MissionConfigData mission_cfg{};
     mission_cfg.max_steps = 1; // default-constructed max_steps=0 would make step() bail out as "Max steps reached" before ever calling nextStep().
@@ -60,7 +61,7 @@ TEST(DroneControlTest, StepExecutesCorrectSequenceAndReturnsStatus) {
     EXPECT_CALL(mock_map, isInBounds(_)).WillRepeatedly(Return(true));
     EXPECT_CALL(mock_gps, position()).WillRepeatedly(Return(Position3D{0*cm, 0*cm, 0*cm}));
 
-    MockIMappingAlgorithm mock_algo(drone_cfg, mock_map);
+    MockIMappingAlgorithm mock_algo(mission_cfg, types::LidarConfigData{}, drone_cfg, mock_map);
 
     types::MappingStepCommand dummy_cmd;
     dummy_cmd.status = types::AlgorithmStatus::Working; 

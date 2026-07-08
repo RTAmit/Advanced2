@@ -1,0 +1,6 @@
+build/
+build_flagcheck/
+error_log.txt
+test_output.npy
+*.o
+*.a

@@ -16,7 +16,7 @@ public:
 };
 
 // Test 1: Identical maps should return a score of 100
-TEST(MapsComparisonTest, IdenticalMapsReturn100) {
+TEST(MapsComparison, IdenticalMapsReturn100) {
     types::MapConfig cfg{};
     cfg.resolution = 10 * cm;
     cfg.boundaries.min_x = 0 * cm; cfg.boundaries.max_x = 50 * cm;
@@ -43,7 +43,7 @@ TEST(MapsComparisonTest, IdenticalMapsReturn100) {
 }
 
 // Bonus - Test 2: Maps with different resolutions
-TEST(MapsComparisonTest, SupportsDifferentResolutionsBonus) {
+TEST(MapsComparison, SupportsDifferentResolutionsBonus) {
     // Define the original map with a resolution of 10 cm
     types::MapConfig cfg_origin{};
     cfg_origin.resolution = 10 * cm;

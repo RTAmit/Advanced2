@@ -13,7 +13,8 @@ SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
                                      std::unique_ptr<IMissionControl> mission_control,
                                      types::SimulationConfigData simulation_config,
                                      types::MissionConfigData mission_config,
-                                     std::filesystem::path output_map_file)
+                                     std::filesystem::path output_map_file,
+                                     types::ResolutionRequestStatus resolution_request_status)
     : hidden_map_(std::move(hidden_map)),
       output_map_(std::move(output_map)),
       gps_(std::move(gps)),
@@ -24,7 +25,8 @@ SimulationRunImpl::SimulationRunImpl(std::unique_ptr<const IMap3D> hidden_map,
       mission_control_(std::move(mission_control)),
       simulation_config_(std::move(simulation_config)),
       mission_config_(std::move(mission_config)),
-      output_map_file_(std::move(output_map_file)) {}
+      output_map_file_(std::move(output_map_file)),
+      resolution_request_status_(resolution_request_status) {}
 
 types::SimulationResult SimulationRunImpl::run() {
     types::MissionRunResult mission_res = mission_control_->runMission();
@@ -38,7 +40,8 @@ types::SimulationResult SimulationRunImpl::run() {
     types::SimulationResult result;
     result.simulation_config = simulation_config_;
     result.mission_config = mission_config_;
-    
+    result.resolution_request_status = resolution_request_status_;
+
     result.mission_results.push_back(mission_res); 
     result.mission_score = final_score;
     
