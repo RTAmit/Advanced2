@@ -40,7 +40,7 @@ SimulationRunFactoryImpl::create(const types::SimulationConfigData& simulation,
     auto mapping_algorithm = std::make_unique<MappingAlgorithmImpl>(drone, *output_map);
 
     auto drone_control = std::make_unique<DroneControlImpl>(
-        drone, mission, *lidar_impl, *gps, *movement, *output_map, *mapping_algorithm);
+        drone, mission, *lidar_impl, *gps, *movement, *output_map, *mapping_algorithm, lidar);
 
     const std::filesystem::path output_map_file = output_path / "map_output.npy";
     

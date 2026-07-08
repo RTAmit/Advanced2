@@ -20,7 +20,11 @@ using namespace mp_units::si::unit_symbols;
 
 void RunIntegrationOnMap(const std::string& map_path) {
     auto hidden_array = std::make_shared<NpyArray>();
-    hidden_array->LoadNPY(map_path);
+    try {
+        hidden_array->LoadNPY(map_path);
+    } catch (...) {
+        FAIL() << "Cannot load file: " << map_path;
+    }
     
     types::MapConfig map_config;
     map_config.resolution = 10.0 * cm; 
@@ -41,8 +45,10 @@ void RunIntegrationOnMap(const std::string& map_path) {
     types::MissionConfigData mission_config{2000, 10.0 * cm, 1}; 
     types::DroneConfigData drone_config;
     
-    // התיקון: חזרנו ל-cm כי ה-struct דורש PhysicalLength
-    types::LidarConfigData lidar_config{500.0 * cm, 360.0 * cm, 10.0 * cm};
+    // z_min, z_max, d (ring spacing), fov_circles: fov_circles must be > 0 or
+    // MockLidar::scan() returns no hits at all (see MockLidar.cpp), which is
+    // what was silently zeroing out every mapping score below.
+    types::LidarConfigData lidar_config{1.0 * cm, 500.0 * cm, 10.0 * cm, 3};
 
     Position3D start_pos{0.0 * cm, 0.0 * cm, 0.0 * cm};
     Orientation start_ori{0.0 * mp_units::non_si::degree};
@@ -53,7 +59,7 @@ void RunIntegrationOnMap(const std::string& map_path) {
 
     MappingAlgorithmImpl mapping_alg(drone_config, output_map); 
     
-    DroneControlImpl drone_control(drone_config, mission_config, lidar, gps, movement, output_map, mapping_alg);
+    DroneControlImpl drone_control(drone_config, mission_config, lidar, gps, movement, output_map, mapping_alg, lidar_config);
     MissionControlImpl mission_control(mission_config, drone_config, hidden_map, output_map, drone_control, ""); 
 
     types::MissionRunResult result = mission_control.runMission();
@@ -63,9 +69,9 @@ void RunIntegrationOnMap(const std::string& map_path) {
     std::vector<double> scores = comparer.compare(hidden_map, targets);
     double score = scores.empty() ? 0.0 : scores[0]; 
 
-    EXPECT_EQ(result.status, types::MissionRunStatus::Completed) 
+    EXPECT_EQ(result.status, types::MissionRunStatus::Completed)
         << "Mission failed or got stuck in infinite loop on map: " << map_path;
-    EXPECT_GE(score, 90.0) 
+    EXPECT_GE(score, 90.0)
         << "Mapping score too low (" << score << ") on map: " << map_path;
 }
 

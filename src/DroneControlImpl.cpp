@@ -1,8 +1,33 @@
-#include "drone_mapper/DroneControlImpl.h" 
+#include "drone_mapper/DroneControlImpl.h"
+#include "drone_mapper/ScanResultToVoxels.h"
+#include "drone_mapper/Units.h"
 
+#include <array>
 #include <utility>
 
+using namespace mp_units::si::unit_symbols;
+
 namespace drone_mapper {
+
+namespace {
+
+// MockLidar's concentric-ring beams can offset at most just under 90 degrees
+// from the scan direction it's given (the offset angle is an atan2 that
+// saturates below 90 as the ring radius grows), so a single scan call only
+// ever covers a forward hemisphere around wherever the drone is currently
+// facing. Scanning along all 6 axis directions each step gives full
+// spherical coverage regardless of the drone's heading, instead of leaving
+// whatever is behind the drone's current facing perpetually unresolved.
+const std::array<Orientation, 6> kScanDirections = {
+    Orientation{0.0 * deg, 0.0 * deg},
+    Orientation{90.0 * deg, 0.0 * deg},
+    Orientation{180.0 * deg, 0.0 * deg},
+    Orientation{270.0 * deg, 0.0 * deg},
+    Orientation{0.0 * deg, 90.0 * deg},
+    Orientation{0.0 * deg, -90.0 * deg},
+};
+
+} // namespace
 
 DroneControlImpl::DroneControlImpl(types::DroneConfigData drone,
                                    types::MissionConfigData mission,
@@ -10,14 +35,16 @@ DroneControlImpl::DroneControlImpl(types::DroneConfigData drone,
                                    IGPS& gps,
                                    IDroneMovement& movement,
                                    IMutableMap3D& output_map,
-                                   IMappingAlgorithm& mapping_algorithm)
+                                   IMappingAlgorithm& mapping_algorithm,
+                                   types::LidarConfigData lidar_config)
     : drone_(std::move(drone)),
       mission_(std::move(mission)),
       lidar_(lidar),
       gps_(gps),
       movement_(movement),
       output_map_(output_map),
-      mapping_algorithm_(mapping_algorithm) {}
+      mapping_algorithm_(mapping_algorithm),
+      lidar_config_(std::move(lidar_config)) {}
 
 types::DroneStepResult DroneControlImpl::step() {
     types::DroneState current_state = state();
@@ -26,7 +53,21 @@ types::DroneStepResult DroneControlImpl::step() {
         return types::DroneStepResult{types::DroneStepStatus::Error, "Max steps reached"};
     }
 
-    types::LidarScanResult scan_result = lidar_.scan(current_state.heading); 
+    // Scan in all 6 axis directions relative to the current heading;
+    // MockLidar adds the drone's actual heading internally to get the
+    // world-space beam direction, so passing the heading again here would
+    // double-rotate it.
+    types::LidarScanResult scan_result;
+    for (const Orientation& direction : kScanDirections) {
+        types::LidarScanResult partial = lidar_.scan(direction);
+        scan_result.insert(scan_result.end(), partial.begin(), partial.end());
+    }
+
+    // Record what the scan observed into the output map before deciding the
+    // next move, so the mapping algorithm can tell already-explored voxels
+    // apart from unmapped ones.
+    ScanResultToVoxels::applyToMap(output_map_, current_state.position, current_state.heading,
+                                   scan_result, lidar_config_);
 
     types::MappingStepCommand next_move = mapping_algorithm_.nextStep(current_state, &scan_result);
 

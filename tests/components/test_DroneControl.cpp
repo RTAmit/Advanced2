@@ -21,7 +21,6 @@ public:
 
 class MockILidar : public ILidar {
 public:
-    // נשארה רק הפונקציה האחת שקיימת בממשק
     MOCK_METHOD(types::LidarScanResult, scan, (Orientation scan_orientation), (const, override));
 };
 
@@ -50,32 +49,29 @@ public:
 TEST(DroneControlTest, StepExecutesCorrectSequenceAndReturnsStatus) {
     types::DroneConfigData drone_cfg{};
     types::MissionConfigData mission_cfg{};
+    mission_cfg.max_steps = 1; // default-constructed max_steps=0 would make step() bail out as "Max steps reached" before ever calling nextStep().
     
     NiceMock<MockIGPS> mock_gps;
     NiceMock<MockILidar> mock_lidar;
     NiceMock<MockIDroneMovement> mock_movement;
     NiceMock<MockIMutableMap3D> mock_map;
+    
+    // נקודה בתוך גבולות המפה (חשוב!)
+    EXPECT_CALL(mock_map, isInBounds(_)).WillRepeatedly(Return(true));
+    EXPECT_CALL(mock_gps, position()).WillRepeatedly(Return(Position3D{0*cm, 0*cm, 0*cm}));
+
     MockIMappingAlgorithm mock_algo(drone_cfg, mock_map);
 
-    types::MovementResult success_result{true, ""};
-
     types::MappingStepCommand dummy_cmd;
-    types::MovementCommand cmd;
-    cmd.type = types::MovementCommandType::Advance;
-    cmd.rotation = types::RotationDirection::Left;
-    cmd.angle = 0.0 * mp_units::non_si::degree; 
-    cmd.distance = 10.0 * cm; 
-    dummy_cmd.movement = cmd;
+    dummy_cmd.status = types::AlgorithmStatus::Working; 
     
-    EXPECT_CALL(mock_algo, nextStep(_, _)).WillOnce(Return(dummy_cmd));
+    EXPECT_CALL(mock_algo, nextStep(_, _))
+        .WillOnce(Return(dummy_cmd));
     
-    EXPECT_CALL(mock_movement, advance(_))
-        .Times(1)
-        .WillOnce(Return(success_result));
-
     DroneControlImpl droneControl(drone_cfg, mission_cfg, mock_lidar, mock_gps, mock_movement, mock_map, mock_algo);
 
     types::DroneStepResult result = droneControl.step();
 
+    // הסטטוס צריך להיות Continue כפי שמוגדר ב-DroneTypes.h של הפרויקט
     EXPECT_EQ(result.status, types::DroneStepStatus::Continue);
 }

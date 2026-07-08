@@ -2,6 +2,7 @@
 
 #include <mp-units/systems/si/math.h>
 
+#include <cstddef>
 #include <limits>
 
 namespace drone_mapper {
@@ -113,12 +114,17 @@ void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
         return;
     }
 
+    std::size_t too_close_hits = 0;
+
     for (const types::LidarHit& hit : scan) {
         const Orientation beam_orientation = absoluteBeamOrientation(drone_heading, hit.angle);
 
         if (isZeroDistance(hit.distance)) {
-            // Distance 0 means the hit happened before z_min. The exact voxel
-            // is unknown, so mark the near segment as uncertain.
+            // Distance 0 means the hit happened before z_min: normally the
+            // exact voxel along that one beam is unknown, so just mark the
+            // near segment as uncertain. Tally it so we can check below
+            // whether every direction agreed.
+            ++too_close_hits;
             markBeamSegment(output_map,
                             scan_origin,
                             beam_orientation,
@@ -156,6 +162,15 @@ void ScanResultToVoxels::applyToMap(IMutableMap3D& output_map,
                           pointAlongBeam(scan_origin, beam_orientation, hit.distance),
                           types::VoxelOccupancy::Occupied);
         }
+    }
+
+    // A "too close to range" reading in one direction only proves something
+    // is nearby in that direction. But if every beam in every direction
+    // reports the same too-close result, that isn't ambiguous anymore: the
+    // drone itself must be sitting inside occupied space, since a genuinely
+    // free position would let at least some beams range out cleanly.
+    if (!scan.empty() && too_close_hits == scan.size()) {
+        setIfStronger(output_map, scan_origin, types::VoxelOccupancy::Occupied);
     }
 }
 
