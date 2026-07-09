@@ -1,0 +1,12 @@
+simulation_config:
+  map_filename: "data_maps/two_full_x_planes_plus_upper_pattern.npy"
+  map_resolution_cm: 10   # input file map voxel size (width/height/depth)
+  initial_drone_position:
+    x_cm: 35              # clear of the two solid X-planes occupying x in [0,20)
+    y_cm: 25
+    height_cm: 25
+  initial_angle_deg: 180   # facing back toward the walled-off region
+  map_axes_offset:         # Turns (0,0,0) -> (x_offset,y_offset,height_offset)
+    x_offset: 0
+    y_offset: 0
+    height_offset: 0

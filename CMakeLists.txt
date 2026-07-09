@@ -65,3 +65,13 @@ add_executable(drone_mapper_simulation_test
     tests/integration/test_integration_mock_algorithm.cpp
 )
 target_link_libraries(drone_mapper_simulation_test PRIVATE drone_mapper GTest::gtest GTest::gtest_main GTest::gmock pthread)
+
+# The real-algorithm integration tests load fixture maps via a relative
+# "data_maps/..." path, resolved against whatever directory the test binary
+# is run from (typically the build dir). Keep a copy there so that resolves
+# regardless of where the repo was unzipped/built from.
+add_custom_command(TARGET drone_mapper_simulation_test POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_CURRENT_SOURCE_DIR}/data_maps
+        $<TARGET_FILE_DIR:drone_mapper_simulation_test>/data_maps
+)

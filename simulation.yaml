@@ -1,0 +1,11 @@
+simulation_compositions:
+  simulations:
+    - simulation_config: "configs/simulation/simulation_small.yaml"
+      mission_configs:
+        - "configs/mission/mission_small.yaml"
+
+  drone_configs:
+    - "configs/drone/drone_small.yaml"
+
+  lidar_configs:
+    - "configs/lidar/lidar_short.yaml"

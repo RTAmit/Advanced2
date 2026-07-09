@@ -143,5 +143,6 @@ Contributors: Amit Reif-Tagari 322698986
     in MapsComparison) and how to run its dedicated test.
 
 11. Design Documentation
-    See HLD.md in the repository root for the full high-level design (component responsibilities,
-    class diagram, and sequence diagrams for the mission-run and exploration flows).
+    See Additional_Docs.pdf in the repository root for the full high-level design (component
+    responsibilities, class diagram, and sequence diagrams for the mission-run and exploration
+    flows).
